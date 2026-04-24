@@ -433,6 +433,101 @@
   .d2 { transition-delay: 0.2s; }
   .d3 { transition-delay: 0.3s; }
   .d4 { transition-delay: 0.4s; }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; width: 40px; height: 40px;
+    background: none; border: none; cursor: pointer; padding: 4px; flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--white);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px !important; }
+    .nav-links {
+      display: none;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: var(--black);
+      flex-direction: column; gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      z-index: 99; list-style: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-links a {
+      display: block; padding: 16px 24px;
+      font-size: 13px; letter-spacing: 0.08em;
+    }
+    .nav-cta {
+      margin: 12px 24px 20px !important;
+      text-align: center; display: block;
+      padding: 14px 22px !important;
+    }
+    .hamburger { display: flex; }
+
+    #hero { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
+    .hero-left { padding: 56px 24px 48px; }
+    .hero-right { height: 260px; }
+    .hero-right::after { background: linear-gradient(to bottom, var(--black) 0%, transparent 40%); }
+    .hero-stats {
+      position: relative; bottom: auto; left: auto;
+      width: 100%; border-top: 3px solid var(--blue);
+    }
+    .stat { padding: 16px 20px; flex: 1; }
+
+    #trust { padding: 0 16px; flex-wrap: wrap; }
+    .trust-item { padding: 13px 12px; font-size: 11px; flex: 0 0 50%; justify-content: flex-start; }
+    .trust-item:nth-child(odd) { border-left: 1px solid rgba(255,255,255,0.07); }
+
+    #story { grid-template-columns: 1fr; gap: 56px; padding: 80px 24px; }
+    .story-visual { padding-bottom: 48px; }
+    .story-pull { position: absolute; bottom: 0; right: 0; max-width: 220px; }
+
+    #outcome { padding: 80px 24px; }
+    .outcome-grid { grid-template-columns: 1fr; }
+
+    #services { padding: 80px 24px; }
+    .services-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+
+    #process { padding: 80px 24px; }
+    .process-row { grid-template-columns: 1fr 1fr; gap: 48px 32px; }
+    .process-row::before { display: none; }
+
+    #testimonials { padding: 80px 24px; }
+    .tgrid { grid-template-columns: 1fr; }
+
+    #cta { padding: 80px 24px; }
+    #cta h2 { font-size: clamp(28px, 7vw, 44px); }
+    #cta .lead { font-size: 15px; margin-bottom: 36px; }
+
+    footer { padding: 48px 24px 32px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+    .footer-ria { text-align: left; max-width: 100%; }
+  }
+
+  @media (max-width: 520px) {
+    h1 { font-size: clamp(36px, 9vw, 52px); }
+    .hero-sub { font-size: 15px; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions a { text-align: center; }
+    .stat-num { font-size: 22px; }
+    .trust-item { flex: 0 0 100%; }
+    .process-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .btn-white { padding: 16px 32px; font-size: 13px; }
+  }
 </style>
 </head>
 <body>
@@ -443,7 +538,10 @@
     <div class="nav-badge">M</div>
     <div class="nav-brand">Mountain Goat<br>Wealth Management</div>
   </a>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navlinks">
     <li><a href="#story">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#process">How It Works</a></li>
@@ -686,7 +784,26 @@
 
   const nav = document.getElementById('mainnav');
   window.addEventListener('scroll', () => {
-    nav.style.padding = window.scrollY > 60 ? '14px 56px' : '20px 56px';
+    const mobile = window.innerWidth <= 768;
+    const h = mobile ? '12px 24px' : (window.scrollY > 60 ? '14px 56px' : '20px 56px');
+    nav.style.padding = h;
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const navlinks = document.getElementById('navlinks');
+  hamburger.addEventListener('click', () => {
+    const open = hamburger.classList.toggle('open');
+    navlinks.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navlinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navlinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
   });
 </script>
 </body>
