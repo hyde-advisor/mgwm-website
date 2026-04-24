@@ -186,6 +186,25 @@
     gap: 100px; align-items: center;
     background: var(--white);
   }
+  #video {
+    padding: 100px 80px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    background: var(--white);
+  }
+  .video-embed-wrap {
+    position: relative; width: 100%; padding-bottom: 56.25%;
+    height: 0; overflow: hidden;
+  }
+  .video-embed-wrap iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; border: none;
+  }
+  .video-body-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px; color: #888;
+    margin-top: 14px; line-height: 1.6;
+  }
   .story-visual { position: relative; }
   .story-img-wrap { overflow: hidden; }
   .story-img-wrap img {
@@ -475,6 +494,7 @@
     .trust-item:nth-child(odd) { border-left: 1px solid rgba(255,255,255,0.07); }
 
     #story { grid-template-columns: 1fr; gap: 56px; padding: 80px 24px; }
+    #video { grid-template-columns: 1fr; gap: 48px; padding: 80px 24px; }
     .story-visual { padding-bottom: 48px; }
     .story-pull { position: absolute; bottom: 0; right: 0; max-width: 220px; }
 
@@ -586,6 +606,20 @@
     <p class="body-text reveal d2">Like the mountain goat navigating steep terrain with sure footing and agility, we are built for the real landscape of your financial life. We operate as a remote-first RIA serving clients across Utah, Texas, and Wyoming — bringing Wall Street discipline with a personal, accessible touch.</p>
     <p class="body-text reveal d2" style="color: var(--black); font-weight: 500;">We are fiduciaries. That means we are legally required to act in your best interest. Full stop.</p>
     <a href="#cta" class="btn-blue reveal d3" style="margin-top: 12px;">Start Your Journey</a>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="video-embed-wrap reveal">
+    <iframe src="https://www.youtube.com/embed/MUNauqSEock" title="Do You Have a Forgotten 401(k)?" allowfullscreen></iframe>
+  </div>
+  <div>
+    <div class="section-eyebrow reveal"><span></span>Educational Series</div>
+    <h2 class="reveal d1">Do You Have a Forgotten 401(k)?</h2>
+    <p class="body-text reveal d2">Most people have left money behind at a previous employer without realizing it. In this video, Bobby breaks down how to find lost retirement accounts, what to do with them, and how consolidating them into a single strategy could meaningfully improve your retirement outlook.</p>
+    <p class="video-body-sub reveal d2">Part of our ongoing financial education series — new videos released regularly.</p>
+    <a href="https://www.youtube.com/@mountaingoatwealth" target="_blank" rel="noopener" class="btn-blue reveal d3" style="margin-top: 20px;">Watch More on YouTube</a>
   </div>
 </section>
 
