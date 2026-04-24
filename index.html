@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mountain Goat Wealth Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:    #1c1c1c;
+    --white:    #ffffff;
+    --granite:  #b0bec5;
+    --blue:     #007ea7;
+    --blue-dk:  #005f7d;
+    --blue-lt:  #2da0c4;
+    --mist:     #e6f4f9;
+    --bedrock:  #998b7d;
+    --off-white:#f8f8f8;
+    --gray-lt:  #f2f2f2;
+    --gray-mid: #e0e0e0;
+    --ink-mid:  #555555;
+    --ink-lt:   #888888;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 56px;
+    background: var(--black);
+    transition: padding 0.3s ease;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+  }
+  .nav-badge {
+    width: 38px; height: 38px;
+    border: 2px solid var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 900;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--white); line-height: 1.25;
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--blue) !important;
+    color: var(--white) !important;
+    padding: 10px 22px;
+    font-size: 12px !important;
+    letter-spacing: 0.08em !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--blue-dk) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--black);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    padding-top: 78px;
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 56px 80px 80px;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 32px;
+  }
+  .hero-eyebrow span {
+    display: block; width: 32px; height: 1px;
+    background: var(--blue);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 5.5vw, 72px);
+    font-weight: 900; line-height: 1.04;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+  }
+  h1 em { font-style: italic; color: var(--blue); }
+  .hero-sub {
+    font-size: 17px; line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    max-width: 420px; margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-blue {
+    background: var(--blue); color: var(--white);
+    padding: 15px 32px; text-decoration: none;
+    font-weight: 600; font-size: 13px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-blue:hover { background: var(--blue-dk); transform: translateY(-1px); }
+  .btn-outline-white {
+    border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75);
+    padding: 15px 32px; text-decoration: none;
+    font-weight: 400; font-size: 13px; letter-spacing: 0.04em;
+    transition: border-color 0.2s, color 0.2s; display: inline-block;
+  }
+  .btn-outline-white:hover { border-color: var(--white); color: var(--white); }
+  .hero-right {
+    position: relative; overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.35;
+    filter: grayscale(40%);
+  }
+  .hero-right::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 30%);
+  }
+  .hero-stats {
+    position: absolute; bottom: 48px; left: 0; z-index: 3;
+    display: flex;
+    background: var(--white);
+    border-top: 3px solid var(--blue);
+  }
+  .stat {
+    padding: 20px 32px;
+    border-right: 1px solid var(--gray-mid);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 900;
+    color: var(--black); line-height: 1;
+  }
+  .stat-label {
+    font-size: 10px; color: var(--ink-lt);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  /* ── TRUST BAR ── */
+  #trust {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 0 80px;
+    display: flex; align-items: stretch; gap: 0;
+    overflow-x: auto;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.45);
+    font-size: 12px; letter-spacing: 0.04em;
+    padding: 18px 32px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    white-space: nowrap; flex: 1; justify-content: center;
+  }
+  .trust-item:first-child { border-left: 1px solid rgba(255,255,255,0.07); }
+  .trust-dot {
+    width: 6px; height: 6px;
+    background: var(--blue); border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ── STORY ── */
+  #story {
+    padding: 130px 80px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 100px; align-items: center;
+    background: var(--white);
+  }
+  .story-visual { position: relative; }
+  .story-img-wrap { overflow: hidden; }
+  .story-img-wrap img {
+    width: 100%; display: block;
+    filter: grayscale(20%) contrast(1.05);
+    transition: transform 0.6s ease;
+  }
+  .story-img-wrap:hover img { transform: scale(1.02); }
+  .story-pull {
+    position: absolute; bottom: -40px; right: -40px;
+    background: var(--black); padding: 28px 32px;
+    max-width: 260px;
+    border-left: 3px solid var(--blue);
+  }
+  .story-pull p {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-style: italic;
+    color: var(--white); line-height: 1.6; margin-bottom: 12px;
+  }
+  .story-pull cite {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); font-style: normal;
+  }
+  .section-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 20px;
+  }
+  .section-eyebrow span { display: block; width: 24px; height: 1px; background: var(--blue); }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 900; line-height: 1.1;
+    color: var(--black); margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .body-text {
+    font-size: 15px; line-height: 1.85;
+    color: var(--ink-mid); font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  /* ── OUTCOME ── */
+  #outcome {
+    background: var(--black); padding: 110px 80px;
+    text-align: center;
+  }
+  #outcome .section-eyebrow { justify-content: center; color: var(--blue); }
+  #outcome .section-eyebrow span { background: var(--blue); }
+  #outcome h2 { color: var(--white); max-width: 560px; margin: 0 auto 20px; }
+  .outcome-lead {
+    font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.45);
+    max-width: 580px; margin: 0 auto 64px; font-weight: 300;
+  }
+  .outcome-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; max-width: 860px; margin: 0 auto 56px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .outcome-card {
+    background: var(--black); padding: 48px 36px;
+    transition: background 0.25s;
+  }
+  .outcome-card:hover { background: #242424; }
+  .outcome-icon {
+    width: 48px; height: 48px; margin: 0 auto 20px;
+    border: 1px solid rgba(0,126,167,0.4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .outcome-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.5; }
+  .outcome-label {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    line-height: 1.65; letter-spacing: 0.01em;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    padding: 130px 80px;
+    background: var(--off-white);
+  }
+  .services-header {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: end; margin-bottom: 64px;
+  }
+  .services-intro { font-size: 15px; color: var(--ink-mid); line-height: 1.8; font-weight: 300; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+    background: var(--gray-mid);
+    border: 1px solid var(--gray-mid);
+  }
+  .service-card {
+    background: var(--white); padding: 40px 36px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.25s, background 0.2s;
+  }
+  .service-card:hover { border-color: var(--blue); background: #fafafa; }
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px; font-weight: 700;
+    color: var(--blue); letter-spacing: 0.15em;
+    margin-bottom: 20px; display: block;
+  }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-weight: 700;
+    color: var(--black); margin-bottom: 12px;
+  }
+  .service-card p {
+    font-size: 13px; line-height: 1.75; color: var(--ink-mid); font-weight: 300;
+  }
+  .services-note {
+    margin-top: 40px; text-align: center;
+    font-size: 13px; color: var(--ink-lt);
+    border-top: 1px solid var(--gray-mid); padding-top: 32px;
+  }
+  .services-note strong { color: var(--black); font-weight: 600; }
+
+  /* ── PROCESS ── */
+  #process { padding: 130px 80px; background: var(--white); }
+  .process-header { max-width: 540px; margin: 0 auto 80px; text-align: center; }
+  .process-header .section-eyebrow { justify-content: center; }
+  .process-header p { font-size: 15px; color: var(--ink-mid); font-weight: 300; line-height: 1.75; margin-top: 16px; }
+  .process-row {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    position: relative;
+  }
+  .process-row::before {
+    content: ''; position: absolute;
+    top: 28px; left: 12.5%; right: 12.5%;
+    height: 1px; background: var(--gray-mid); z-index: 0;
+  }
+  .process-step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+  .step-circle {
+    width: 56px; height: 56px; margin: 0 auto 28px;
+    background: var(--white); border: 1px solid var(--black);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 900; color: var(--black);
+  }
+  .process-step.active .step-circle {
+    background: var(--blue); border-color: var(--blue); color: var(--white);
+  }
+  .process-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--black); margin-bottom: 10px;
+  }
+  .process-step p { font-size: 13px; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { padding: 130px 80px; background: var(--off-white); }
+  .testimonials-header { margin-bottom: 56px; }
+  .testimonials-header h2 { margin-bottom: 0; }
+  .tgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .tcard {
+    background: var(--white); padding: 36px 32px;
+    border: 1px solid var(--gray-mid);
+    border-top: 3px solid transparent;
+    transition: border-top-color 0.2s;
+  }
+  .tcard:hover { border-top-color: var(--blue); }
+  .tcard-stars { color: var(--blue); font-size: 12px; letter-spacing: 3px; margin-bottom: 18px; }
+  .tcard-body { font-size: 14px; line-height: 1.8; color: var(--ink-mid); font-weight: 300; margin-bottom: 24px; }
+  .tcard-attr { font-size: 11px; color: var(--black); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+  .tcard-role { font-size: 11px; color: var(--ink-lt); margin-top: 3px; }
+  .tdisc { margin-top: 40px; font-size: 11px; color: var(--ink-lt); max-width: 600px; line-height: 1.65; }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--blue); padding: 120px 80px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  #cta::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      -45deg, transparent, transparent 48px,
+      rgba(255,255,255,0.03) 48px, rgba(255,255,255,0.03) 49px
+    );
+  }
+  #cta .section-eyebrow { justify-content: center; color: rgba(255,255,255,0.6); }
+  #cta .section-eyebrow span { background: rgba(255,255,255,0.4); }
+  #cta h2 {
+    color: var(--white); max-width: 640px;
+    margin: 0 auto 20px; font-size: clamp(32px,4vw,54px);
+  }
+  #cta .lead { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 52px; font-weight: 300; line-height: 1.7; }
+  .btn-white {
+    background: var(--white); color: var(--blue);
+    padding: 18px 48px; text-decoration: none;
+    font-weight: 700; font-size: 14px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block; position: relative; z-index: 1;
+  }
+  .btn-white:hover { background: var(--mist); transform: translateY(-2px); }
+  .cta-sub { margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.5); position: relative; z-index: 1; letter-spacing: 0.06em; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--black); padding: 64px 80px 40px; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px; margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.7; font-weight: 300; max-width: 240px; }
+  .footer-col h5 {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 18px; font-weight: 600;
+  }
+  .footer-col a {
+    display: block; color: rgba(255,255,255,0.35);
+    text-decoration: none; font-size: 13px;
+    margin-bottom: 10px; transition: color 0.15s;
+  }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: start; gap: 48px; }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+  .footer-ria { font-size: 10px; color: rgba(255,255,255,0.15); max-width: 500px; line-height: 1.65; text-align: right; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: 0.1s; }
+  .d2 { transition-delay: 0.2s; }
+  .d3 { transition-delay: 0.3s; }
+  .d4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainnav">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-badge">M</div>
+    <div class="nav-brand">Mountain Goat<br>Wealth Management</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#story">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#cta" class="nav-cta">Schedule a Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span>Fiduciary Wealth Advisors · Utah · Texas · Wyoming</div>
+    <h1>Reach Your<br><em>Retirement</em><br>Summit</h1>
+    <p class="hero-sub">Disciplined, personalized financial plans that protect your family, grow your wealth, and give you the confidence to retire on your terms.</p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-blue">Schedule a Discovery Call</a>
+      <a href="#process" class="btn-outline-white">See How It Works</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Mountain summit">
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Fiduciary</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">States Served</div></div>
+      <div class="stat"><div class="stat-num">Remote</div><div class="stat-label">& Accessible</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="trust-item"><div class="trust-dot"></div>Registered Investment Advisor (RIA)</div>
+  <div class="trust-item"><div class="trust-dot"></div>Always Acting as Your Fiduciary</div>
+  <div class="trust-item"><div class="trust-dot"></div>100% Remote — Meet From Anywhere</div>
+  <div class="trust-item"><div class="trust-dot"></div>No Commission Conflicts on Advice</div>
+</div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="story-visual reveal">
+    <div class="story-img-wrap">
+      <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=700&q=80" alt="Mountain Goat advisors">
+    </div>
+    <div class="story-pull">
+      <p>"My only regret is not getting started earlier."</p>
+      <cite>— Karina L., Client</cite>
+    </div>
+  </div>
+  <div>
+    <div class="section-eyebrow reveal"><span></span>Our Story</div>
+    <h2 class="reveal d1">Built for the Climb,<br>Not the Corner Office</h2>
+    <p class="body-text reveal d2">Mountain Goat Wealth Management was built on one belief: you deserve an advisor who gets in the field with you — not one who sells you a generic plan from behind a desk.</p>
+    <p class="body-text reveal d2">Like the mountain goat navigating steep terrain with sure footing and agility, we are built for the real landscape of your financial life. We operate as a remote-first RIA serving clients across Utah, Texas, and Wyoming — bringing Wall Street discipline with a personal, accessible touch.</p>
+    <p class="body-text reveal d2" style="color: var(--black); font-weight: 500;">We are fiduciaries. That means we are legally required to act in your best interest. Full stop.</p>
+    <a href="#cta" class="btn-blue reveal d3" style="margin-top: 12px;">Start Your Journey</a>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section id="outcome">
+  <div class="section-eyebrow reveal"><span></span>What We Help You Achieve</div>
+  <h2 class="reveal d1">The Goal Is Simple</h2>
+  <p class="outcome-lead reveal d2">A retirement where you don't have to worry about money. We handle the strategy, the protection, and the plan — so you can focus on living the life you've worked for.</p>
+  <div class="outcome-grid">
+    <div class="outcome-card reveal d1">
+      <div class="outcome-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div class="outcome-label">A growing portfolio built for your timeline and risk tolerance</div>
+    </div>
+    <div class="outcome-card reveal d2">
+      <div class="outcome-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="outcome-label">A clear retirement income strategy you can count on for life</div>
+    </div>
+    <div class="outcome-card reveal d3">
+      <div class="outcome-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="outcome-label">Insurance and protection so the unexpected doesn't derail you</div>
+    </div>
+  </div>
+  <a href="#cta" class="btn-white reveal" style="font-size: 13px; padding: 16px 44px;">Schedule Your Free Discovery Call</a>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="section-eyebrow reveal"><span></span>What We Do</div>
+      <h2 class="reveal d1">Everything You Need<br>for the Ascent</h2>
+    </div>
+    <p class="services-intro reveal d2">We don't offer you a product menu — we build a plan around you. These are the tools we use to get you there. One advisor relationship, everything covered.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal d1">
+      <span class="service-num">01</span>
+      <h3>Wealth Management</h3>
+      <p>Disciplined, personalized investment management with institutional-grade strategies. We monitor your portfolio proactively and adjust as your life changes.</p>
+    </div>
+    <div class="service-card reveal d2">
+      <span class="service-num">02</span>
+      <h3>Retirement Planning</h3>
+      <p>Our 9-Step roadmap guides you from accumulation to distribution — so you don't just reach retirement, you thrive through it.</p>
+    </div>
+    <div class="service-card reveal d3">
+      <span class="service-num">03</span>
+      <h3>Insurance &amp; Protection</h3>
+      <p>Life insurance, annuities, and disability coverage selected to protect your family and shield your wealth from the unexpected.</p>
+    </div>
+    <div class="service-card reveal d1">
+      <span class="service-num">04</span>
+      <h3>401(k) &amp; Employer Plans</h3>
+      <p>We optimize your workplace retirement accounts and ensure your employer plan is working as hard as the rest of your portfolio.</p>
+    </div>
+    <div class="service-card reveal d2">
+      <span class="service-num">05</span>
+      <h3>Financial Planning</h3>
+      <p>Comprehensive planning for taxes, estate, education, and cash flow — built around your goals, updated as your life evolves.</p>
+    </div>
+    <div class="service-card reveal d3">
+      <span class="service-num">06</span>
+      <h3>Structured Notes &amp; Alternatives</h3>
+      <p>Access to private credit, structured notes, and alternative investments typically reserved for institutional investors.</p>
+    </div>
+  </div>
+  <p class="services-note reveal">Every client gets a comprehensive plan — not a product pitch. <strong>Your first meeting is always free.</strong></p>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-header">
+    <div class="section-eyebrow reveal"><span></span>How It Works</div>
+    <h2 class="reveal d1">Your Path to the Summit</h2>
+    <p class="reveal d2">Getting started is easier than you think. Here's what the first 60 days look like when you work with Mountain Goat.</p>
+  </div>
+  <div class="process-row">
+    <div class="process-step active reveal d1">
+      <div class="step-circle">1</div>
+      <h4>Discovery Call</h4>
+      <p>A free 30-minute conversation. No pressure, no pitch. We want to understand where you are and where you want to go.</p>
+    </div>
+    <div class="process-step reveal d2">
+      <div class="step-circle">2</div>
+      <h4>Financial Review</h4>
+      <p>We take a full inventory of your accounts, income, goals, and gaps — giving you a complete picture for the first time.</p>
+    </div>
+    <div class="process-step reveal d3">
+      <div class="step-circle">3</div>
+      <h4>Custom Plan</h4>
+      <p>We build your personalized roadmap — investments, protection, and retirement strategy, all in one place.</p>
+    </div>
+    <div class="process-step reveal d4">
+      <div class="step-circle">4</div>
+      <h4>Ongoing Partnership</h4>
+      <p>Regular check-ins at key milestones. We proactively reach out — you never wonder if your plan is on track.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-eyebrow reveal"><span></span>Client Reviews</div>
+    <h2 class="reveal d1">What Our Clients Say</h2>
+  </div>
+  <div class="tgrid">
+    <div class="tcard reveal d1">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-body">"Bobby is the best! Mountain Goat's approach is robust. It's obvious that my best interests are the priority. My only regret is not getting started earlier."</p>
+      <div class="tcard-attr">Karina L.</div>
+      <div class="tcard-role">Business Development Representative</div>
+    </div>
+    <div class="tcard reveal d2">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-body">"They are not pushy. I have never felt like they are trying to sell me something. They have always had my best interests in mind and their responses are always timely."</p>
+      <div class="tcard-attr">Jason D.</div>
+      <div class="tcard-role">Product Manager</div>
+    </div>
+    <div class="tcard reveal d3">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-body">"They have access to high yield private credit investments that a single individual cannot access themselves. Extremely respectful, prompt, and they listen."</p>
+      <div class="tcard-attr">Oliver C.</div>
+      <div class="tcard-role">Retired Healthcare Administrator</div>
+    </div>
+  </div>
+  <p class="tdisc reveal">Testimonials are from current clients and may not represent all client experiences. No compensation was provided. Past performance is not a guarantee of future results.</p>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-eyebrow reveal"><span></span>Ready to Start</div>
+  <h2 class="reveal d1">Your Summit Is<br>Closer Than You Think</h2>
+  <p class="lead reveal d2">Schedule a free, no-pressure discovery call. In 30 minutes we'll tell you exactly where you stand and what we'd recommend — no obligation required.</p>
+  <a href="#" class="btn-white reveal d3">Schedule Your Free Discovery Call →</a>
+  <p class="cta-sub reveal d4">No commitment. No sales pressure. Just a conversation.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">Mountain Goat<br>Wealth Management</div>
+      <p>Fiduciary financial advisors serving clients across Utah, Texas, and Wyoming. Built for the climb.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="#">Wealth Management</a>
+      <a href="#">Retirement Planning</a>
+      <a href="#">Insurance Products</a>
+      <a href="#">401(k) Planning</a>
+      <a href="#">Financial Consulting</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="#">About Us</a>
+      <a href="#">Resources Library</a>
+      <a href="#">Self-Assessment</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h5>Get In Touch</h5>
+      <a href="#">mountaingoatwealth.com</a>
+      <a href="#">Utah · Texas · Wyoming</a>
+      <a href="#">Schedule a Call →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Mountain Goat Wealth Management. All rights reserved.</p>
+    <p class="footer-ria">Mountain Goat Wealth Management is a Registered Investment Advisor. Investment advisory services involve risk, including possible loss of principal. This website is for informational purposes only and does not constitute investment advice.</p>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  const nav = document.getElementById('mainnav');
+  window.addEventListener('scroll', () => {
+    nav.style.padding = window.scrollY > 60 ? '14px 56px' : '20px 56px';
+  });
+</script>
+</body>
+</html>
