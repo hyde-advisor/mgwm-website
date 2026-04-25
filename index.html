@@ -50,7 +50,7 @@
   .nav-links a {
     color: rgba(255,255,255,0.55);
     text-decoration: none;
-    font-size: 12px; font-weight: 500;
+    font-size: 13px; font-weight: 500;
     letter-spacing: 0.1em; text-transform: uppercase;
     transition: color 0.2s;
   }
@@ -59,7 +59,7 @@
     background: var(--blue) !important;
     color: var(--white) !important;
     padding: 10px 22px;
-    font-size: 12px !important;
+    font-size: 13px !important;
     letter-spacing: 0.08em !important;
     transition: background 0.2s !important;
   }
@@ -81,7 +81,7 @@
   }
   .hero-eyebrow {
     display: flex; align-items: center; gap: 12px;
-    font-size: 10px; font-weight: 600;
+    font-size: 13px; font-weight: 600;
     letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--blue); margin-bottom: 32px;
   }
@@ -91,7 +91,7 @@
   }
   h1 {
     font-family: 'Merriweather', serif;
-    font-size: clamp(44px, 5.5vw, 72px);
+    font-size: clamp(56px, 5.5vw, 72px);
     font-weight: 900; line-height: 1.04;
     color: var(--white);
     letter-spacing: -0.02em;
@@ -99,7 +99,7 @@
   }
   h1 em { font-style: italic; color: var(--blue); }
   .hero-sub {
-    font-size: 17px; line-height: 1.75;
+    font-size: 18px; line-height: 1.9;
     color: rgba(255,255,255,0.55);
     max-width: 420px; margin-bottom: 48px;
     font-weight: 300;
@@ -107,8 +107,8 @@
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn-blue {
     background: var(--blue); color: var(--white);
-    padding: 15px 32px; text-decoration: none;
-    font-weight: 600; font-size: 13px;
+    padding: 17px 36px; text-decoration: none;
+    font-weight: 600; font-size: 15px;
     letter-spacing: 0.06em; text-transform: uppercase;
     transition: background 0.2s, transform 0.15s;
     display: inline-block;
@@ -116,8 +116,8 @@
   .btn-blue:hover { background: var(--blue-dk); transform: translateY(-1px); }
   .btn-outline-white {
     border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.75);
-    padding: 15px 32px; text-decoration: none;
-    font-weight: 400; font-size: 13px; letter-spacing: 0.04em;
+    padding: 17px 36px; text-decoration: none;
+    font-weight: 400; font-size: 15px; letter-spacing: 0.04em;
     transition: border-color 0.2s, color 0.2s; display: inline-block;
   }
   .btn-outline-white:hover { border-color: var(--white); color: var(--white); }
@@ -151,7 +151,7 @@
     color: var(--black); line-height: 1;
   }
   .stat-label {
-    font-size: 10px; color: var(--ink-lt);
+    font-size: 11px; color: var(--ink-lt);
     letter-spacing: 0.1em; text-transform: uppercase;
     margin-top: 5px;
   }
@@ -168,7 +168,7 @@
   .trust-item {
     display: flex; align-items: center; gap: 10px;
     color: rgba(255,255,255,0.45);
-    font-size: 12px; letter-spacing: 0.04em;
+    font-size: 13px; letter-spacing: 0.04em;
     padding: 18px 32px;
     border-right: 1px solid rgba(255,255,255,0.07);
     white-space: nowrap; flex: 1; justify-content: center;
@@ -205,6 +205,57 @@
     font-size: 13px; color: #888;
     margin-top: 14px; line-height: 1.6;
   }
+  #shorts {
+    padding: 80px;
+    background: #f7f7f7;
+  }
+  .shorts-header { max-width: 640px; margin-bottom: 48px; }
+  .shorts-header p {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px; color: var(--ink-lt);
+    line-height: 1.7; margin-top: 16px;
+  }
+  .shorts-scroll {
+    display: flex; gap: 24px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px; padding-right: 80px;
+  }
+  .shorts-scroll::-webkit-scrollbar { display: none; }
+  .short-card {
+    flex: 0 0 340px; width: 340px;
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    scroll-snap-align: start; overflow: hidden;
+  }
+  .short-embed {
+    position: relative; width: 100%; padding-bottom: 177.78%;
+    height: 0; overflow: hidden;
+  }
+  .short-embed iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; border: none;
+  }
+  .short-info { padding: 20px 22px 24px; }
+  .short-title {
+    font-family: 'Merriweather', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--black); margin-bottom: 8px; line-height: 1.4;
+  }
+  .short-desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px; color: var(--ink-lt); line-height: 1.6;
+  }
+  .shorts-footer {
+    margin-top: 36px; text-align: center;
+  }
+  .shorts-footer a {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px; font-weight: 600;
+    color: var(--blue); text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .shorts-footer a:hover { text-decoration: underline; }
   .story-visual { position: relative; }
   .story-img-wrap { overflow: hidden; }
   .story-img-wrap img {
@@ -221,7 +272,7 @@
   }
   .story-pull p {
     font-family: 'Merriweather', serif;
-    font-size: 14px; font-style: italic;
+    font-size: 17px; font-style: italic;
     color: var(--white); line-height: 1.6; margin-bottom: 12px;
   }
   .story-pull cite {
@@ -230,19 +281,23 @@
   }
   .section-eyebrow {
     display: flex; align-items: center; gap: 12px;
-    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.2em;
     text-transform: uppercase; color: var(--blue); margin-bottom: 20px;
   }
   .section-eyebrow span { display: block; width: 24px; height: 1px; background: var(--blue); }
+  h3 {
+    font-size: clamp(26px, 2.2vw, 34px);
+    font-weight: 700; line-height: 1.25;
+  }
   h2 {
     font-family: 'Merriweather', serif;
-    font-size: clamp(28px, 3.2vw, 44px);
+    font-size: clamp(36px, 3.2vw, 44px);
     font-weight: 900; line-height: 1.1;
     color: var(--black); margin-bottom: 24px;
     letter-spacing: -0.01em;
   }
   .body-text {
-    font-size: 15px; line-height: 1.85;
+    font-size: 18px; line-height: 1.9;
     color: var(--ink-mid); font-weight: 300;
     margin-bottom: 20px;
   }
@@ -314,7 +369,7 @@
     color: var(--black); margin-bottom: 12px;
   }
   .service-card p {
-    font-size: 13px; line-height: 1.75; color: var(--ink-mid); font-weight: 300;
+    font-size: 15px; line-height: 1.75; color: var(--ink-mid); font-weight: 300;
   }
   .services-note {
     margin-top: 40px; text-align: center;
@@ -353,7 +408,7 @@
     font-size: 16px; font-weight: 700;
     color: var(--black); margin-bottom: 10px;
   }
-  .process-step p { font-size: 13px; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
+  .process-step p { font-size: 14px; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
 
   /* ── TESTIMONIALS ── */
   #testimonials { padding: 130px 80px; background: var(--off-white); }
@@ -368,7 +423,7 @@
   }
   .tcard:hover { border-top-color: var(--blue); }
   .tcard-stars { color: var(--blue); font-size: 12px; letter-spacing: 3px; margin-bottom: 18px; }
-  .tcard-body { font-size: 14px; line-height: 1.8; color: var(--ink-mid); font-weight: 300; margin-bottom: 24px; }
+  .tcard-body { font-size: 16px; line-height: 1.8; color: var(--ink-mid); font-weight: 300; margin-bottom: 24px; }
   .tcard-attr { font-size: 11px; color: var(--black); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
   .tcard-role { font-size: 11px; color: var(--ink-lt); margin-top: 3px; }
   .tdisc { margin-top: 40px; font-size: 11px; color: var(--ink-lt); max-width: 600px; line-height: 1.65; }
@@ -391,11 +446,11 @@
     color: var(--white); max-width: 640px;
     margin: 0 auto 20px; font-size: clamp(32px,4vw,54px);
   }
-  #cta .lead { font-size: 17px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 52px; font-weight: 300; line-height: 1.7; }
+  #cta .lead { font-size: 19px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 52px; font-weight: 300; line-height: 1.7; }
   .btn-white {
     background: var(--white); color: var(--blue);
     padding: 18px 48px; text-decoration: none;
-    font-weight: 700; font-size: 14px;
+    font-weight: 700; font-size: 15px;
     letter-spacing: 0.06em; text-transform: uppercase;
     transition: background 0.2s, transform 0.15s;
     display: inline-block; position: relative; z-index: 1;
@@ -423,7 +478,7 @@
   }
   .footer-col a {
     display: block; color: rgba(255,255,255,0.35);
-    text-decoration: none; font-size: 13px;
+    text-decoration: none; font-size: 14px;
     margin-bottom: 10px; transition: color 0.15s;
   }
   .footer-col a:hover { color: var(--white); }
@@ -495,6 +550,8 @@
 
     #story { grid-template-columns: 1fr; gap: 56px; padding: 80px 24px; }
     #video { grid-template-columns: 1fr; gap: 48px; padding: 80px 24px; }
+    #shorts { padding: 60px 24px; }
+    .shorts-scroll { padding-right: 24px; }
     .story-visual { padding-bottom: 48px; }
     .story-pull { position: absolute; bottom: 0; right: 0; max-width: 220px; }
 
@@ -620,6 +677,47 @@
     <p class="body-text reveal d2">Most people have left money behind at a previous employer without realizing it. In this video, Bobby breaks down how to find lost retirement accounts, what to do with them, and how consolidating them into a single strategy could meaningfully improve your retirement outlook.</p>
     <p class="video-body-sub reveal d2">Part of our ongoing financial education series — new videos released regularly.</p>
     <a href="https://www.youtube.com/@mountaingoatwealth" target="_blank" rel="noopener" class="btn-blue reveal d3" style="margin-top: 20px;">Watch More on YouTube</a>
+  </div>
+</section>
+
+<!-- SHORTS -->
+<section id="shorts">
+  <div class="shorts-header">
+    <div class="section-eyebrow reveal"><span></span>Quick Takes</div>
+    <h2 class="reveal d1">60 Seconds That Could Change How You Think About Retirement</h2>
+    <p class="reveal d2">Short, practical financial insights from Bobby — no jargon, no fluff. Just the stuff that actually matters for your retirement.</p>
+  </div>
+  <div class="shorts-scroll">
+    <div class="short-card">
+      <div class="short-embed">
+        <iframe src="https://www.youtube.com/embed/PcwhxTgVnxI?autoplay=1&mute=1&loop=1&playlist=PcwhxTgVnxI" title="5 Ways to Invest for Income" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <div class="short-info">
+        <div class="short-title">5 Ways to Invest for Income</div>
+        <div class="short-desc">Practical strategies designed to generate reliable cash flow from your portfolio</div>
+      </div>
+    </div>
+    <div class="short-card">
+      <div class="short-embed">
+        <iframe src="https://www.youtube.com/embed/99X1DWi12Xs?autoplay=1&mute=1&loop=1&playlist=99X1DWi12Xs" title="Our Story" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <div class="short-info">
+        <div class="short-title">Our Story</div>
+        <div class="short-desc">How an 18-year Goldman Sachs career led to building a firm for Main Street families</div>
+      </div>
+    </div>
+    <div class="short-card">
+      <div class="short-embed">
+        <iframe src="https://www.youtube.com/embed/y1EpkB1FJRg?autoplay=1&mute=1&loop=1&playlist=y1EpkB1FJRg" title="The 9-Step Climb to Retirement" allowfullscreen allow="autoplay"></iframe>
+      </div>
+      <div class="short-info">
+        <div class="short-title">The 9-Step Climb to Retirement</div>
+        <div class="short-desc">Our proprietary framework for mapping every milestone of your financial journey</div>
+      </div>
+    </div>
+  </div>
+  <div class="shorts-footer reveal">
+    <a href="https://www.youtube.com/@mountaingoatwealth" target="_blank" rel="noopener">View All Videos on YouTube →</a>
   </div>
 </section>
 
