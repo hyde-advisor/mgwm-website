@@ -182,8 +182,8 @@
   /* ── STORY ── */
   #story {
     padding: 130px 80px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 100px; align-items: center;
+    display: grid; grid-template-columns: 45fr 55fr;
+    gap: 80px; align-items: center;
     background: var(--white);
   }
   #video {
@@ -257,9 +257,10 @@
   }
   .shorts-footer a:hover { text-decoration: underline; }
   .story-visual { position: relative; }
-  .story-img-wrap { overflow: hidden; }
+  .story-img-wrap { overflow: hidden; min-height: 500px; }
   .story-img-wrap img {
-    width: 100%; display: block;
+    width: 100%; height: 100%; min-height: 500px;
+    display: block; object-fit: cover; object-position: top;
     filter: grayscale(20%) contrast(1.05);
     transition: transform 0.6s ease;
   }
@@ -394,7 +395,7 @@
   .services-note strong { color: var(--black); font-weight: 600; }
 
   /* ── PROCESS ── */
-  #process { padding: 130px 80px; background: var(--white); }
+  #process { padding: 130px 80px; background: #f2f2f2; }
   .process-header { max-width: 540px; margin: 0 auto 80px; text-align: center; }
   .process-header .section-eyebrow { justify-content: center; }
   .process-header p { font-size: 15px; color: var(--ink-mid); font-weight: 300; line-height: 1.75; margin-top: 16px; }
@@ -409,11 +410,12 @@
   }
   .process-step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
   .step-circle {
-    width: 56px; height: 56px; margin: 0 auto 28px;
+    width: 72px; height: 72px; margin: 0 auto 28px;
     background: var(--white); border: 1px solid var(--black);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Merriweather', serif;
-    font-size: 18px; font-weight: 900; color: var(--black);
+    font-size: 26px; font-weight: 900; color: var(--black);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   }
   .process-step.active .step-circle {
     background: var(--blue); border-color: var(--blue); color: var(--white);
@@ -763,7 +765,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#" class="nav-cta">Schedule a Call</a></li>
+    <li><a href="#" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
 
@@ -774,9 +776,9 @@
     <h1>Reach Your<br><em>Retirement</em><br>Summit</h1>
     <p class="hero-sub">Disciplined, personalized financial plans that protect your family, grow your wealth, and give you the confidence to retire on your terms.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-blue">Schedule a Discovery Call</a>
-      <a href="#leadmagnet" class="btn-outline-white">Get Free Self-Assessment</a>
+      <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
     </div>
+    <a href="#leadmagnet" style="display:inline-block;margin-top:18px;font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Not ready yet? Start with our free Self-Assessment →</a>
   </div>
   <div class="hero-right">
     <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Mountain summit">
@@ -821,13 +823,14 @@
       <div class="outcome-label">"I have old 401(k)s scattered across past employers and no idea what to do with them."</div>
     </div>
   </div>
-  <a href="#" class="btn-blue reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 8px;">Get a Free Second Opinion →</a>
+  <a href="#" class="btn-blue reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 8px;">Claim Your Complimentary Consultation</a>
 </section>
 
 <!-- STORY -->
 <section id="story">
   <div class="story-visual reveal">
     <div class="story-img-wrap">
+      <!-- REPLACE WITH BOBBY HEADSHOT — minimum 600x700px, professional, outdoor or office setting -->
       <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=700&q=80" alt="Mountain Goat advisors">
     </div>
     <div class="story-pull">
@@ -843,7 +846,7 @@
     <p class="body-text reveal d2">Mountain Goat operates as a fully remote RIA serving clients across Utah, Texas, and Wyoming. We bring Wall Street discipline without Wall Street's conflicts of interest.</p>
     <p class="body-text reveal d2" style="color: var(--black); font-weight: 700;">We are fiduciaries — legally required to act in your best interest. Full stop.</p>
     <div class="hero-actions reveal d3" style="margin-top: 20px;">
-      <a href="#" class="btn-blue">Schedule a Discovery Call</a>
+      <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
     </div>
     <p class="reveal d4" style="margin-top: 18px; font-size: 14px;">Want to meet the full team? <a href="/about" style="color: var(--blue); text-decoration: none;">Learn about our advisors →</a></p>
   </div>
@@ -930,13 +933,13 @@
       <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">03</span>
       <h3>Insurance &amp; Protection</h3>
-      <p>Strategic life insurance and annuities selected as your fiduciary — to protect your family, not to hit a sales target.</p>
+      <p>Strategic life insurance and annuities selected as your fiduciary — to protect your family, not to hit a sales quota.</p>
     </div>
     <div class="service-card reveal d1">
       <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">04</span>
       <h3>401(k) &amp; Employer Plans</h3>
-      <p>Your workplace retirement accounts optimized and coordinated with your broader financial strategy.</p>
+      <p>Your workplace accounts optimized and coordinated with your broader financial strategy.</p>
     </div>
     <div class="service-card reveal d2">
       <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
@@ -948,13 +951,13 @@
       <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">06</span>
       <h3>Structured Notes &amp; Alternatives</h3>
-      <p>Institutional-grade alternative investments and private credit, accessible to qualified clients at every level.</p>
+      <p>Institutional-grade alternative investments and private credit, made accessible to qualified clients.</p>
     </div>
   </div>
-  <p class="services-note reveal">Every client gets a comprehensive plan — not a product pitch. <strong>Your first meeting is always free.</strong></p>
   <div style="text-align:center; margin-top: 48px;" class="reveal">
-    <a href="#" class="btn-blue">Discuss Your Retirement Plan →</a>
+    <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
   </div>
+  <p class="services-note reveal">Every client gets a comprehensive plan — not a product pitch. <strong>Your first meeting is always free.</strong></p>
 </section>
 
 <!-- PROCESS -->
@@ -1015,7 +1018,7 @@
     </div>
   </div>
   <div style="text-align:center; margin-top: 48px;" class="reveal">
-    <a href="#" class="btn-blue">Let's Discuss Your Goals →</a>
+    <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
   </div>
   <p class="tdisc reveal">Testimonials are from current clients and may not represent all client experiences. No compensation was provided. Past performance is not a guarantee of future results.</p>
 </section>
@@ -1061,7 +1064,7 @@
   <div class="section-eyebrow reveal"><span></span>Ready to Start</div>
   <h2 class="reveal d1">Your Summit Is<br>Closer Than You Think</h2>
   <p class="lead reveal d2">Schedule a free, no-pressure discovery call. In 30 minutes we'll tell you exactly where you stand and what we'd recommend — no obligation required.</p>
-  <a href="#" class="btn-white reveal d3">Schedule Your Free Discovery Call →</a>
+  <a href="#" class="btn-white reveal d3">Claim Your Complimentary Consultation</a>
   <p class="cta-sub reveal d4">No commitment. No sales pressure. Just a conversation.</p>
   <div style="margin-top: 28px; position: relative; z-index: 1;" class="reveal d4">
     <a href="#leadmagnet" style="color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: underline; letter-spacing: 0.04em;">Or download the free Retirement Self-Assessment first →</a>
