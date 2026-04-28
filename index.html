@@ -486,6 +486,71 @@
   .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
   .footer-ria { font-size: 10px; color: rgba(255,255,255,0.15); max-width: 500px; line-height: 1.65; text-align: right; }
 
+  /* ── ABOUT / TEAM ── */
+  #about {
+    padding: 130px 80px;
+    background: var(--off-white);
+  }
+  .about-header { max-width: 640px; margin-bottom: 64px; }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 32px;
+  }
+  .team-card {
+    background: var(--white);
+    border: 1px solid var(--gray-mid);
+    border-top: 3px solid transparent;
+    transition: border-top-color 0.25s;
+    overflow: hidden;
+  }
+  .team-card:hover { border-top-color: var(--blue); }
+  .team-photo {
+    width: 100%; aspect-ratio: 3/4;
+    object-fit: cover; object-position: top;
+    display: block;
+    filter: grayscale(15%) contrast(1.03);
+  }
+  .team-body { padding: 28px 28px 32px; }
+  .team-name {
+    font-family: 'Merriweather', serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--black); margin-bottom: 4px;
+  }
+  .team-title {
+    font-size: 13px; color: var(--blue);
+    font-weight: 600; letter-spacing: 0.03em;
+    margin-bottom: 4px;
+  }
+  .team-location {
+    font-size: 12px; color: var(--ink-lt);
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .team-credential {
+    display: inline-block;
+    font-size: 11px; font-weight: 700;
+    color: var(--white); background: var(--blue);
+    padding: 3px 9px; letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .team-bio {
+    font-size: 14px; line-height: 1.8;
+    color: var(--ink-mid); font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .team-hobbies {
+    font-size: 12px; color: var(--ink-lt);
+    font-style: italic; line-height: 1.6;
+    border-top: 1px solid var(--gray-mid);
+    padding-top: 14px; margin-top: 4px;
+  }
+
+  @media (max-width: 768px) {
+    #about { padding: 80px 24px; }
+    .team-grid { grid-template-columns: 1fr; gap: 24px; }
+    .team-photo { aspect-ratio: 4/3; }
+  }
+
   /* ── SCROLL REVEAL ── */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -608,7 +673,7 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navlinks">
-    <li><a href="#story">About</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#testimonials">Reviews</a></li>
@@ -663,6 +728,53 @@
     <p class="body-text reveal d2">Like the mountain goat navigating steep terrain with sure footing and agility, we are built for the real landscape of your financial life. We operate as a remote-first RIA serving clients across Utah, Texas, and Wyoming — bringing Wall Street discipline with a personal, accessible touch.</p>
     <p class="body-text reveal d2" style="color: var(--black); font-weight: 500;">We are fiduciaries. That means we are legally required to act in your best interest. Full stop.</p>
     <a href="#cta" class="btn-blue reveal d3" style="margin-top: 12px;">Start Your Journey</a>
+  </div>
+</section>
+
+<!-- ABOUT / TEAM -->
+<section id="about">
+  <div class="about-header">
+    <div class="section-eyebrow reveal"><span></span>Our Team</div>
+    <h2 class="reveal d1">Meet the Mountain Goat Advisors</h2>
+  </div>
+  <div class="team-grid">
+
+    <div class="team-card reveal d1">
+      <img class="team-photo" src="assets/images/headshot-bobby.png" alt="Robert Bobby Goodman">
+      <div class="team-body">
+        <div class="team-name">Robert "Bobby" Goodman</div>
+        <div class="team-title">Founder &amp; Chief Compliance Officer</div>
+        <div class="team-location">Salt Lake City, UT</div>
+        <div class="team-credential">CFP®</div>
+        <p class="team-bio">Bobby brings over 20 years of institutional wealth experience — including 18 years at Goldman Sachs Private Wealth — to every client relationship. An MBA from the University of Utah and an Economics degree from BYU ground his disciplined approach, and his reputation as a natural teacher means clients always understand the why behind every decision.</p>
+        <div class="team-hobbies">Outside the office: mountain biking, fishing, trail running</div>
+      </div>
+    </div>
+
+    <div class="team-card reveal d2">
+      <img class="team-photo" src="assets/images/headshot-cade.png" alt="Cade Hyde">
+      <div class="team-body">
+        <div class="team-name">Cade Hyde</div>
+        <div class="team-title">Financial Advisor</div>
+        <div class="team-location">Salt Lake City, UT</div>
+        <div class="team-credential" style="visibility:hidden">CFP®</div>
+        <p class="team-bio">Before joining Mountain Goat, Cade spent five years in corporate analytics — a background that shows in his diligence and precision. He excels at translating complex financial anxieties into clear, actionable plans, and clients consistently describe his communication as thoughtful and reassuring.</p>
+        <div class="team-hobbies">Outside the office: trail running, golf, cycling</div>
+      </div>
+    </div>
+
+    <div class="team-card reveal d3">
+      <img class="team-photo" src="assets/images/headshot-michael.png" alt="Michael Goodman">
+      <div class="team-body">
+        <div class="team-name">Michael Goodman</div>
+        <div class="team-title">Financial Advisor</div>
+        <div class="team-location">Houston, TX</div>
+        <div class="team-credential" style="visibility:hidden">CFP®</div>
+        <p class="team-bio">Michael spent years as a consultant managing oilfield remediation budgets and risk assessments — experience that built the calm, methodical approach he now applies to wealth management. Based in Houston, he serves Mountain Goat's Texas clients with the same organized discipline he brought to complex environmental projects.</p>
+        <div class="team-hobbies">Outside the office: hiking, disc golf, camping</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
