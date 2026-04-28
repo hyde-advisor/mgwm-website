@@ -486,6 +486,76 @@
   .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
   .footer-ria { font-size: 10px; color: rgba(255,255,255,0.15); max-width: 500px; line-height: 1.65; text-align: right; }
 
+  /* ── LEAD MAGNET ── */
+  #lead-magnet {
+    background: var(--mist);
+    padding: 110px 80px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .lead-magnet-content { max-width: 480px; }
+  .lead-magnet-checklist {
+    list-style: none; margin-bottom: 32px;
+  }
+  .lead-magnet-checklist li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 15px; color: var(--ink-mid);
+    margin-bottom: 14px; line-height: 1.5;
+  }
+  .lead-magnet-checklist li::before {
+    content: '✓';
+    display: flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px;
+    background: var(--blue); color: var(--white);
+    border-radius: 50%; font-size: 11px; font-weight: 700;
+  }
+  .lead-form {
+    background: var(--white); padding: 40px;
+    border: 1px solid var(--gray-mid); border-top: 3px solid var(--blue);
+  }
+  .lead-form h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 20px; margin-bottom: 8px; color: var(--black);
+  }
+  .lead-form > p {
+    font-size: 14px; color: var(--ink-lt);
+    margin-bottom: 24px; line-height: 1.6;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-mid); margin-bottom: 8px;
+  }
+  .form-group input {
+    width: 100%; padding: 14px 16px; font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    border: 1px solid var(--gray-mid); background: var(--white);
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus { outline: none; border-color: var(--blue); }
+  .lead-form .btn-blue {
+    width: 100%; text-align: center;
+    cursor: pointer; border: none; font-family: inherit;
+  }
+  .form-success { display: none; text-align: center; padding: 20px 0; }
+  .form-success.show { display: block; }
+  .form-success-icon {
+    font-size: 32px; color: var(--blue); margin-bottom: 12px;
+  }
+  .form-success h3 { color: var(--blue); margin-bottom: 12px; }
+  .form-success p { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
+  .lead-form-sub {
+    margin-top: 16px; font-size: 11px;
+    color: var(--ink-lt); text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    #lead-magnet { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+    .lead-magnet-content { max-width: none; }
+    .lead-form { padding: 32px 24px; }
+  }
+
   /* ── ABOUT / TEAM ── */
   #about {
     padding: 130px 80px;
@@ -677,7 +747,7 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#cta" class="nav-cta">Schedule a Call</a></li>
+    <li><a href="#" class="nav-cta">Schedule a Call</a></li>
   </ul>
 </nav>
 
@@ -688,8 +758,8 @@
     <h1>Reach Your<br><em>Retirement</em><br>Summit</h1>
     <p class="hero-sub">Disciplined, personalized financial plans that protect your family, grow your wealth, and give you the confidence to retire on your terms.</p>
     <div class="hero-actions">
-      <a href="#cta" class="btn-blue">Schedule a Discovery Call</a>
-      <a href="#process" class="btn-outline-white">See How It Works</a>
+      <a href="#" class="btn-blue">Schedule a Discovery Call</a>
+      <a href="#lead-magnet" class="btn-outline-white">Get Free Self-Assessment</a>
     </div>
   </div>
   <div class="hero-right">
@@ -710,6 +780,42 @@
   <div class="trust-item"><div class="trust-dot"></div>No Commission Conflicts on Advice</div>
 </div>
 
+<!-- LEAD MAGNET -->
+<section id="lead-magnet">
+  <div class="lead-magnet-content">
+    <div class="section-eyebrow reveal"><span></span>Free Resource</div>
+    <h2 class="reveal d1">Know Exactly Where You Stand Before Retirement</h2>
+    <p class="body-text reveal d2">Our Retirement Self-Assessment takes less than 5 minutes and gives you a clear picture of your readiness — gaps, strengths, and actionable next steps included.</p>
+    <ul class="lead-magnet-checklist reveal d3">
+      <li>Retirement readiness score</li>
+      <li>Social Security optimization timing</li>
+      <li>Tax-efficient withdrawal strategy</li>
+      <li>Actionable next steps, personalized to your situation</li>
+    </ul>
+  </div>
+  <div class="lead-form reveal d2">
+    <h3>Get Your Free Assessment</h3>
+    <p>Enter your details and we'll email the Excel file to you within 24 hours.</p>
+    <form id="assessment-form" onsubmit="handleLeadSubmit(event)">
+      <div class="form-group">
+        <label for="lead-name">First Name</label>
+        <input type="text" id="lead-name" name="name" required placeholder="Your first name">
+      </div>
+      <div class="form-group">
+        <label for="lead-email">Email Address</label>
+        <input type="email" id="lead-email" name="email" required placeholder="you@example.com">
+      </div>
+      <button type="submit" class="btn-blue">Send Me the Assessment →</button>
+    </form>
+    <div class="form-success" id="form-success">
+      <div class="form-success-icon">✓</div>
+      <h3>You're on your way.</h3>
+      <p>Check your inbox — the Retirement Self-Assessment is headed your way. We'll follow up within 24 hours to discuss your results.</p>
+    </div>
+    <p class="lead-form-sub">No spam. No obligation. Unsubscribe anytime.</p>
+  </div>
+</section>
+
 <!-- STORY -->
 <section id="story">
   <div class="story-visual reveal">
@@ -725,9 +831,12 @@
     <div class="section-eyebrow reveal"><span></span>Our Story</div>
     <h2 class="reveal d1">Built for the Climb,<br>Not the Corner Office</h2>
     <p class="body-text reveal d2">Mountain Goat Wealth Management was built on one belief: you deserve an advisor who gets in the field with you — not one who sells you a generic plan from behind a desk.</p>
-    <p class="body-text reveal d2">Like the mountain goat navigating steep terrain with sure footing and agility, we are built for the real landscape of your financial life. We operate as a remote-first RIA serving clients across Utah, Texas, and Wyoming — bringing Wall Street discipline with a personal, accessible touch.</p>
+    <p class="body-text reveal d2">After 18 years at Goldman Sachs Private Wealth, Bobby Goodman left Wall Street to build the firm he wished existed — one built for people who work hard, love adventure, and want to retire with confidence. We operate as a remote-first RIA serving clients across Utah, Texas, and Wyoming, bringing institutional discipline with a personal, accessible touch.</p>
     <p class="body-text reveal d2" style="color: var(--black); font-weight: 500;">We are fiduciaries. That means we are legally required to act in your best interest. Full stop.</p>
-    <a href="#cta" class="btn-blue reveal d3" style="margin-top: 12px;">Start Your Journey</a>
+    <div class="hero-actions reveal d3" style="margin-top: 20px;">
+      <a href="#" class="btn-blue">Schedule a Discovery Call</a>
+      <a href="#about" class="btn-outline-white" style="border-color: rgba(0,0,0,0.2); color: var(--ink-mid);">Meet the Team</a>
+    </div>
   </div>
 </section>
 
@@ -903,6 +1012,9 @@
     </div>
   </div>
   <p class="services-note reveal">Every client gets a comprehensive plan — not a product pitch. <strong>Your first meeting is always free.</strong></p>
+  <div style="text-align:center; margin-top: 48px;" class="reveal">
+    <a href="#" class="btn-blue">Discuss Your Retirement Plan →</a>
+  </div>
 </section>
 
 <!-- PROCESS -->
@@ -962,6 +1074,9 @@
       <div class="tcard-role">Retired Healthcare Administrator</div>
     </div>
   </div>
+  <div style="text-align:center; margin-top: 48px;" class="reveal">
+    <a href="#" class="btn-blue">Let's Discuss Your Goals →</a>
+  </div>
   <p class="tdisc reveal">Testimonials are from current clients and may not represent all client experiences. No compensation was provided. Past performance is not a guarantee of future results.</p>
 </section>
 
@@ -972,6 +1087,9 @@
   <p class="lead reveal d2">Schedule a free, no-pressure discovery call. In 30 minutes we'll tell you exactly where you stand and what we'd recommend — no obligation required.</p>
   <a href="#" class="btn-white reveal d3">Schedule Your Free Discovery Call →</a>
   <p class="cta-sub reveal d4">No commitment. No sales pressure. Just a conversation.</p>
+  <div style="margin-top: 28px; position: relative; z-index: 1;" class="reveal d4">
+    <a href="#lead-magnet" style="color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: underline; letter-spacing: 0.04em;">Or download the free Retirement Self-Assessment first →</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -991,14 +1109,14 @@
     </div>
     <div class="footer-col">
       <h5>Company</h5>
-      <a href="#">About Us</a>
+      <a href="#about">About Us</a>
       <a href="#">Resources Library</a>
-      <a href="#">Self-Assessment</a>
-      <a href="#">Contact</a>
+      <a href="#lead-magnet">Self-Assessment</a>
+      <a href="#cta">Contact</a>
     </div>
     <div class="footer-col">
       <h5>Get In Touch</h5>
-      <a href="#">mountaingoatwealth.com</a>
+      <a href="https://mountaingoatwealth.com" target="_blank" rel="noopener">mountaingoatwealth.com</a>
       <a href="#">Utah · Texas · Wyoming</a>
       <a href="#">Schedule a Call →</a>
     </div>
@@ -1010,6 +1128,12 @@
 </footer>
 
 <script>
+  function handleLeadSubmit(e) {
+    e.preventDefault();
+    document.getElementById('assessment-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+  }
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.1 });
