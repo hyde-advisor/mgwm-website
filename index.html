@@ -355,8 +355,12 @@
     background: var(--white); padding: 40px 36px;
     border-bottom: 2px solid transparent;
     transition: border-color 0.25s, background 0.2s;
+    position: relative; overflow: hidden;
   }
   .service-card:hover { border-color: var(--blue); background: #fafafa; }
+  .service-card .service-num,
+  .service-card h3,
+  .service-card p { position: relative; z-index: 1; }
   .service-num {
     font-family: 'Merriweather', serif;
     font-size: 11px; font-weight: 700;
@@ -487,7 +491,7 @@
   .footer-ria { font-size: 10px; color: rgba(255,255,255,0.15); max-width: 500px; line-height: 1.65; text-align: right; }
 
   /* ── LEAD MAGNET ── */
-  #lead-magnet {
+  #leadmagnet {
     background: var(--mist);
     padding: 110px 80px;
     display: grid; grid-template-columns: 1fr 1fr;
@@ -551,7 +555,7 @@
   }
 
   @media (max-width: 900px) {
-    #lead-magnet { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+    #leadmagnet { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
     .lead-magnet-content { max-width: none; }
     .lead-form { padding: 32px 24px; }
   }
@@ -759,7 +763,7 @@
     <p class="hero-sub">Disciplined, personalized financial plans that protect your family, grow your wealth, and give you the confidence to retire on your terms.</p>
     <div class="hero-actions">
       <a href="#" class="btn-blue">Schedule a Discovery Call</a>
-      <a href="#lead-magnet" class="btn-outline-white">Get Free Self-Assessment</a>
+      <a href="#leadmagnet" class="btn-outline-white">Get Free Self-Assessment</a>
     </div>
   </div>
   <div class="hero-right">
@@ -780,40 +784,32 @@
   <div class="trust-item"><div class="trust-dot"></div>No Commission Conflicts on Advice</div>
 </div>
 
-<!-- LEAD MAGNET -->
-<section id="lead-magnet">
-  <div class="lead-magnet-content">
-    <div class="section-eyebrow reveal"><span></span>Free Resource</div>
-    <h2 class="reveal d1">Know Exactly Where You Stand Before Retirement</h2>
-    <p class="body-text reveal d2">Our Retirement Self-Assessment takes less than 5 minutes and gives you a clear picture of your readiness — gaps, strengths, and actionable next steps included.</p>
-    <ul class="lead-magnet-checklist reveal d3">
-      <li>Retirement readiness score</li>
-      <li>Social Security optimization timing</li>
-      <li>Tax-efficient withdrawal strategy</li>
-      <li>Actionable next steps, personalized to your situation</li>
-    </ul>
-  </div>
-  <div class="lead-form reveal d2">
-    <h3>Get Your Free Assessment</h3>
-    <p>Enter your details and we'll email the Excel file to you within 24 hours.</p>
-    <form id="assessment-form" onsubmit="handleLeadSubmit(event)">
-      <div class="form-group">
-        <label for="lead-name">First Name</label>
-        <input type="text" id="lead-name" name="name" required placeholder="Your first name">
+<!-- PAIN -->
+<section id="pain">
+  <div class="section-eyebrow reveal"><span></span>Sound Familiar?</div>
+  <h2 class="reveal d1">Most People Reach Retirement<br>Without a Real Plan</h2>
+  <p class="outcome-lead reveal d2">If any of these feel uncomfortably close to home, you're not alone — and you're not out of time.</p>
+  <div class="outcome-grid">
+    <div class="outcome-card reveal d1">
+      <div class="outcome-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </div>
-      <div class="form-group">
-        <label for="lead-email">Email Address</label>
-        <input type="email" id="lead-email" name="email" required placeholder="you@example.com">
-      </div>
-      <button type="submit" class="btn-blue">Send Me the Assessment →</button>
-    </form>
-    <div class="form-success" id="form-success">
-      <div class="form-success-icon">✓</div>
-      <h3>You're on your way.</h3>
-      <p>Check your inbox — the Retirement Self-Assessment is headed your way. We'll follow up within 24 hours to discuss your results.</p>
+      <div class="outcome-label">"I don't actually know if I'm saving enough — or when I can retire."</div>
     </div>
-    <p class="lead-form-sub">No spam. No obligation. Unsubscribe anytime.</p>
+    <div class="outcome-card reveal d2">
+      <div class="outcome-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div class="outcome-label">"A bad year in the market right before I retire could derail everything."</div>
+    </div>
+    <div class="outcome-card reveal d3">
+      <div class="outcome-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+      </div>
+      <div class="outcome-label">"I have old 401(k)s scattered across past employers and no idea what to do with them."</div>
+    </div>
   </div>
+  <a href="#" class="btn-white reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 8px;">Get a Free Second Opinion →</a>
 </section>
 
 <!-- STORY -->
@@ -830,60 +826,14 @@
   <div>
     <div class="section-eyebrow reveal"><span></span>Our Story</div>
     <h2 class="reveal d1">Built for the Climb,<br>Not the Corner Office</h2>
-    <p class="body-text reveal d2">Mountain Goat Wealth Management was built on one belief: you deserve an advisor who gets in the field with you — not one who sells you a generic plan from behind a desk.</p>
-    <p class="body-text reveal d2">After 18 years at Goldman Sachs Private Wealth, Bobby Goodman left Wall Street to build the firm he wished existed — one built for people who work hard, love adventure, and want to retire with confidence. We operate as a remote-first RIA serving clients across Utah, Texas, and Wyoming, bringing institutional discipline with a personal, accessible touch.</p>
-    <p class="body-text reveal d2" style="color: var(--black); font-weight: 500;">We are fiduciaries. That means we are legally required to act in your best interest. Full stop.</p>
+    <p class="body-text reveal d2">For 18 years, Bobby Goodman managed wealth for ultra-high-net-worth families at Goldman Sachs. He was good at it — but something bothered him.</p>
+    <p class="body-text reveal d2">The sophisticated, disciplined planning protecting the wealthiest families in the country wasn't reaching the people who needed it just as much — business owners, professionals, and families on Main Street. So in 2025, he left to build the firm he wished existed.</p>
+    <p class="body-text reveal d2">Mountain Goat operates as a fully remote RIA serving clients across Utah, Texas, and Wyoming. We bring Wall Street discipline without Wall Street's conflicts of interest.</p>
+    <p class="body-text reveal d2" style="color: var(--black); font-weight: 700;">We are fiduciaries — legally required to act in your best interest. Full stop.</p>
     <div class="hero-actions reveal d3" style="margin-top: 20px;">
       <a href="#" class="btn-blue">Schedule a Discovery Call</a>
-      <a href="#about" class="btn-outline-white" style="border-color: rgba(0,0,0,0.2); color: var(--ink-mid);">Meet the Team</a>
     </div>
-  </div>
-</section>
-
-<!-- ABOUT / TEAM -->
-<section id="about">
-  <div class="about-header">
-    <div class="section-eyebrow reveal"><span></span>Our Team</div>
-    <h2 class="reveal d1">Meet the Mountain Goat Advisors</h2>
-  </div>
-  <div class="team-grid">
-
-    <div class="team-card reveal d1">
-      <img class="team-photo" src="assets/images/headshot-bobby.png" alt="Robert Bobby Goodman">
-      <div class="team-body">
-        <div class="team-name">Robert "Bobby" Goodman</div>
-        <div class="team-title">Founder &amp; Chief Compliance Officer</div>
-        <div class="team-location">Salt Lake City, UT</div>
-        <div class="team-credential">CFP®</div>
-        <p class="team-bio">Bobby brings over 20 years of institutional wealth experience — including 18 years at Goldman Sachs Private Wealth — to every client relationship. An MBA from the University of Utah and an Economics degree from BYU ground his disciplined approach, and his reputation as a natural teacher means clients always understand the why behind every decision.</p>
-        <div class="team-hobbies">Outside the office: mountain biking, fishing, trail running</div>
-      </div>
-    </div>
-
-    <div class="team-card reveal d2">
-      <img class="team-photo" src="assets/images/headshot-cade.png" alt="Cade Hyde">
-      <div class="team-body">
-        <div class="team-name">Cade Hyde</div>
-        <div class="team-title">Financial Advisor</div>
-        <div class="team-location">Salt Lake City, UT</div>
-        <div class="team-credential" style="visibility:hidden">CFP®</div>
-        <p class="team-bio">Before joining Mountain Goat, Cade spent five years in corporate analytics — a background that shows in his diligence and precision. He excels at translating complex financial anxieties into clear, actionable plans, and clients consistently describe his communication as thoughtful and reassuring.</p>
-        <div class="team-hobbies">Outside the office: trail running, golf, cycling</div>
-      </div>
-    </div>
-
-    <div class="team-card reveal d3">
-      <img class="team-photo" src="assets/images/headshot-michael.png" alt="Michael Goodman">
-      <div class="team-body">
-        <div class="team-name">Michael Goodman</div>
-        <div class="team-title">Financial Advisor</div>
-        <div class="team-location">Houston, TX</div>
-        <div class="team-credential" style="visibility:hidden">CFP®</div>
-        <p class="team-bio">Michael spent years as a consultant managing oilfield remediation budgets and risk assessments — experience that built the calm, methodical approach he now applies to wealth management. Based in Houston, he serves Mountain Goat's Texas clients with the same organized discipline he brought to complex environmental projects.</p>
-        <div class="team-hobbies">Outside the office: hiking, disc golf, camping</div>
-      </div>
-    </div>
-
+    <p class="reveal d4" style="margin-top: 18px; font-size: 14px;">Want to meet the full team? <a href="/about" style="color: var(--blue); text-decoration: none;">Learn about our advisors →</a></p>
   </div>
 </section>
 
@@ -942,34 +892,6 @@
   </div>
 </section>
 
-<!-- OUTCOME -->
-<section id="outcome">
-  <div class="section-eyebrow reveal"><span></span>What We Help You Achieve</div>
-  <h2 class="reveal d1">The Goal Is Simple</h2>
-  <p class="outcome-lead reveal d2">A retirement where you don't have to worry about money. We handle the strategy, the protection, and the plan — so you can focus on living the life you've worked for.</p>
-  <div class="outcome-grid">
-    <div class="outcome-card reveal d1">
-      <div class="outcome-icon">
-        <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-      </div>
-      <div class="outcome-label">A growing portfolio built for your timeline and risk tolerance</div>
-    </div>
-    <div class="outcome-card reveal d2">
-      <div class="outcome-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </div>
-      <div class="outcome-label">A clear retirement income strategy you can count on for life</div>
-    </div>
-    <div class="outcome-card reveal d3">
-      <div class="outcome-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <div class="outcome-label">Insurance and protection so the unexpected doesn't derail you</div>
-    </div>
-  </div>
-  <a href="#cta" class="btn-white reveal" style="font-size: 13px; padding: 16px 44px;">Schedule Your Free Discovery Call</a>
-</section>
-
 <!-- SERVICES -->
 <section id="services">
   <div class="services-header">
@@ -981,34 +903,40 @@
   </div>
   <div class="services-grid">
     <div class="service-card reveal d1">
+      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">01</span>
       <h3>Wealth Management</h3>
-      <p>Disciplined, personalized investment management with institutional-grade strategies. We monitor your portfolio proactively and adjust as your life changes.</p>
+      <p>Institutional-grade portfolio management designed to build and preserve your wealth across every market cycle.</p>
     </div>
     <div class="service-card reveal d2">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">02</span>
       <h3>Retirement Planning</h3>
-      <p>Our 9-Step roadmap guides you from accumulation to distribution — so you don't just reach retirement, you thrive through it.</p>
+      <p>A personalized 9-step roadmap engineered to take you from accumulation to a retirement income you can count on.</p>
     </div>
     <div class="service-card reveal d3">
+      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">03</span>
       <h3>Insurance &amp; Protection</h3>
-      <p>Life insurance, annuities, and disability coverage selected to protect your family and shield your wealth from the unexpected.</p>
+      <p>Strategic life insurance and annuities selected as your fiduciary — to protect your family, not to hit a sales target.</p>
     </div>
     <div class="service-card reveal d1">
+      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">04</span>
       <h3>401(k) &amp; Employer Plans</h3>
-      <p>We optimize your workplace retirement accounts and ensure your employer plan is working as hard as the rest of your portfolio.</p>
+      <p>Your workplace retirement accounts optimized and coordinated with your broader financial strategy.</p>
     </div>
     <div class="service-card reveal d2">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">05</span>
       <h3>Financial Planning</h3>
-      <p>Comprehensive planning for taxes, estate, education, and cash flow — built around your goals, updated as your life evolves.</p>
+      <p>Tax, estate, education, and cash flow — unified into one living plan that evolves as your life does.</p>
     </div>
     <div class="service-card reveal d3">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">06</span>
       <h3>Structured Notes &amp; Alternatives</h3>
-      <p>Access to private credit, structured notes, and alternative investments typically reserved for institutional investors.</p>
+      <p>Institutional-grade alternative investments and private credit, accessible to qualified clients at every level.</p>
     </div>
   </div>
   <p class="services-note reveal">Every client gets a comprehensive plan — not a product pitch. <strong>Your first meeting is always free.</strong></p>
@@ -1080,6 +1008,42 @@
   <p class="tdisc reveal">Testimonials are from current clients and may not represent all client experiences. No compensation was provided. Past performance is not a guarantee of future results.</p>
 </section>
 
+<!-- LEAD MAGNET -->
+<section id="leadmagnet">
+  <div class="lead-magnet-content">
+    <div class="section-eyebrow reveal"><span></span>Free Resource</div>
+    <h2 class="reveal d1">Know Exactly Where You Stand Before Retirement</h2>
+    <p class="body-text reveal d2">Our Retirement Self-Assessment takes less than 5 minutes and gives you a clear picture of your readiness — gaps, strengths, and actionable next steps included.</p>
+    <ul class="lead-magnet-checklist reveal d3">
+      <li>Retirement readiness score</li>
+      <li>Social Security optimization timing</li>
+      <li>Tax-efficient withdrawal strategy</li>
+      <li>Actionable next steps, personalized to your situation</li>
+    </ul>
+  </div>
+  <div class="lead-form reveal d2">
+    <h3>Get Your Free Assessment</h3>
+    <p>Enter your details and we'll email the Excel file to you within 24 hours.</p>
+    <form id="assessment-form" onsubmit="handleLeadSubmit(event)">
+      <div class="form-group">
+        <label for="lead-name">First Name</label>
+        <input type="text" id="lead-name" name="name" required placeholder="Your first name">
+      </div>
+      <div class="form-group">
+        <label for="lead-email">Email Address</label>
+        <input type="email" id="lead-email" name="email" required placeholder="you@example.com">
+      </div>
+      <button type="submit" class="btn-blue">Send Me the Assessment →</button>
+    </form>
+    <div class="form-success" id="form-success">
+      <div class="form-success-icon">✓</div>
+      <h3>You're on your way.</h3>
+      <p>Check your inbox — the Retirement Self-Assessment is headed your way. We'll follow up within 24 hours to discuss your results.</p>
+    </div>
+    <p class="lead-form-sub">No spam. No obligation. Unsubscribe anytime.</p>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta">
   <div class="section-eyebrow reveal"><span></span>Ready to Start</div>
@@ -1088,7 +1052,7 @@
   <a href="#" class="btn-white reveal d3">Schedule Your Free Discovery Call →</a>
   <p class="cta-sub reveal d4">No commitment. No sales pressure. Just a conversation.</p>
   <div style="margin-top: 28px; position: relative; z-index: 1;" class="reveal d4">
-    <a href="#lead-magnet" style="color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: underline; letter-spacing: 0.04em;">Or download the free Retirement Self-Assessment first →</a>
+    <a href="#leadmagnet" style="color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: underline; letter-spacing: 0.04em;">Or download the free Retirement Self-Assessment first →</a>
   </div>
 </section>
 
@@ -1111,7 +1075,7 @@
       <h5>Company</h5>
       <a href="#about">About Us</a>
       <a href="#">Resources Library</a>
-      <a href="#lead-magnet">Self-Assessment</a>
+      <a href="#leadmagnet">Self-Assessment</a>
       <a href="#cta">Contact</a>
     </div>
     <div class="footer-col">
