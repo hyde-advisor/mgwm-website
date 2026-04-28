@@ -302,7 +302,7 @@
     margin-bottom: 20px;
   }
 
-  /* ── OUTCOME ── */
+  /* ── OUTCOME / PAIN ── */
   #outcome {
     background: var(--black); padding: 110px 80px;
     text-align: center;
@@ -310,6 +310,17 @@
   #outcome .section-eyebrow { justify-content: center; color: var(--blue); }
   #outcome .section-eyebrow span { background: var(--blue); }
   #outcome h2 { color: var(--white); max-width: 560px; margin: 0 auto 20px; }
+
+  #pain {
+    background: #1c1c1c; padding: 100px 80px;
+    text-align: center;
+  }
+  #pain .section-eyebrow { justify-content: center; color: var(--blue); }
+  #pain .section-eyebrow span { background: var(--blue); }
+  #pain h2 { color: var(--white); max-width: 640px; margin: 0 auto 20px; }
+  #pain .outcome-lead { color: rgba(255,255,255,0.5); }
+  #pain .outcome-card { background: #242424; border: 1px solid rgba(255,255,255,0.08); }
+  #pain .outcome-label { color: rgba(255,255,255,0.75); }
   .outcome-lead {
     font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.45);
     max-width: 580px; margin: 0 auto 64px; font-weight: 300;
@@ -695,6 +706,7 @@
     .story-pull { position: absolute; bottom: 0; right: 0; max-width: 220px; }
 
     #outcome { padding: 80px 24px; }
+    #pain { padding: 80px 24px; }
     .outcome-grid { grid-template-columns: 1fr; }
 
     #services { padding: 80px 24px; }
@@ -809,7 +821,7 @@
       <div class="outcome-label">"I have old 401(k)s scattered across past employers and no idea what to do with them."</div>
     </div>
   </div>
-  <a href="#" class="btn-white reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 8px;">Get a Free Second Opinion →</a>
+  <a href="#" class="btn-blue reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 8px;">Get a Free Second Opinion →</a>
 </section>
 
 <!-- STORY -->
