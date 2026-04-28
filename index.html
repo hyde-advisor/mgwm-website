@@ -257,10 +257,10 @@
   }
   .shorts-footer a:hover { text-decoration: underline; }
   .story-visual { position: relative; }
-  .story-img-wrap { overflow: hidden; min-height: 500px; }
+  .story-img-wrap { overflow: hidden; min-height: 520px; }
   .story-img-wrap img {
-    width: 100%; height: 100%; min-height: 500px;
-    display: block; object-fit: cover; object-position: top;
+    width: 100%; height: 100%; min-height: 520px;
+    display: block; object-fit: cover; object-position: top center;
     filter: grayscale(20%) contrast(1.05);
     transition: transform 0.6s ease;
   }
@@ -351,7 +351,7 @@
   /* ── SERVICES ── */
   #services {
     padding: 130px 80px;
-    background: var(--off-white);
+    background: #f7f7f7;
   }
   .services-header {
     display: grid; grid-template-columns: 1fr 1fr;
@@ -395,7 +395,7 @@
   .services-note strong { color: var(--black); font-weight: 600; }
 
   /* ── PROCESS ── */
-  #process { padding: 130px 80px; background: #f2f2f2; }
+  #process { padding: 130px 80px; background: var(--white); }
   .process-header { max-width: 540px; margin: 0 auto 80px; text-align: center; }
   .process-header .section-eyebrow { justify-content: center; }
   .process-header p { font-size: 15px; color: var(--ink-mid); font-weight: 300; line-height: 1.75; margin-top: 16px; }
@@ -428,7 +428,7 @@
   .process-step p { font-size: 14px; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
 
   /* ── TESTIMONIALS ── */
-  #testimonials { padding: 130px 80px; background: var(--off-white); }
+  #testimonials { padding: 100px 80px 80px; background: var(--off-white); }
   .testimonials-header { margin-bottom: 56px; }
   .testimonials-header h2 { margin-bottom: 0; }
   .tgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
@@ -447,7 +447,7 @@
 
   /* ── CTA ── */
   #cta {
-    background: var(--blue); padding: 120px 80px;
+    background: var(--blue); padding: 130px 80px;
     text-align: center; position: relative; overflow: hidden;
   }
   #cta::before {
@@ -499,14 +499,19 @@
     margin-bottom: 10px; transition: color 0.15s;
   }
   .footer-col a:hover { color: var(--white); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: start; gap: 48px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: start; gap: 48px; flex-wrap: wrap; }
   .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
   .footer-ria { font-size: 10px; color: rgba(255,255,255,0.15); max-width: 500px; line-height: 1.65; text-align: right; }
+  .footer-compliance {
+    flex: 0 0 100%; font-size: 11px; color: rgba(255,255,255,0.2);
+    line-height: 1.75; margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
 
   /* ── LEAD MAGNET ── */
   #leadmagnet {
-    background: var(--mist);
-    padding: 110px 80px;
+    background: #e6f4f9;
+    padding: 100px 80px;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 80px; align-items: center;
   }
@@ -830,8 +835,7 @@
 <section id="story">
   <div class="story-visual reveal">
     <div class="story-img-wrap">
-      <!-- REPLACE WITH BOBBY HEADSHOT — minimum 600x700px, professional, outdoor or office setting -->
-      <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=700&q=80" alt="Mountain Goat advisors">
+      <img src="assets/images/headshot-bobby.png" alt="Bobby Goodman, Founder of Mountain Goat Wealth Management">
     </div>
     <div class="story-pull">
       <p>"My only regret is not getting started earlier."</p>
@@ -1026,7 +1030,7 @@
 <!-- LEAD MAGNET -->
 <section id="leadmagnet">
   <div class="lead-magnet-content">
-    <div class="section-eyebrow reveal"><span></span>Free Resource</div>
+    <div class="section-eyebrow reveal" style="font-weight:700;"><span></span>Free Resource</div>
     <h2 class="reveal d1">Know Exactly Where You Stand Before Retirement</h2>
     <p class="body-text reveal d2">Our Retirement Self-Assessment takes less than 5 minutes and gives you a clear picture of your readiness — gaps, strengths, and actionable next steps included.</p>
     <ul class="lead-magnet-checklist reveal d3">
@@ -1103,6 +1107,7 @@
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 Mountain Goat Wealth Management. All rights reserved.</p>
     <p class="footer-ria">Mountain Goat Wealth Management is a Registered Investment Advisor. Investment advisory services involve risk, including possible loss of principal. This website is for informational purposes only and does not constitute investment advice.</p>
+    <p class="footer-compliance">Advisory services are offered through Mountain Goat Wealth Management LLC, an Investment Advisor in the States of Utah, Texas, and Wyoming. Insurance products and services are offered through Simplicity Allegis. Mountain Goat Wealth Management LLC and Simplicity Allegis are unaffiliated entities.<br><br>All content is for information purposes only. It is not intended to provide any tax or legal advice or provide the basis for any financial decisions. Nor is it intended to be a projection of current or future performance or indication of future results.<br><br>Opinions expressed herein are solely those of Mountain Goat Wealth Management LLC and our editorial staff. The information contained in this material has been derived from sources believed to be reliable but is not guaranteed as to accuracy and completeness and does not purport to be a complete analysis of the materials discussed. All information and ideas should be discussed in detail with your individual adviser prior to implementation. Being registered as an investment advisor does not imply a certain level of skill or training.<br><br>The information contained herein should in no way be construed or interpreted as a solicitation to sell or offer to sell advisory services to any residents of any State other than the State of Utah, Texas, or Wyoming, or where otherwise legally permitted.<br><br>Images and photographs are included for the sole purpose of visually enhancing the website. None of them are photographs of current or former Clients. They should not be construed as an endorsement or testimonial from any of the persons in the photograph.<br><br>Purchases are subject to suitability. This requires a review of an investor's objective, risk tolerance, and time horizons. Investing always involves risk and possible loss of capital.</p>
   </div>
 </footer>
 

@@ -277,9 +277,14 @@
     margin-bottom: 10px; transition: color 0.15s;
   }
   .footer-col a:hover { color: var(--white); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: start; gap: 48px; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: start; gap: 48px; flex-wrap: wrap; }
   .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
   .footer-ria { font-size: 10px; color: rgba(255,255,255,0.15); max-width: 500px; line-height: 1.65; text-align: right; }
+  .footer-compliance {
+    flex: 0 0 100%; font-size: 11px; color: rgba(255,255,255,0.2);
+    line-height: 1.75; margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
 
   /* ── SCROLL REVEAL ── */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -487,6 +492,7 @@
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 Mountain Goat Wealth Management. All rights reserved.</p>
     <p class="footer-ria">Mountain Goat Wealth Management is a Registered Investment Advisor. Investment advisory services involve risk, including possible loss of principal. This website is for informational purposes only and does not constitute investment advice.</p>
+    <p class="footer-compliance">Advisory services are offered through Mountain Goat Wealth Management LLC, an Investment Advisor in the States of Utah, Texas, and Wyoming. Insurance products and services are offered through Simplicity Allegis. Mountain Goat Wealth Management LLC and Simplicity Allegis are unaffiliated entities.<br><br>All content is for information purposes only. It is not intended to provide any tax or legal advice or provide the basis for any financial decisions. Nor is it intended to be a projection of current or future performance or indication of future results.<br><br>Opinions expressed herein are solely those of Mountain Goat Wealth Management LLC and our editorial staff. The information contained in this material has been derived from sources believed to be reliable but is not guaranteed as to accuracy and completeness and does not purport to be a complete analysis of the materials discussed. All information and ideas should be discussed in detail with your individual adviser prior to implementation. Being registered as an investment advisor does not imply a certain level of skill or training.<br><br>The information contained herein should in no way be construed or interpreted as a solicitation to sell or offer to sell advisory services to any residents of any State other than the State of Utah, Texas, or Wyoming, or where otherwise legally permitted.<br><br>Images and photographs are included for the sole purpose of visually enhancing the website. None of them are photographs of current or former Clients. They should not be construed as an endorsement or testimonial from any of the persons in the photograph.<br><br>Purchases are subject to suitability. This requires a review of an investor's objective, risk tolerance, and time horizons. Investing always involves risk and possible loss of capital.</p>
   </div>
 </footer>
 
