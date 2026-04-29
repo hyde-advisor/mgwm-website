@@ -415,14 +415,63 @@
   #pain .section-eyebrow { justify-content: center; color: var(--blue); }
   #pain .section-eyebrow span { background: var(--blue); }
   #pain h2 { color: var(--white); max-width: 640px; margin: 0 auto 20px; }
-  #pain .outcome-lead { color: rgba(255,255,255,0.5); }
-  #pain .outcome-card { background: #242424; border: 1px solid rgba(255,255,255,0.08); }
-  #pain .outcome-label { color: rgba(255,255,255,0.75); }
+  .pain-lead {
+    font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.45);
+    max-width: 580px; margin: 0 auto 0; font-weight: 300;
+  }
+  .pain-strip {
+    width: 100%; height: 420px; position: relative;
+    overflow: hidden; margin-bottom: 64px; margin-top: 64px;
+  }
+  .pain-strip img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: center 40%;
+    filter: grayscale(15%) contrast(1.05); display: block;
+  }
+  .pain-strip-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(28,28,28,0.2), rgba(28,28,28,0.7));
+  }
+  .pain-strip-text {
+    position: absolute; bottom: 48px; left: 0; right: 0;
+    text-align: center;
+  }
+  .pain-strip-text p {
+    font-family: 'Merriweather', serif; font-style: italic;
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: rgba(255,255,255,0.85); line-height: 1.5;
+    max-width: 680px; margin: 0 auto;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+  .outcome-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; max-width: 860px; margin: 0 auto 56px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .outcome-card {
+    background: #242424; padding: 48px 36px;
+    transition: background 0.25s;
+  }
+  .outcome-card:hover { background: #2e2e2e; }
+  .outcome-icon {
+    width: 48px; height: 48px; margin: 0 auto 20px;
+    border: 1px solid rgba(0,126,167,0.4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .outcome-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.5; }
+  .outcome-label {
+    font-size: 13px; color: rgba(255,255,255,0.75);
+    line-height: 1.65; letter-spacing: 0.01em;
+  }
+  .pain-footer {
+    text-align: center; background: #1c1c1c;
+  }
   .pain-story {
     background: rgba(0,126,167,0.08);
     border-left: 3px solid #007ea7;
     padding: 28px 32px; margin-top: 40px;
-    max-width: 860px; margin-left: auto; margin-right: auto;
+    margin-left: auto; margin-right: auto;
     text-align: left;
   }
   .pain-story-label {
@@ -437,31 +486,6 @@
   .pain-story-disc {
     color: rgba(255,255,255,0.45); font-size: 14px; font-style: italic;
     margin: 16px 0 0;
-  }
-  .outcome-lead {
-    font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.45);
-    max-width: 580px; margin: 0 auto 64px; font-weight: 300;
-  }
-  .outcome-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 1px; max-width: 860px; margin: 0 auto 56px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .outcome-card {
-    background: var(--black); padding: 48px 36px;
-    transition: background 0.25s;
-  }
-  .outcome-card:hover { background: #242424; }
-  .outcome-icon {
-    width: 48px; height: 48px; margin: 0 auto 20px;
-    border: 1px solid rgba(0,126,167,0.4);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .outcome-icon svg { width: 22px; height: 22px; stroke: var(--blue); fill: none; stroke-width: 1.5; }
-  .outcome-label {
-    font-size: 13px; color: rgba(255,255,255,0.5);
-    line-height: 1.65; letter-spacing: 0.01em;
   }
 
   /* ── SERVICES ── */
@@ -965,6 +989,9 @@
 
     #outcome { padding: 80px 24px; }
     #pain { padding: 80px 24px; }
+    .pain-strip { height: 280px; }
+    .pain-strip-text { bottom: 28px; }
+    .pain-strip-text p { font-size: 16px; padding: 0 20px; }
     .outcome-grid { grid-template-columns: 1fr; }
 
     #services { padding: 80px 24px; }
@@ -1036,7 +1063,7 @@
     <a href="#leadmagnet" style="display:inline-block;margin-top:18px;font-size:14px;color:rgba(255,255,255,0.55);text-decoration:none;font-weight:300;" onmouseover="this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Not ready yet? Start with our complimentary Retirement Self-Assessment →</a>
   </div>
   <div class="hero-right">
-    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Mountain summit">
+    <img src="assets/images/climber-hero.jpg" alt="Mountain summit">
     <div class="hero-stats">
       <a href="https://www.google.com/maps/place/Mountain+Goat+Wealth+Management/@40.6444706,-111.8803313,749m/data=!3m1!1e3!4m8!3m7!1s0x87528995af8fef39:0xf4b35013eaed70e5!8m2!3d40.6444666!4d-111.8777564!9m1!1b1!16s%2Fg%2F11ygfdf25s?entry=ttu&g_ep=EgoyMDI2MDQyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="stat"><div class="stat-num">5.0 <span class="stat-star">★</span></div><div class="stat-label">Google Reviews</div></a>
       <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Fiduciary</div></div>
@@ -1058,7 +1085,14 @@
 <section id="pain">
   <div class="section-eyebrow reveal"><span></span>Sound Familiar?</div>
   <h2 class="reveal d1">Most People Reach Retirement<br>Without a Real Plan</h2>
-  <p class="outcome-lead reveal d2">If any of these feel uncomfortably close to home, you're not alone — and you're not out of time.</p>
+  <p class="pain-lead reveal d2">If any of these feel uncomfortably close to home, you're not alone — and you're not out of time.</p>
+  <div class="pain-strip reveal">
+    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&q=80" alt="Person standing at a mountain crossroads looking toward the horizon">
+    <div class="pain-strip-overlay"></div>
+    <div class="pain-strip-text">
+      <p>"The difference between a confident retirement and an uncertain one is rarely about how much you've saved — it's about whether anyone has ever looked at the full picture."</p>
+    </div>
+  </div>
   <div class="outcome-grid">
     <div class="outcome-card reveal d1">
       <div class="outcome-icon">
@@ -1079,12 +1113,14 @@
       <div class="outcome-label">"I have old 401(k)s scattered across past employers and no idea what to do with them."</div>
     </div>
   </div>
-  <div class="pain-story reveal">
-    <div class="pain-story-label">A Common Story</div>
-    <p class="pain-story-body">We recently worked with a couple who came to us at 61 — just four years from their target retirement date. They had no Social Security timing strategy, three unconsolidated accounts from previous employers, and no coordinated withdrawal plan. By the time we built their roadmap, they realized they had been on track to leave more than $40,000 in Social Security benefits on the table simply by claiming at the wrong time. That window had been quietly closing for years while they waited to "get around to it." We got it back. But not everyone reaches us in time.</p>
-    <p class="pain-story-disc">Results vary based on individual circumstances. This example is for illustrative purposes only and does not represent a guarantee of future outcomes.</p>
+  <div class="pain-footer">
+    <div class="pain-story reveal">
+      <div class="pain-story-label">A Common Story</div>
+      <p class="pain-story-body">We recently worked with a couple who came to us at 61 — just four years from their target retirement date. They had no Social Security timing strategy, three unconsolidated accounts from previous employers, and no coordinated withdrawal plan. By the time we built their roadmap, they realized they had been on track to leave more than $40,000 in Social Security benefits on the table simply by claiming at the wrong time. That window had been quietly closing for years while they waited to "get around to it." We got it back. But not everyone reaches us in time.</p>
+      <p class="pain-story-disc">Results vary based on individual circumstances. This example is for illustrative purposes only and does not represent a guarantee of future outcomes.</p>
+    </div>
+    <a href="#" class="btn-blue reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 40px;">Claim Your Complimentary Consultation</a>
   </div>
-  <a href="#" class="btn-blue reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 8px;">Claim Your Complimentary Consultation</a>
 </section>
 
 <!-- STORY -->
