@@ -98,6 +98,11 @@
     margin-bottom: 30px;
   }
   h1 em { font-style: italic; color: var(--blue); }
+  .hero-urgency {
+    font-family: 'Merriweather', serif; font-style: italic; font-weight: 400;
+    font-size: clamp(18px, 2.2vw, 24px); line-height: 1.4;
+    color: rgba(255,255,255,0.7); margin-bottom: 20px;
+  }
   .hero-sub {
     font-size: 18px; line-height: 1.9;
     color: rgba(255,255,255,0.55);
@@ -271,18 +276,34 @@
   }
   .shorts-scroll::-webkit-scrollbar { display: none; }
   .short-card {
-    flex: 0 0 420px; width: 420px;
+    flex: 0 0 360px; width: 360px;
     background: var(--white);
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     scroll-snap-align: start; overflow: hidden;
   }
-  .short-embed {
-    position: relative; width: 100%; padding-bottom: 177.78%;
-    height: 0; overflow: hidden;
+  .short-thumb {
+    position: relative; display: block; width: 100%;
+    aspect-ratio: 9/16; overflow: hidden;
   }
-  .short-embed iframe {
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%; border: none;
+  .short-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .short-play {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .short-play::after {
+    content: '';
+    display: block;
+    width: 0; height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 18px solid var(--blue);
+    margin-left: 4px;
   }
   .short-info { padding: 20px 22px 24px; }
   .short-title {
@@ -597,10 +618,13 @@
   /* ── LEAD MAGNET ── */
   #leadmagnet {
     background: #e6f4f9;
-    padding: 100px 80px;
+    padding: 120px 80px;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 80px; align-items: center;
   }
+  #leadmagnet .section-eyebrow { color: #007ea7; }
+  #leadmagnet .section-eyebrow span { background: #007ea7; }
+  #leadmagnet h2 { color: #1c1c1c; font-size: clamp(32px, 4vw, 48px); }
   .lead-magnet-content { max-width: 480px; }
   .lead-magnet-checklist {
     list-style: none; margin-bottom: 32px;
@@ -866,6 +890,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow"><span></span>Fiduciary Wealth Advisors · Utah · Texas · Wyoming</div>
     <h1>Reach Your<br><em>Retirement</em><br>Summit</h1>
+    <p class="hero-urgency">"Every month without a plan is a month you won't get back."</p>
     <p class="hero-sub">Disciplined, personalized financial plans that protect your family, grow your wealth, and give you the confidence to retire on your terms.</p>
     <div class="hero-actions">
       <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
@@ -989,21 +1014,33 @@
   </div>
   <div class="shorts-scroll">
     <div class="short-card">
-      <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/PcwhxTgVnxI?autoplay=1&mute=1&loop=1&playlist=PcwhxTgVnxI" title="5 Ways to Invest for Income" allowfullscreen allow="autoplay"></iframe>
-      </div>
+      <a href="https://www.youtube.com/shorts/j82s-zIePt0" target="_blank" rel="noopener" class="short-thumb">
+        <img src="https://img.youtube.com/vi/j82s-zIePt0/hqdefault.jpg" alt="Do You Have a Forgotten 401(k)?">
+        <div class="short-play"></div>
+      </a>
       <div class="short-info">
-        <div class="short-title">5 Ways to Invest for Income</div>
-        <div class="short-desc">Practical strategies designed to generate reliable cash flow from your portfolio</div>
+        <div class="short-title">Do You Have a Forgotten 401(k)?</div>
+        <div class="short-desc">How to find lost retirement accounts from previous employers and what to do with them.</div>
       </div>
     </div>
     <div class="short-card">
-      <div class="short-embed">
-        <iframe src="https://www.youtube.com/embed/99X1DWi12Xs?autoplay=1&mute=1&loop=1&playlist=99X1DWi12Xs" title="Our Story" allowfullscreen allow="autoplay"></iframe>
-      </div>
+      <a href="https://www.youtube.com/shorts/TlHRNgxb7oA" target="_blank" rel="noopener" class="short-thumb">
+        <img src="https://img.youtube.com/vi/TlHRNgxb7oA/hqdefault.jpg" alt="What Is an Income Structured Note?">
+        <div class="short-play"></div>
+      </a>
       <div class="short-info">
-        <div class="short-title">Our Story</div>
-        <div class="short-desc">How an 18-year Goldman Sachs career led to building a firm for Main Street families</div>
+        <div class="short-title">What Is an Income Structured Note?</div>
+        <div class="short-desc">A plain-language breakdown of one of the most powerful — and least understood — income tools available to investors today.</div>
+      </div>
+    </div>
+    <div class="short-card">
+      <a href="https://www.youtube.com/shorts/PcwhxTgVnxI" target="_blank" rel="noopener" class="short-thumb">
+        <img src="https://img.youtube.com/vi/PcwhxTgVnxI/hqdefault.jpg" alt="5 Ways to Invest for Income">
+        <div class="short-play"></div>
+      </a>
+      <div class="short-info">
+        <div class="short-title">5 Ways to Invest for Income</div>
+        <div class="short-desc">Practical strategies designed to generate reliable cash flow from your portfolio in retirement.</div>
       </div>
     </div>
   </div>
