@@ -196,6 +196,49 @@
     gap: 80px; align-items: center;
     background: var(--white);
   }
+  #team-strip {
+    background: #f7f7f7; padding: 80px 80px; text-align: center;
+  }
+  #team-strip .section-eyebrow { justify-content: center; }
+  #team-strip h2 {
+    font-family: 'Merriweather', serif; font-weight: 700; color: #1c1c1c;
+    font-size: clamp(28px, 3vw, 38px); margin-bottom: 12px;
+  }
+  .team-sub {
+    font-family: 'Lato', sans-serif; font-size: 16px; color: #666666;
+    max-width: 520px; margin: 0 auto 56px;
+  }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 40px; max-width: 900px; margin: 0 auto;
+  }
+  .team-member { text-align: center; }
+  .team-photo {
+    width: 120px; height: 120px; border-radius: 50%;
+    object-fit: cover; object-position: top center;
+    border: 3px solid #007ea7;
+    display: block; margin: 0 auto 16px;
+  }
+  .team-name {
+    font-family: 'Merriweather', serif; font-weight: 700;
+    color: #1c1c1c; font-size: 18px; margin-bottom: 4px;
+  }
+  .team-title {
+    font-family: 'Lato', sans-serif; color: #007ea7;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .team-bio {
+    font-family: 'Lato', sans-serif; color: #666666;
+    font-size: 14px; line-height: 1.6; margin: 0;
+  }
+  .team-link {
+    display: inline-block; margin-top: 40px;
+    font-family: 'Lato', sans-serif; font-size: 14px;
+    color: var(--blue); text-decoration: none;
+  }
+  .team-link:hover { text-decoration: underline; }
+
   #peer-validation {
     padding: 100px 80px;
     display: grid; grid-template-columns: 45fr 55fr;
@@ -556,6 +599,48 @@
   }
   .google-reviews-link:hover { text-decoration: underline; }
 
+  /* ── FAQ ── */
+  #faq {
+    background: #1c1c1c; padding: 120px 80px; text-align: center;
+  }
+  #faq .section-eyebrow { justify-content: center; color: var(--blue); }
+  #faq .section-eyebrow span { background: var(--blue); }
+  #faq h2 {
+    font-family: 'Merriweather', serif; font-weight: 700; color: var(--white);
+    font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px;
+  }
+  .faq-sub {
+    font-family: 'Lato', sans-serif; font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    max-width: 520px; margin: 0 auto 64px;
+  }
+  .faq-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; background: rgba(255,255,255,0.05);
+    max-width: 960px; margin: 0 auto;
+    text-align: left;
+  }
+  .faq-item {
+    background: #1c1c1c; padding: 32px 36px;
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.2s;
+  }
+  .faq-item:hover { background: #242424; }
+  .faq-q {
+    font-family: 'Merriweather', serif; font-weight: 700;
+    color: var(--white); font-size: 17px; line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .faq-a {
+    font-family: 'Lato', sans-serif; font-size: 14px;
+    color: rgba(255,255,255,0.45); line-height: 1.8;
+    font-weight: 300; margin: 0;
+  }
+  .faq-tagline {
+    margin-top: 16px; font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+
   /* ── CTA ── */
   #cta {
     background: var(--blue); padding: 130px 80px;
@@ -623,73 +708,120 @@
   #leadmagnet {
     background: #e6f4f9;
     padding: 120px 80px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: center;
+    text-align: center;
   }
-  #leadmagnet .section-eyebrow { color: #007ea7; }
+  #leadmagnet .section-eyebrow { justify-content: center; color: #007ea7; }
   #leadmagnet .section-eyebrow span { background: #007ea7; }
-  #leadmagnet h2 { color: #1c1c1c; font-size: clamp(32px, 4vw, 48px); }
-  .lead-magnet-content { max-width: 480px; }
-  .lead-magnet-checklist {
-    list-style: none; margin-bottom: 32px;
+  #leadmagnet > h2 {
+    font-family: 'Merriweather', serif; font-weight: 700; color: #1c1c1c;
+    font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 12px;
   }
-  .lead-magnet-checklist li {
-    display: flex; align-items: flex-start; gap: 12px;
-    font-size: 15px; color: var(--ink-mid);
-    margin-bottom: 14px; line-height: 1.5;
+  .lm-sub {
+    font-family: 'Lato', sans-serif; font-size: 16px; color: #666666;
+    max-width: 560px; margin: 0 auto 56px;
   }
-  .lead-magnet-checklist li::before {
-    content: '✓';
-    display: flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px;
-    background: var(--blue); color: var(--white);
-    border-radius: 50%; font-size: 11px; font-weight: 700;
+  .lm-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 32px; text-align: left;
   }
-  .lead-form {
-    background: var(--white); padding: 40px;
-    border: 1px solid var(--gray-mid); border-top: 3px solid var(--blue);
+  .lm-card {
+    padding: 48px 40px;
+    border-top: 3px solid #007ea7;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
   }
-  .lead-form h3 {
-    font-family: 'Merriweather', serif;
-    font-size: 20px; margin-bottom: 8px; color: var(--black);
+  .lm-card-light { background: var(--white); }
+  .lm-card-dark {
+    background: #1c1c1c;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    position: relative;
   }
-  .lead-form > p {
-    font-size: 14px; color: var(--ink-lt);
-    margin-bottom: 24px; line-height: 1.6;
+  .lm-badge {
+    position: absolute; top: 20px; right: 20px;
+    background: #007ea7; color: var(--white);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 6px 12px;
   }
-  .form-group { margin-bottom: 16px; }
-  .form-group label {
-    display: block; font-size: 11px; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ink-mid); margin-bottom: 8px;
+  .lm-label {
+    color: #007ea7; font-family: 'Lato', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 16px; display: block;
   }
-  .form-group input {
+  .lm-card h3 {
+    font-family: 'Merriweather', serif; font-weight: 700;
+    font-size: 24px; line-height: 1.2; margin-bottom: 12px;
+  }
+  .lm-card-light h3 { color: #1c1c1c; }
+  .lm-card-dark h3 { color: var(--white); }
+  .lm-subtitle {
+    font-family: 'Merriweather', serif; font-style: italic;
+    font-size: 15px; color: #007ea7; margin-bottom: 20px;
+  }
+  .lm-body {
+    font-family: 'Lato', sans-serif; font-size: 15px; line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .lm-card-light .lm-body { color: #666666; }
+  .lm-card-dark .lm-body { color: rgba(255,255,255,0.55); }
+  .lm-bullets {
+    list-style: none; padding: 0; margin: 0 0 28px;
+  }
+  .lm-bullets li {
+    font-family: 'Lato', sans-serif; font-size: 14px; line-height: 1.8;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .lm-card-light .lm-bullets li { color: #666666; }
+  .lm-card-dark .lm-bullets li { color: rgba(255,255,255,0.55); }
+  .lm-bullets li::before {
+    content: ''; display: block; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #007ea7;
+  }
+  .lm-input {
     width: 100%; padding: 14px 16px; font-size: 15px;
     font-family: 'Lato', sans-serif;
-    border: 1px solid var(--gray-mid); background: var(--white);
-    transition: border-color 0.2s;
+    border: 1px solid var(--gray-mid);
+    transition: border-color 0.2s; margin-bottom: 12px;
+    box-sizing: border-box;
   }
-  .form-group input:focus { outline: none; border-color: var(--blue); }
-  .lead-form .btn-blue {
-    width: 100%; text-align: center;
-    cursor: pointer; border: none; font-family: inherit;
+  .lm-card-dark .lm-input {
+    background: #2a2a2a; border-color: rgba(255,255,255,0.12);
+    color: var(--white);
   }
+  .lm-card-dark .lm-input::placeholder { color: rgba(255,255,255,0.35); }
+  .lm-input:focus { outline: none; border-color: #007ea7; }
+  .lm-btn-blue {
+    width: 100%; padding: 16px; font-size: 14px; font-weight: 700;
+    font-family: 'Lato', sans-serif; letter-spacing: 0.04em;
+    background: #007ea7; color: var(--white);
+    border: none; cursor: pointer; transition: background 0.2s;
+  }
+  .lm-btn-blue:hover { background: var(--blue-dk); }
+  .lm-btn-white {
+    width: 100%; padding: 16px; font-size: 14px; font-weight: 700;
+    font-family: 'Lato', sans-serif; letter-spacing: 0.04em;
+    background: var(--white); color: #007ea7;
+    border: none; cursor: pointer; transition: background 0.2s, color 0.2s;
+  }
+  .lm-btn-white:hover { background: #f0f0f0; }
+  .lm-fine-print {
+    margin-top: 12px; font-size: 11px; text-align: center;
+  }
+  .lm-card-light .lm-fine-print { color: #999999; }
+  .lm-card-dark .lm-fine-print { color: rgba(255,255,255,0.3); }
   .form-success { display: none; text-align: center; padding: 20px 0; }
   .form-success.show { display: block; }
-  .form-success-icon {
-    font-size: 32px; color: var(--blue); margin-bottom: 12px;
-  }
+  .form-success-icon { font-size: 32px; color: var(--blue); margin-bottom: 12px; }
   .form-success h3 { color: var(--blue); margin-bottom: 12px; }
   .form-success p { font-size: 14px; color: var(--ink-mid); line-height: 1.7; }
-  .lead-form-sub {
-    margin-top: 16px; font-size: 11px;
-    color: var(--ink-lt); text-align: center;
-  }
 
   @media (max-width: 900px) {
-    #leadmagnet { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
-    .lead-magnet-content { max-width: none; }
-    .lead-form { padding: 32px 24px; }
+    #faq { padding: 80px 24px; }
+    .faq-grid { grid-template-columns: 1fr; }
+    #leadmagnet { padding: 80px 24px; }
+    .lm-grid { grid-template-columns: 1fr; }
+    .lm-card { padding: 36px 28px; }
   }
 
   /* ── ABOUT / TEAM ── */
@@ -820,6 +952,8 @@
     .trust-item:nth-child(odd) { border-left: 1px solid rgba(255,255,255,0.07); }
 
     #story { grid-template-columns: 1fr; gap: 56px; padding: 80px 24px; }
+    #team-strip { padding: 60px 24px; }
+    .team-grid { grid-template-columns: 1fr; gap: 40px; }
     #peer-validation { grid-template-columns: 1fr; gap: 48px; padding: 80px 24px; }
     #video { grid-template-columns: 1fr; gap: 48px; padding: 80px 24px; }
     #shorts { padding: 60px 24px; }
@@ -880,7 +1014,6 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navlinks">
-    <li><a href="about.html">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#process">How It Works</a></li>
     <li><a href="#testimonials">Reviews</a></li>
@@ -975,6 +1108,34 @@
     </div>
     <p class="reveal d4" style="margin-top: 18px; font-size: 14px;">Want to meet the full team? <a href="/about" style="color: var(--blue); text-decoration: none;">Learn about our advisors →</a></p>
   </div>
+</section>
+
+<!-- TEAM STRIP -->
+<section id="team-strip">
+  <div class="section-eyebrow reveal"><span></span>The Team</div>
+  <h2 class="reveal d1">The Advisors Behind the Climb</h2>
+  <p class="team-sub reveal d2">A remote-first team of fiduciaries serving clients across Utah, Texas, and Wyoming.</p>
+  <div class="team-grid">
+    <div class="team-member reveal d1">
+      <img src="assets/images/headshot-bobby.png" alt="Robert 'Bobby' Goodman" class="team-photo">
+      <div class="team-name">Robert 'Bobby' Goodman</div>
+      <div class="team-title">Founder &amp; Chief Compliance Officer</div>
+      <p class="team-bio">18 years at Goldman Sachs Private Wealth. Salt Lake City, UT.</p>
+    </div>
+    <div class="team-member reveal d2">
+      <img src="assets/images/headshot-cade.png" alt="Cade Hyde" class="team-photo">
+      <div class="team-name">Cade Hyde</div>
+      <div class="team-title">Financial Advisor</div>
+      <p class="team-bio">Corporate analytics background. Specializes in clear, actionable planning. Salt Lake City, UT.</p>
+    </div>
+    <div class="team-member reveal d3">
+      <img src="assets/images/headshot-michael.png" alt="Michael Goodman" class="team-photo">
+      <div class="team-name">Michael Goodman</div>
+      <div class="team-title">Financial Advisor</div>
+      <p class="team-bio">Energy sector consulting background. Serving Mountain Goat's Texas clients. Houston, TX.</p>
+    </div>
+  </div>
+  <a href="about.html" class="team-link reveal">Learn more about our team →</a>
 </section>
 
 <!-- PEER VALIDATION -->
@@ -1166,39 +1327,89 @@
   <p class="tdisc reveal">Testimonials are from current clients and may not represent all client experiences. No compensation was provided. Past performance is not a guarantee of future results.</p>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-eyebrow reveal"><span></span>Common Questions</div>
+  <h2 class="reveal d1">We've Heard Every Hesitation</h2>
+  <p class="faq-sub reveal d2">Here are the questions people almost always ask before their first meeting.</p>
+  <div class="faq-grid">
+    <div class="faq-item reveal d1">
+      <p class="faq-q">I already have a financial advisor. Why would I switch?</p>
+      <p class="faq-a">When did your advisor last call you proactively? If the answer is months — or you can't remember — that's worth exploring. As fiduciaries, we are legally required to act in your best interest. Not all advisors are held to that standard. A second opinion costs you nothing.</p>
+    </div>
+    <div class="faq-item reveal d2">
+      <p class="faq-q">What does 'fiduciary' actually mean for me?</p>
+      <p class="faq-a">It means we are legally obligated to put your interests above our own — always. We cannot recommend a product because it pays us a higher commission. Every recommendation must be in your best interest. Many advisors are not bound by this standard. We are.</p>
+    </div>
+    <div class="faq-item reveal d1">
+      <p class="faq-q">Do I need a certain amount invested to work with you?</p>
+      <p class="faq-a">We work with clients at various stages of the climb — from early-career professionals building their foundation to retirees navigating distribution. The most important thing isn't the number you bring; it's whether you're serious about a plan. Our complimentary consultation is the right place to start that conversation.</p>
+    </div>
+    <div class="faq-item reveal d2">
+      <p class="faq-q">I've tried financial planning before and it didn't stick.</p>
+      <p class="faq-a">Static plans become obsolete the moment life changes. Our approach is dynamic — we revisit your plan at key milestones and reach out proactively when something needs to change. A plan that sits in a drawer isn't a plan. Ours are built to be lived.</p>
+    </div>
+    <div class="faq-item reveal d1">
+      <p class="faq-q">How are you different from a robo-advisor or a big bank?</p>
+      <p class="faq-a">A robo-advisor manages a portfolio. A big-bank advisor often sells products. We build a comprehensive, personalized financial strategy — one that coordinates your investments, insurance, tax planning, and retirement income into a single plan. And we proactively manage it as your life changes.</p>
+    </div>
+    <div class="faq-item reveal d2">
+      <p class="faq-q">Can you work with me if I'm not in Utah, Texas, or Wyoming?</p>
+      <p class="faq-a">We are currently licensed in Utah, Texas, and Wyoming and are actively pursuing additional state registrations. If you're outside those states, reach out anyway — we can let you know our timeline and keep you informed when your state becomes available.</p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 56px;" class="reveal">
+    <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
+    <p class="faq-tagline">No commitment. No sales pressure. A fiduciary conversation about your future.</p>
+  </div>
+</section>
+
 <!-- LEAD MAGNET -->
 <section id="leadmagnet">
-  <div class="lead-magnet-content">
-    <div class="section-eyebrow reveal" style="font-weight:700;"><span></span>Free Resource</div>
-    <h2 class="reveal d1">Know Exactly Where You Stand Before Retirement</h2>
-    <p class="body-text reveal d2">Our Retirement Self-Assessment takes less than 5 minutes and gives you a clear picture of your readiness — gaps, strengths, and actionable next steps included.</p>
-    <ul class="lead-magnet-checklist reveal d3">
-      <li>Retirement readiness score</li>
-      <li>Social Security optimization timing</li>
-      <li>Tax-efficient withdrawal strategy</li>
-      <li>Actionable next steps, personalized to your situation</li>
-    </ul>
-  </div>
-  <div class="lead-form reveal d2">
-    <h3>Get Your Free Assessment</h3>
-    <p>Enter your details and we'll email the Excel file to you within 24 hours.</p>
-    <form id="assessment-form" onsubmit="handleLeadSubmit(event)">
-      <div class="form-group">
-        <label for="lead-name">First Name</label>
-        <input type="text" id="lead-name" name="name" required placeholder="Your first name">
+  <div class="section-eyebrow reveal"><span></span>Free Resources</div>
+  <h2 class="reveal d1">Take the Next Step — At Your Own Pace</h2>
+  <p class="lm-sub reveal d2">Not everyone is ready to pick up the phone. We get it. Start with one of these two resources — both are complimentary, both are genuinely useful.</p>
+  <div class="lm-grid">
+    <div class="lm-card lm-card-light reveal d1">
+      <span class="lm-label">Retirement Tool</span>
+      <h3>Retirement Self-Assessment</h3>
+      <p class="lm-body">A 5-minute assessment that maps your retirement readiness across all 9 stages of the Mountain Goat Climb framework. See exactly where you stand — and where your biggest gaps are.</p>
+      <ul class="lm-bullets">
+        <li>Retirement readiness score</li>
+        <li>Social Security optimization timing</li>
+        <li>Tax-efficient withdrawal strategy</li>
+        <li>Personalized next steps</li>
+      </ul>
+      <form id="assessment-form" onsubmit="handleLeadSubmit(event)">
+        <input type="text" id="lead-name" name="name" required placeholder="First Name" class="lm-input">
+        <input type="email" id="lead-email" name="email" required placeholder="Email Address" class="lm-input">
+        <button type="submit" class="lm-btn-blue">Send Me the Assessment →</button>
+      </form>
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">✓</div>
+        <h3>You're on your way.</h3>
+        <p>Check your inbox — the Retirement Self-Assessment is headed your way.</p>
       </div>
-      <div class="form-group">
-        <label for="lead-email">Email Address</label>
-        <input type="email" id="lead-email" name="email" required placeholder="you@example.com">
-      </div>
-      <button type="submit" class="btn-blue">Send Me the Assessment →</button>
-    </form>
-    <div class="form-success" id="form-success">
-      <div class="form-success-icon">✓</div>
-      <h3>You're on your way.</h3>
-      <p>Check your inbox — the Retirement Self-Assessment is headed your way. We'll follow up within 24 hours to discuss your results.</p>
+      <p class="lm-fine-print">No spam. No obligation. Unsubscribe anytime.</p>
     </div>
-    <p class="lead-form-sub">No spam. No obligation. Unsubscribe anytime.</p>
+    <div class="lm-card lm-card-dark reveal d2">
+      <div class="lm-badge">Coming Soon</div>
+      <span class="lm-label">Free E-Book</span>
+      <h3>The Mountain Goat Guide to Retirement</h3>
+      <p class="lm-subtitle">A Plain-Language Roadmap for Every Stage of the Climb</p>
+      <p class="lm-body">Everything we know about retirement planning — compiled into one plain-language guide. Covers every stage from early career to distribution, built around our 9-Step framework. Coming soon.</p>
+      <ul class="lm-bullets">
+        <li>The complete 9-Step Climb framework</li>
+        <li>Tax and withdrawal strategies explained simply</li>
+        <li>Social Security timing guide</li>
+        <li>Real scenarios for every career stage</li>
+      </ul>
+      <form onsubmit="return false;">
+        <input type="email" placeholder="Email Address" class="lm-input">
+        <button type="submit" class="lm-btn-white">Notify Me When It's Ready →</button>
+      </form>
+      <p class="lm-fine-print">We'll email you the moment it's available. No spam, ever.</p>
+    </div>
   </div>
 </section>
 
