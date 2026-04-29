@@ -423,49 +423,69 @@
 
   /* ── SERVICES ── */
   #services {
-    padding: 130px 80px;
-    background: #f7f7f7;
+    padding: 120px 80px;
+    background: #1c1c1c;
+    text-align: center;
   }
-  .services-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end; margin-bottom: 64px;
+  #services .section-eyebrow { justify-content: center; color: var(--blue); }
+  #services .section-eyebrow span { background: var(--blue); }
+  #services h2 { color: var(--white); }
+  .services-sub {
+    font-family: 'Lato', sans-serif; font-size: 17px; line-height: 1.75;
+    color: rgba(255,255,255,0.5);
+    max-width: 580px; margin: 0 auto 64px;
   }
-  .services-intro { font-size: 15px; color: var(--ink-mid); line-height: 1.8; font-weight: 300; }
   .services-grid {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
-    background: var(--gray-mid);
-    border: 1px solid var(--gray-mid);
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+    text-align: left;
   }
   .service-card {
-    background: var(--white); padding: 40px 36px;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.25s, background 0.2s;
-    position: relative; overflow: hidden;
+    background: #242424; padding: 48px 40px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 3px solid var(--blue);
+    transition: background 0.25s, transform 0.2s;
   }
-  .service-card:hover { border-color: var(--blue); background: #fafafa; }
-  .service-card .service-num,
-  .service-card h3,
-  .service-card p { position: relative; z-index: 1; }
+  .service-card:hover { background: #2a2a2a; transform: translateY(-4px); }
   .service-num {
-    font-family: 'Merriweather', serif;
-    font-size: 11px; font-weight: 700;
-    color: var(--blue); letter-spacing: 0.15em;
-    margin-bottom: 20px; display: block;
+    font-family: 'Merriweather', serif; font-weight: 700;
+    font-size: 48px; color: var(--blue); opacity: 0.4;
+    line-height: 1; margin-bottom: 20px; display: block;
   }
   .service-card h3 {
-    font-family: 'Merriweather', serif;
-    font-size: 19px; font-weight: 700;
-    color: var(--black); margin-bottom: 12px;
+    font-family: 'Merriweather', serif; font-size: 26px; font-weight: 700;
+    color: var(--white); margin-bottom: 12px;
   }
-  .service-card p {
-    font-size: 15px; line-height: 1.75; color: var(--ink-mid); font-weight: 300;
+  .service-outcome {
+    font-family: 'Merriweather', serif; font-style: italic;
+    font-size: 17px; line-height: 1.5;
+    color: var(--blue); margin-bottom: 24px;
   }
-  .services-note {
-    margin-top: 40px; text-align: center;
-    font-size: 13px; color: var(--ink-lt);
-    border-top: 1px solid var(--gray-mid); padding-top: 32px;
+  .service-rule {
+    border: none; border-top: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 24px;
   }
-  .services-note strong { color: var(--black); font-weight: 600; }
+  .service-includes {
+    font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35); margin-bottom: 14px;
+  }
+  .service-bullets {
+    list-style: none; padding: 0; margin: 0;
+  }
+  .service-bullets li {
+    font-family: 'Lato', sans-serif; font-size: 14px;
+    color: rgba(255,255,255,0.55); line-height: 1.8;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .service-bullets li::before {
+    content: ''; display: block; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--blue);
+  }
+  .services-tagline {
+    margin-top: 16px; font-size: 13px;
+    color: rgba(255,255,255,0.35); text-align: center;
+  }
 
   /* ── PROCESS ── */
   #process { padding: 130px 80px; background: var(--white); }
@@ -812,7 +832,6 @@
     .outcome-grid { grid-template-columns: 1fr; }
 
     #services { padding: 80px 24px; }
-    .services-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
     .services-grid { grid-template-columns: 1fr; }
 
     #process { padding: 80px 24px; }
@@ -1032,55 +1051,51 @@
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="services-header">
-    <div>
-      <div class="section-eyebrow reveal"><span></span>What We Do</div>
-      <h2 class="reveal d1">Everything You Need<br>for the Ascent</h2>
-    </div>
-    <p class="services-intro reveal d2">We don't offer you a product menu — we build a plan around you. These are the tools we use to get you there. One advisor relationship, everything covered.</p>
-  </div>
+  <div class="section-eyebrow reveal"><span></span>What We Do</div>
+  <h2 class="reveal d1">One Relationship. Everything Covered.</h2>
+  <p class="services-sub reveal d2">We don't offer a product menu. We build a strategy around you — then use the right tools to execute it.</p>
   <div class="services-grid">
     <div class="service-card reveal d1">
-      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">01</span>
       <h3>Wealth Management</h3>
-      <p>Institutional-grade portfolio management designed to build and preserve your wealth across every market cycle.</p>
+      <p class="service-outcome">Building your investments to support you on your climb.</p>
+      <hr class="service-rule">
+      <p class="service-includes">Includes:</p>
+      <ul class="service-bullets">
+        <li>Investment Management</li>
+        <li>Structured Notes</li>
+        <li>401(k) Optimization</li>
+      </ul>
     </div>
     <div class="service-card reveal d2">
-      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">02</span>
       <h3>Retirement Planning</h3>
-      <p>A personalized 9-step roadmap engineered to take you from accumulation to a retirement income you can count on.</p>
+      <p class="service-outcome">Planning the route to conquer the climb.</p>
+      <hr class="service-rule">
+      <p class="service-includes">Includes:</p>
+      <ul class="service-bullets">
+        <li>9-Step Climb to Retirement</li>
+        <li>Tax-Efficient Withdrawal Strategy</li>
+        <li>Social Security Timing</li>
+      </ul>
     </div>
     <div class="service-card reveal d3">
-      <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
       <span class="service-num">03</span>
-      <h3>Insurance &amp; Protection</h3>
-      <p>Strategic life insurance and annuities selected as your fiduciary — to protect your family, not to hit a sales quota.</p>
-    </div>
-    <div class="service-card reveal d1">
-      <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
-      <span class="service-num">04</span>
-      <h3>401(k) &amp; Employer Plans</h3>
-      <p>Your workplace accounts optimized and coordinated with your broader financial strategy.</p>
-    </div>
-    <div class="service-card reveal d2">
-      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
-      <span class="service-num">05</span>
-      <h3>Financial Planning</h3>
-      <p>Tax, estate, education, and cash flow — unified into one living plan that evolves as your life does.</p>
-    </div>
-    <div class="service-card reveal d3">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.06;z-index:0;pointer-events:none;">
-      <span class="service-num">06</span>
-      <h3>Structured Notes &amp; Alternatives</h3>
-      <p>Institutional-grade alternative investments and private credit, made accessible to qualified clients.</p>
+      <h3>Protection</h3>
+      <p class="service-outcome">Being prepared for the unexpected events on the trail.</p>
+      <hr class="service-rule">
+      <p class="service-includes">Includes:</p>
+      <ul class="service-bullets">
+        <li>Life Insurance</li>
+        <li>Annuities</li>
+        <li>Long-Term Care</li>
+      </ul>
     </div>
   </div>
-  <div style="text-align:center; margin-top: 48px;" class="reveal">
+  <div style="text-align:center; margin-top: 56px;" class="reveal">
     <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
+    <p class="services-tagline">Every client engagement begins with a comprehensive financial review. No templates. No guesswork.</p>
   </div>
-  <p class="services-note reveal">Every client gets a comprehensive plan — not a product pitch. <strong>Your first meeting is always free.</strong></p>
 </section>
 
 <!-- PROCESS -->
