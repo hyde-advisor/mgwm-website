@@ -157,14 +157,16 @@
     padding: 100px 80px;
   }
   .bio-row {
-    display: grid; grid-template-columns: 2fr 3fr;
-    gap: 64px; align-items: start;
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 48px; align-items: start;
     padding: 72px 0;
     border-top: 1px solid var(--gray-mid);
   }
   .bio-row:first-child { border-top: none; padding-top: 0; }
   .bio-photo {
-    width: 100%; display: block;
+    width: 280px; height: 320px;
+    object-fit: cover; object-position: center top;
+    display: block;
     filter: grayscale(10%) contrast(1.03);
     transition: filter 0.4s ease;
   }
@@ -323,6 +325,7 @@
 
     #bios { padding: 64px 24px; }
     .bio-row { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
+    .bio-photo { width: 100%; height: 240px; }
 
     #fiduciary { padding: 80px 24px; }
     .fid-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -359,11 +362,12 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navlinks">
-    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#story">Our Story</a></li>
+    <li><a href="index.html#shorts">Media</a></li>
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#process">How It Works</a></li>
     <li><a href="index.html#testimonials">Reviews</a></li>
-    <li><a href="#" class="nav-cta">Schedule a Call</a></li>
+    <li><a href="index.html#cta" class="nav-cta">Get Started</a></li>
   </ul>
 </nav>
 
@@ -372,7 +376,7 @@
   <div class="page-hero-inner">
     <div class="section-eyebrow reveal"><span></span>Our Team</div>
     <h1 class="reveal d1">The Advisors Behind the Climb</h1>
-    <p class="page-hero-sub reveal d2">We are a remote-first team of fiduciary advisors serving clients across Utah, Texas, and Wyoming. Every one of us left larger institutions to build something better — a firm that puts your interests first, always.</p>
+    <p class="page-hero-sub reveal d2">We are a remote-first team of fiduciary advisors serving clients across Utah, Texas, and Wyoming. Our goal is to provide personal financial guidance to guide you on your climb to retirement.</p>
   </div>
 </section>
 
@@ -408,7 +412,7 @@
       <div class="bio-title reveal">Financial Advisor</div>
       <div class="bio-location reveal">Salt Lake City, UT</div>
       <div class="bio-credentials reveal d1">
-        <span class="bio-cred">CFP®</span>
+        <span class="bio-cred">Series 65</span>
       </div>
       <p class="bio-text reveal d2">Before joining Mountain Goat, Cade spent five years in corporate analytics — a background that shows in the precision and diligence he brings to every client relationship. He excels at translating complex financial anxieties into clear, actionable plans, and clients consistently describe his communication as thoughtful and reassuring. Cade is passionate about helping younger professionals build the financial foundation that sets up every future decade for success. Outside the office, he is likely trail running, on the golf course, or cycling.</p>
     </div>
@@ -424,7 +428,7 @@
       <div class="bio-title reveal">Financial Advisor</div>
       <div class="bio-location reveal">Houston, TX</div>
       <div class="bio-credentials reveal d1">
-        <span class="bio-cred">CFP®</span>
+        <span class="bio-cred">Series 65</span>
       </div>
       <p class="bio-text reveal d2">Michael spent years as a consultant managing oilfield remediation budgets and complex risk assessments — experience that built the calm, methodical approach he now applies to wealth management. Based in Houston, Michael serves Mountain Goat's Texas clients with the same organized discipline he brought to large-scale environmental projects. He has a particular focus on helping clients in the energy industry navigate the unique financial complexities of their careers. Outside the office, Michael enjoys hiking, disc golf, and camping with his family.</p>
     </div>
@@ -480,6 +484,7 @@
       <a href="about.html">About Us</a>
       <a href="#">Resources Library</a>
       <a href="index.html#leadmagnet">Self-Assessment</a>
+      <a href="legal.html">Legal Disclosures</a>
       <a href="index.html#cta">Contact</a>
     </div>
     <div class="footer-col">
