@@ -487,6 +487,41 @@
     color: rgba(255,255,255,0.45); font-size: 14px; font-style: italic;
     margin: 16px 0 0;
   }
+  .pain-response {
+    display: grid; grid-template-columns: 1fr 1fr;
+    margin-top: 48px; min-height: 480px;
+  }
+  .pain-response-photo { overflow: hidden; }
+  .pain-response-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center center;
+    display: block;
+  }
+  .pain-response-text {
+    background: rgba(0,126,167,0.08);
+    border-left: 3px solid #007ea7;
+    padding: 64px 56px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .pain-response-label {
+    font-family: 'Lato', sans-serif; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #007ea7; margin-bottom: 20px;
+  }
+  .pain-response-quote {
+    font-family: 'Merriweather', serif; font-style: italic;
+    font-size: clamp(20px, 2.2vw, 28px); line-height: 1.5;
+    color: var(--white); margin-bottom: 28px;
+  }
+  .pain-response-attr {
+    font-family: 'Lato', sans-serif; color: #007ea7;
+    font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-style: normal; margin-bottom: 36px;
+  }
+  .pain-response-body {
+    font-family: 'Lato', sans-serif; color: rgba(255,255,255,0.55);
+    font-size: 16px; line-height: 1.8; font-weight: 300; margin-bottom: 36px;
+  }
 
   /* ── SERVICES ── */
   #services {
@@ -993,6 +1028,9 @@
     .pain-strip-text { bottom: 28px; }
     .pain-strip-text p { font-size: 16px; padding: 0 20px; }
     .outcome-grid { grid-template-columns: 1fr; }
+    .pain-response { grid-template-columns: 1fr; }
+    .pain-response-photo { height: 260px; }
+    .pain-response-text { padding: 36px 28px; }
 
     #services { padding: 80px 24px; }
     .services-grid { grid-template-columns: 1fr; }
@@ -1055,8 +1093,8 @@
   <div class="hero-left">
     <div class="hero-eyebrow"><span></span>Fiduciary Wealth Advisors · Utah · Texas · Wyoming</div>
     <h1>Reach Your<br><em>Retirement</em><br>Summit</h1>
-    <p class="hero-urgency">"Imagine knowing your exact retirement date — and having complete confidence you'll never outlive your money."</p>
-    <p class="hero-sub">Disciplined, personalized financial plans that protect your family, grow your wealth, and give you the confidence to retire on your terms.</p>
+    <p class="hero-urgency">Every great climb needs a guide who knows the route. That's what we do, for your retirement.</p>
+    <p class="hero-sub">We are a team of financial advisors with a simple mission — to guide real families through the climb to retirement.</p>
     <div class="hero-actions">
       <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
     </div>
@@ -1083,17 +1121,14 @@
 
 <!-- PAIN -->
 <section id="pain">
+
+  <!-- BLOCK 1: Section Header -->
   <div class="section-eyebrow reveal"><span></span>Sound Familiar?</div>
-  <h2 class="reveal d1">You've Worked Too Hard to Leave Your<br>Retirement to Chance</h2>
-  <p class="pain-lead reveal d2">The good news: every one of these is completely solvable with the right guide and the right plan.</p>
-  <p class="reveal" style="font-family:'Lato',sans-serif;color:rgba(255,255,255,0.4);font-size:14px;font-style:italic;margin-bottom:32px;text-align:center;">Questions we help our clients answer every day:</p>
-  <div class="pain-strip reveal">
-    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&q=80" alt="Person standing at a mountain crossroads looking toward the horizon">
-    <div class="pain-strip-overlay"></div>
-    <div class="pain-strip-text">
-      <p>"The difference between a confident retirement and an uncertain one is rarely about how much you've saved — it's about whether anyone has ever looked at the full picture."</p>
-    </div>
-  </div>
+  <h2 class="reveal d1" style="font-size:clamp(32px,4vw,52px);max-width:700px;margin:0 auto 16px;">You've Worked Too Hard to Leave Your Retirement to Chance</h2>
+  <p class="pain-lead reveal d2" style="margin:0 auto 16px;">The good news: every one of these is completely solvable with the right guide and the right plan.</p>
+  <p class="reveal" style="font-family:'Lato',sans-serif;color:rgba(255,255,255,0.35);font-size:14px;text-align:center;font-style:italic;margin-bottom:56px;">These are the questions we hear on almost every first call:</p>
+
+  <!-- BLOCK 2: Three Quote Cards -->
   <div class="outcome-grid">
     <div class="outcome-card reveal d1">
       <div class="outcome-icon">
@@ -1114,7 +1149,23 @@
       <div class="outcome-label">"I have old 401(k)s scattered across past employers and no idea what to do with them."</div>
     </div>
   </div>
-  <div class="pain-footer">
+
+  <!-- BLOCK 3: Bobby's Response -->
+  <div class="pain-response reveal">
+    <div class="pain-response-photo">
+      <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=900&q=80" alt="Trail runner on mountain path">
+    </div>
+    <div class="pain-response-text">
+      <p class="pain-response-label">What Bobby Says on Every First Call</p>
+      <blockquote class="pain-response-quote">"It all starts with a good plan. Let's gather the information together and break down the problem. I'm confident we can come up with a solution that works for you."</blockquote>
+      <p class="pain-response-attr">— Bobby Goodman, Founder</p>
+      <p class="pain-response-body">Most people who reach out to us have been meaning to deal with this for years. They didn't know where to start. That's exactly where we begin — together. No judgment. No jargon. Just a clear path forward.</p>
+      <a href="#" class="btn-blue">Claim Your Complimentary Consultation</a>
+    </div>
+  </div>
+
+  <!-- BLOCK 4: Urgency Story -->
+  <div class="pain-footer" style="margin-top:48px;">
     <div class="pain-story reveal">
       <div class="pain-story-label">A Common Story</div>
       <p class="pain-story-body">We recently worked with a couple who came to us at 61 — just four years from their target retirement date. They had no Social Security timing strategy, three unconsolidated accounts from previous employers, and no coordinated withdrawal plan. By the time we built their roadmap, they realized they had been on track to leave more than $40,000 in Social Security benefits on the table simply by claiming at the wrong time. That window had been quietly closing for years while they waited to "get around to it." We got it back — and built a plan that gave them complete clarity for the first time in a decade. That's what a real plan does.</p>
@@ -1122,6 +1173,7 @@
     </div>
     <a href="#" class="btn-blue reveal" style="font-size: 13px; padding: 16px 44px; margin-top: 40px;">Claim Your Complimentary Consultation</a>
   </div>
+
 </section>
 
 <!-- STORY -->
@@ -1194,26 +1246,12 @@
   </div>
 </section>
 
-<!-- VIDEO -->
-<section id="video">
-  <div class="video-embed-wrap reveal">
-    <iframe src="https://www.youtube.com/embed/MUNauqSEock" title="Do You Have a Forgotten 401(k)?" allowfullscreen></iframe>
-  </div>
-  <div>
-    <div class="section-eyebrow reveal"><span></span>Educational Series</div>
-    <h2 class="reveal d1">Do You Have a Forgotten 401(k)?</h2>
-    <p class="body-text reveal d2">Most people have left money behind at a previous employer without realizing it. In this video, Bobby and Cade break down how to find lost retirement accounts, what to do with them, and how consolidating them into a single strategy could meaningfully improve your retirement outlook.</p>
-    <p class="video-body-sub reveal d2">Part of our ongoing financial education series — new videos released regularly.</p>
-    <a href="https://www.youtube.com/@mountaingoatwealth" target="_blank" rel="noopener" class="btn-blue reveal d3" style="margin-top: 20px;">Watch More on YouTube</a>
-  </div>
-</section>
-
 <!-- SHORTS -->
 <section id="shorts">
   <div class="shorts-header">
     <div class="section-eyebrow reveal"><span></span>Quick Takes</div>
-    <h2 class="reveal d1">60 Seconds That Could Change How You Think About Retirement</h2>
-    <p class="reveal d2">Short, practical financial insights from Bobby — no jargon, no fluff. Just the stuff that actually matters for your retirement.</p>
+    <h2 class="reveal d1">Trail Advice from the Mountain Goats</h2>
+    <p class="reveal d2">Our takes on some of the questions real people are asking about retirement right now.</p>
   </div>
   <div class="shorts-scroll">
     <div class="short-card">
@@ -1310,22 +1348,22 @@
     <div class="process-step active reveal d1">
       <div class="step-circle">1</div>
       <h4>Discovery Call</h4>
-      <p>A complimentary 30-minute conversation. No pressure, no pitch. We want to understand where you are and where you want to go.</p>
+      <p>Every great climb starts with a conversation about the route. We spend 30 minutes understanding where you are, where you want to go, and whether we're the right guide for the journey. No pressure. No pitch.</p>
     </div>
     <div class="process-step reveal d2">
       <div class="step-circle">2</div>
       <h4>Financial Review</h4>
-      <p>We take a full inventory of your accounts, income, goals, and gaps — giving you a complete picture for the first time.</p>
+      <p>We spread out the full map — every account, income stream, gap, and opportunity. Most clients tell us this is the first time anyone has looked at their complete financial picture all at once.</p>
     </div>
     <div class="process-step reveal d3">
       <div class="step-circle">3</div>
       <h4>Custom Plan</h4>
-      <p>We build your personalized roadmap — investments, protection, and retirement strategy, all in one place.</p>
+      <p>We build your personalized 9-Step Climb roadmap, including investments, protection, tax strategy, and retirement income all on one page. Clear enough to follow. Specific enough to trust.</p>
     </div>
     <div class="process-step reveal d4">
       <div class="step-circle">4</div>
       <h4>Ongoing Partnership</h4>
-      <p>Regular check-ins at key milestones. We proactively reach out — you never wonder if your plan is on track.</p>
+      <p>We check in at every milestone proactively, without you having to ask. Think of us as the running partner who shows up even when conditions aren't perfect.</p>
     </div>
   </div>
 </section>
@@ -1334,7 +1372,7 @@
 <section id="testimonials">
   <div class="testimonials-header">
     <div class="section-eyebrow reveal"><span></span>Client Reviews</div>
-    <h2 class="reveal d1">What Our Clients Say</h2>
+    <h2 class="reveal d1">What It's Like to Work With the Mountain Goats</h2>
   </div>
   <div class="tgrid">
     <div class="tcard reveal d1">
@@ -1370,7 +1408,7 @@
 <!-- FAQ -->
 <section id="faq">
   <div class="section-eyebrow reveal"><span></span>Common Questions</div>
-  <h2 class="reveal d1">We've Heard Every Hesitation</h2>
+  <h2 class="reveal d1">Questions We Get Asked on First Calls</h2>
   <p class="faq-sub reveal d2">Here are the questions people almost always ask before their first meeting.</p>
   <div class="faq-grid">
     <div class="faq-item reveal d1">
@@ -1407,8 +1445,8 @@
 <!-- LEAD MAGNET -->
 <section id="leadmagnet">
   <div class="section-eyebrow reveal"><span></span>Free Resources</div>
-  <h2 class="reveal d1">Take the Next Step — At Your Own Pace</h2>
-  <p class="lm-sub reveal d2">Not everyone is ready to pick up the phone. We get it. Start with one of these two resources — both are complimentary, both are genuinely useful.</p>
+  <h2 class="reveal d1">Take the Next Step At Your Own Pace</h2>
+  <p class="lm-sub reveal d2">The hardest part is starting the conversation. If you're not ready for that yet, start here. These resources are complimentary and can be genuinely useful, with no strings attached.</p>
   <div class="lm-grid">
     <div class="lm-card lm-card-light reveal d1">
       <span class="lm-label">Retirement Tool</span>
@@ -1471,7 +1509,7 @@
     <div class="footer-brand">
       <img src="assets/images/logo-badge.svg" alt="Mountain Goat Wealth Management" style="height:44px;width:auto;display:block;margin-bottom:14px;">
       <div class="footer-brand-name">Mountain Goat<br>Wealth Management</div>
-      <p>Fiduciary financial advisors serving clients across Utah, Texas, and Wyoming. Built for the climb.</p>
+      <p>Born on a trail run in Millcreek Canyon. Built for the climb. Here to guide you through yours.</p>
     </div>
     <div class="footer-col">
       <h5>Services</h5>
