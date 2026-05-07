@@ -309,6 +309,12 @@
       background: var(--black);
       padding: 100px 80px;
     }
+    .diag-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
     #diagnostic .eyebrow { margin-bottom: 14px; }
     #diagnostic h2 {
       font-family: 'Merriweather', serif;
@@ -439,6 +445,7 @@
       color: var(--blue);
     }
 
+    .story-text-col { padding-right: 80px; }
     .story-text-col .eyebrow { margin-bottom: 14px; }
     .story-text-col h2 {
       font-family: 'Merriweather', serif;
@@ -505,15 +512,38 @@
       margin: 0 auto;
       gap: 40px;
     }
-    .team-card { text-align: center; }
-    .team-photo {
-      width: 200px; height: 200px;
-      object-fit: cover; object-position: center 15%;
-      border-radius: 4px;
-      border: 3px solid var(--blue);
-      display: block;
-      margin: 0 auto 18px;
+    .team-card {
+      background: #fff;
+      border: 1px solid var(--gray);
+      overflow: hidden;
     }
+    .team-img-wrap {
+      position: relative;
+      width: 100%; height: 300px;
+      overflow: hidden;
+    }
+    .team-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+    .team-pills {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      display: flex; gap: 6px;
+    }
+    .team-pill {
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+    }
+    .team-body { padding: 24px 28px; }
     .team-name {
       font-family: 'Merriweather', serif;
       font-weight: 700;
@@ -528,7 +558,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .team-bio {
       font-family: 'Lato', sans-serif;
@@ -536,7 +566,7 @@
       color: var(--mid);
       font-size: 14px;
       line-height: 1.75;
-      text-align: center;
+      text-align: left;
     }
 
     /* ── PEER VALIDATION ── */
@@ -1087,11 +1117,13 @@
       cursor: pointer;
       text-align: left;
       color: #fff;
+      transition: color 0.2s;
       font-family: 'Lato', sans-serif;
       font-weight: 600;
       font-size: 16px;
       line-height: 1.4;
     }
+    .faq-question:hover { color: #007ea7; }
     .faq-icon {
       color: var(--blue);
       font-size: 22px;
@@ -1549,6 +1581,7 @@
       }
 
       #diagnostic { padding: 60px 24px; }
+      .diag-inner { grid-template-columns: 1fr; gap: 40px; }
       .diag-grid { grid-template-columns: 1fr; }
 
       #story {
@@ -1557,7 +1590,7 @@
         gap: 40px;
       }
       .story-img-col { order: 1; }
-      .story-text-col { order: 2; }
+      .story-text-col { order: 2; padding-right: 24px; }
       .story-pullquote {
         position: static;
         margin-top: 20px;
@@ -1720,11 +1753,15 @@
 
   <!-- ── DIAGNOSTIC ── -->
   <section id="diagnostic">
-    <div class="eyebrow reveal">Is this you?</div>
-    <h2 class="reveal d1">You've worked too hard to leave<br>your retirement to a guess.</h2>
-    <p class="lede reveal d2">
-      Check the ones that sound familiar. The good news: every single one is solvable with a plan, and a 30-minute call is enough to know where you stand.
-    </p>
+    <div class="diag-inner">
+      <div class="diag-left">
+        <div class="eyebrow reveal">Is this you?</div>
+        <h2 class="reveal d1">You've worked too hard to leave<br>your retirement to a guess.</h2>
+        <p class="lede reveal d2">
+          Check the ones that sound familiar. The good news: every single one is solvable with a plan, and a 30-minute call is enough to know where you stand.
+        </p>
+      </div>
+      <div class="diag-right">
 
     <div class="diag-grid">
       <button class="diag-item reveal" data-id="1">
@@ -1782,6 +1819,8 @@
       <p class="diag-result-msg" id="diag-msg"></p>
       <a href="#" class="btn-primary">Book a Discovery Call →</a>
     </div>
+      </div><!-- /.diag-right -->
+    </div><!-- /.diag-inner -->
   </section>
 
   <!-- ── STORY ── -->
@@ -1812,22 +1851,44 @@
     <p class="subtext reveal d1">You'll know exactly who's managing your plan. No call centers, no handoffs, no junior associates.</p>
     <div class="team-grid">
       <div class="team-card reveal">
-        <img src="assets/images/headshot-bobby.png" alt="Robert Bobby Goodman" class="team-photo" />
-        <div class="team-name">Robert 'Bobby' Goodman</div>
-        <div class="team-title">Founder &amp; Chief Compliance Officer</div>
-        <p class="team-bio">18 years at Goldman Sachs Private Wealth. Economics at BYU, MBA at Utah. Husband, father of three. Most likely to call you back within the hour.</p>
+        <div class="team-img-wrap">
+          <img src="assets/images/headshot-bobby.png" alt="Robert Bobby Goodman" />
+          <div class="team-pills">
+            <span class="team-pill">CFP®</span>
+            <span class="team-pill">MBA</span>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Robert 'Bobby' Goodman</div>
+          <div class="team-title">Founder &amp; Chief Compliance Officer</div>
+          <p class="team-bio">18 years at Goldman Sachs Private Wealth. Economics at BYU, MBA at Utah. Husband, father of three. Most likely to call you back within the hour.</p>
+        </div>
       </div>
       <div class="team-card reveal d1">
-        <img src="assets/images/headshot-cade.png" alt="Cade Hyde" class="team-photo" />
-        <div class="team-name">Cade Hyde</div>
-        <div class="team-title">Financial Advisor</div>
-        <p class="team-bio">Corporate analytics background, supply chain and social impact at BYU. Trail runner and Bobby's most frequent running partner. Salt Lake City, UT.</p>
+        <div class="team-img-wrap">
+          <img src="assets/images/headshot-cade.png" alt="Cade Hyde" />
+          <div class="team-pills">
+            <span class="team-pill">Series 65</span>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Cade Hyde</div>
+          <div class="team-title">Financial Advisor</div>
+          <p class="team-bio">Corporate analytics background, supply chain and social impact at BYU. Trail runner and Bobby's most frequent running partner. Salt Lake City, UT.</p>
+        </div>
       </div>
       <div class="team-card reveal d2">
-        <img src="assets/images/headshot-michael.png" alt="Michael Goodman" class="team-photo" />
-        <div class="team-name">Michael Goodman</div>
-        <div class="team-title">Financial Advisor · Houston</div>
-        <p class="team-bio">Geologist by training, methodical by nature. Bobby's brother. Husband, father of two. Disc golfer, board gamer. Houston, TX.</p>
+        <div class="team-img-wrap">
+          <img src="assets/images/headshot-michael.png" alt="Michael Goodman" />
+          <div class="team-pills">
+            <span class="team-pill">Series 65</span>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-name">Michael Goodman</div>
+          <div class="team-title">Financial Advisor · Houston</div>
+          <p class="team-bio">Geologist by training, methodical by nature. Bobby's brother. Husband, father of two. Disc golfer, board gamer. Houston, TX.</p>
+        </div>
       </div>
     </div>
   </section>
