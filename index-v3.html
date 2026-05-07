@@ -485,7 +485,7 @@
     /* ── TEAM ── */
     #team {
       background: var(--off);
-      padding: 80px 80px;
+      padding: 100px 80px;
       text-align: center;
     }
     #team .eyebrow { justify-content: center; margin-bottom: 12px; }
@@ -508,9 +508,9 @@
     .team-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      max-width: 900px;
+      gap: 32px;
+      max-width: 1000px;
       margin: 0 auto;
-      gap: 40px;
     }
     .team-card {
       background: #fff;
@@ -519,7 +519,7 @@
     }
     .team-img-wrap {
       position: relative;
-      width: 100%; height: 320px;
+      width: 100%; height: 380px;
       overflow: hidden;
     }
     .team-img-wrap img {
@@ -645,7 +645,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      max-width: 780px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .short-card {
@@ -658,7 +658,7 @@
     .short-card:hover { border-top-color: var(--blue); }
     .short-card a img {
       width: 100%;
-      aspect-ratio: 9/16;
+      height: 480px;
       object-fit: cover;
       display: block;
     }
@@ -1663,7 +1663,7 @@
   <nav id="nav">
     <a href="#hero" class="nav-brand">
       <img src="assets/images/logo-badge.svg" alt="Mountain Goat Wealth Management logo" />
-      <span class="nav-brand-name">Mountain Goat /<br>Wealth Management</span>
+      <span class="nav-brand-name">Mountain Goat<br>Wealth Management</span>
     </a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -1690,7 +1690,7 @@
         knows <em>the route</em>.
       </h1>
       <p class="hero-sub reveal d2">
-        Mountain Goat is a fee-only fiduciary firm guiding families in Utah, Texas, and Wyoming through the climb to retirement. Built by a Goldman Sachs veteran who got tired of Wall Street only serving Wall Street.
+        Mountain Goat Wealth Management is a wealth management firm guiding families in Utah, Texas, and Wyoming through the climb to retirement. Built by a Goldman Sachs veteran who got tired of Wall Street only serving Wall Street.
       </p>
       <div class="hero-ctas reveal d3">
         <a href="#" class="btn-primary">Book Your 30-Minute Call →</a>
@@ -1913,27 +1913,42 @@
     <p class="subtext reveal d2">Bobby films these on trails, at his desk, and in between client meetings. Real answers to the questions real people are asking about retirement right now.</p>
     <div class="shorts-grid">
       <div class="short-card reveal">
-        <a href="https://www.youtube.com/shorts/j82s-zIePt0" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/j82s-zIePt0/hqdefault.jpg" alt="Is Your Old 401k Just Sitting There?" />
-        </a>
+        <iframe
+          src="https://www.youtube.com/embed/j82s-zIePt0?autoplay=1&mute=1&loop=1&playlist=j82s-zIePt0&controls=0"
+          width="100%" height="480"
+          style="display:block;border:none;"
+          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
+          allowfullscreen
+          title="Is Your Old 401k Just Sitting There?">
+        </iframe>
         <div class="short-card-body">
           <div class="short-card-title">Is Your Old 401(k) Just Sitting There?</div>
           <div class="short-card-desc">How to find lost retirement accounts from past employers and what to do next.</div>
         </div>
       </div>
       <div class="short-card reveal d1">
-        <a href="https://www.youtube.com/shorts/TlHRNgxb7oA" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/TlHRNgxb7oA/hqdefault.jpg" alt="What Is an Income Structured Note?" />
-        </a>
+        <iframe
+          src="https://www.youtube.com/embed/TlHRNgxb7oA?autoplay=1&mute=1&loop=1&playlist=TlHRNgxb7oA&controls=0"
+          width="100%" height="480"
+          style="display:block;border:none;"
+          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
+          allowfullscreen
+          title="What Is an Income Structured Note?">
+        </iframe>
         <div class="short-card-body">
           <div class="short-card-title">What Is an Income Structured Note?</div>
           <div class="short-card-desc">A plain-language breakdown of one of the most powerful income tools available to investors today.</div>
         </div>
       </div>
       <div class="short-card reveal d2">
-        <a href="https://www.youtube.com/shorts/PcwhxTgVnxI" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/PcwhxTgVnxI/hqdefault.jpg" alt="5 Ways to Invest for Income" />
-        </a>
+        <iframe
+          src="https://www.youtube.com/embed/PcwhxTgVnxI?autoplay=1&mute=1&loop=1&playlist=PcwhxTgVnxI&controls=0"
+          width="100%" height="480"
+          style="display:block;border:none;"
+          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
+          allowfullscreen
+          title="5 Ways to Invest for Income">
+        </iframe>
         <div class="short-card-body">
           <div class="short-card-title">5 Ways to Invest for Income</div>
           <div class="short-card-desc">Practical strategies designed to generate reliable cash flow from your portfolio.</div>
