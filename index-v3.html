@@ -519,13 +519,13 @@
     }
     .team-img-wrap {
       position: relative;
-      width: 100%; height: 300px;
+      width: 100%; height: 320px;
       overflow: hidden;
     }
     .team-img-wrap img {
       width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center 20%;
       display: block;
     }
     .team-pills {
@@ -543,12 +543,13 @@
       letter-spacing: 0.1em;
       padding: 4px 10px;
     }
-    .team-body { padding: 24px 28px; }
+    .team-body { padding: 28px 32px; }
     .team-name {
       font-family: 'Merriweather', serif;
       font-weight: 700;
       color: var(--black);
-      font-size: 18px;
+      font-size: 19px;
+      margin-top: 16px;
       margin-bottom: 4px;
     }
     .team-title {
@@ -643,7 +644,9 @@
     .shorts-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 20px;
+      max-width: 780px;
+      margin: 0 auto;
     }
     .short-card {
       background: #fff;
@@ -1191,8 +1194,8 @@
     }
 
     .lm-card-light {
-      background: #fff;
-      padding: 44px 40px;
+      background: #f0f7fa;
+      padding: 52px 48px;
       border-top: 3px solid var(--blue);
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
@@ -1225,6 +1228,12 @@
       margin-bottom: 14px;
       display: block;
     }
+    .lm-card-light .lm-label {
+      background: rgba(0,126,167,0.1);
+      padding: 6px 14px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
     .lm-card-light h3, .lm-card-dark h3 {
       font-family: 'Merriweather', serif;
       font-weight: 700;
@@ -1232,7 +1241,7 @@
       margin-bottom: 12px;
       line-height: 1.2;
     }
-    .lm-card-light h3 { color: var(--black); }
+    .lm-card-light h3 { color: var(--black); font-size: 26px; }
     .lm-card-dark h3 { color: #fff; }
     .lm-subtitle {
       font-family: 'Merriweather', serif;
@@ -1296,7 +1305,7 @@
     .lm-form input.dark-input:focus { border-color: var(--blue); }
     .lm-submit {
       width: 100%;
-      padding: 14px;
+      padding: 16px;
       font-family: 'Lato', sans-serif;
       font-weight: 600;
       font-size: 13px;
@@ -1725,31 +1734,15 @@
         <span class="proof-label">Fiduciary credentials</span>
       </div>
       <div class="proof-item">
+        <span class="proof-stat">Fiduciary</span>
+        <span class="proof-label">Legally Required to Act in Your Best Interest</span>
+      </div>
+      <div class="proof-item">
         <span class="proof-stat">20+ yrs</span>
         <span class="proof-label">Wall Street experience</span>
       </div>
     </div>
   </section>
-
-  <!-- ── TRUST BAR ── -->
-  <div id="trust-bar">
-    <div class="trust-item">
-      <div class="trust-dot"></div>
-      <span>Registered Investment Advisor (RIA)</span>
-    </div>
-    <div class="trust-item">
-      <div class="trust-dot"></div>
-      <span>Legally Required to Act in Your Best Interest</span>
-    </div>
-    <div class="trust-item">
-      <div class="trust-dot"></div>
-      <span>100% Remote — Meet From Anywhere</span>
-    </div>
-    <div class="trust-item">
-      <div class="trust-dot"></div>
-      <span>20+ Years of Combined Experience</span>
-    </div>
-  </div>
 
   <!-- ── DIAGNOSTIC ── -->
   <section id="diagnostic">
@@ -2064,38 +2057,6 @@
   </section>
 
   <!-- ── PROCESS ── -->
-  <section id="process">
-    <div class="eyebrow">How It Works</div>
-    <h2 class="reveal">Four steps from 'I should probably figure this out' to a real plan.</h2>
-    <p class="subtext reveal d1">Getting started is easier than you think. Here's what the first 60 days look like.</p>
-    <div class="process-grid">
-      <div class="process-cell reveal">
-        <div class="process-num">01</div>
-        <span class="process-badge">30 min</span>
-        <div class="process-title">Discovery Call</div>
-        <p class="process-desc">Every great climb starts with a conversation about the route. We spend 30 minutes understanding where you are and whether we're the right guide for the journey.</p>
-      </div>
-      <div class="process-cell reveal d1">
-        <div class="process-num">02</div>
-        <span class="process-badge">Week 1–2</span>
-        <div class="process-title">Financial Review</div>
-        <p class="process-desc">We spread out the full map — every account, income stream, gap, and opportunity. Most clients tell us it's the first time anyone has looked at their complete picture all at once.</p>
-      </div>
-      <div class="process-cell reveal d2">
-        <div class="process-num">03</div>
-        <span class="process-badge">Week 3–4</span>
-        <div class="process-title">Custom Plan</div>
-        <p class="process-desc">We build your personalized 9-Step Climb roadmap — investments, taxes, protection, and retirement income all on one page. Clear enough to follow. Specific enough to trust.</p>
-      </div>
-      <div class="process-cell reveal d3">
-        <div class="process-num">04</div>
-        <span class="process-badge">Ongoing</span>
-        <div class="process-title">Proactive Partnership</div>
-        <p class="process-desc">We check in at every milestone — proactively, without you having to ask. Think of us as the running partner who shows up even when conditions aren't perfect.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ── TESTIMONIALS ── -->
   <section id="testimonials">
     <div class="testimonials-header">
@@ -2239,6 +2200,9 @@
           <li>Tax-efficient withdrawal strategy</li>
           <li>Personalized next steps</li>
         </ul>
+        <div style="background:rgba(0,126,167,0.08);border-left:3px solid #007ea7;padding:14px 18px;margin-bottom:24px;">
+          <span style="font-family:'Lato',sans-serif;font-weight:400;color:#007ea7;font-size:13px;line-height:1.6;display:block;">Used by Mountain Goat clients to identify their biggest retirement gaps — before their first call.</span>
+        </div>
         <form class="lm-form" action="#" method="POST">
           <input type="text" name="first_name" placeholder="First Name" required />
           <input type="email" name="email" placeholder="Email Address" required />
@@ -2305,9 +2269,7 @@
       <div class="footer-col">
         <h5>Get In Touch</h5>
         <a href="#">mountaingoatwealth.com</a>
-        <a href="#">Utah</a>
-        <a href="#">Texas</a>
-        <a href="#">Wyoming</a>
+        <span style="font-family:'Lato',sans-serif;font-weight:300;color:rgba(255,255,255,0.35);font-size:13px;display:block;margin-bottom:10px;">Utah · Texas · Wyoming</span>
         <a href="#cta">Schedule a Call →</a>
       </div>
     </div>
