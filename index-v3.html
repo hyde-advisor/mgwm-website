@@ -10,13 +10,15 @@
   <style>
     /* ── Reset & base ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; margin-bottom: 0; padding-bottom: 0; }
     body {
       font-family: 'Lato', sans-serif;
       font-size: 17px;
       line-height: 1.75;
       color: #1c1c1c;
       background: #fff;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
@@ -87,24 +89,24 @@
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 200;
       background: var(--black);
-      padding: 16px 60px;
+      padding: 22px 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       transition: padding 0.3s;
     }
-    #nav.shrunk { padding: 12px 60px; }
+    #nav.shrunk { padding: 16px 60px; }
 
     .nav-brand {
       display: flex; align-items: center; gap: 12px;
       text-decoration: none;
     }
-    .nav-brand img { height: 38px; }
+    .nav-brand img { height: 52px; }
     .nav-brand-name {
       font-family: 'Merriweather', serif;
       font-weight: 700;
       color: #fff;
-      font-size: 15px;
+      font-size: 17px;
       line-height: 1.2;
     }
 
@@ -146,11 +148,15 @@
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh;
       background: var(--black);
+      padding-top: 96px;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-grid {
       display: grid;
       grid-template-columns: 55% 45%;
-      padding-top: 72px;
+      min-height: calc(100vh - 96px);
       position: relative;
       overflow: hidden;
     }
@@ -235,12 +241,11 @@
     .hero-meta-item svg { flex-shrink: 0; }
 
     .hero-proof {
-      position: absolute; bottom: 0; left: 0; right: 0;
       background: rgba(0,0,0,0.4);
       backdrop-filter: blur(8px);
       display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
       padding: 20px 80px;
-      z-index: 2;
+      margin-top: 0;
     }
     .proof-item { text-align: center; }
     .proof-stat {
@@ -1571,11 +1576,14 @@
       .hamburger { display: flex; }
 
       #hero {
+        flex-direction: column;
+      }
+      .hero-grid {
         grid-template-columns: 1fr;
         min-height: auto;
       }
       .hero-left {
-        padding: 48px 24px 140px;
+        padding: 48px 24px 48px;
         order: 1;
       }
       .hero-right {
@@ -1583,7 +1591,6 @@
         order: 2;
       }
       .hero-proof {
-        position: static;
         gap: 20px;
         justify-content: center;
         padding: 20px 24px;
@@ -1679,6 +1686,7 @@
 
   <!-- ── HERO ── -->
   <section id="hero">
+    <div class="hero-grid">
     <div class="hero-left">
       <div class="eyebrow reveal">
         Fiduciary Wealth Advisors
@@ -1720,6 +1728,7 @@
     <div class="hero-right">
       <img src="assets/images/climber-hero.jpg" alt="Mountain climber on trail" />
     </div>
+    </div><!-- /.hero-grid -->
     <div class="hero-proof">
       <div class="proof-item">
         <span class="proof-stat">5.0 ★★★★★</span>
@@ -1883,26 +1892,6 @@
           <p class="team-bio">Geologist by training, methodical by nature. Bobby's brother. Husband, father of two. Disc golfer, board gamer. Houston, TX.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── PEER VALIDATION ── -->
-  <section id="peer">
-    <div class="peer-left">
-      <div class="eyebrow reveal">Industry Recognition</div>
-      <h2 class="reveal d1">What Other Financial Professionals Say About Our Approach</h2>
-      <p class="peer-body reveal d2">Ethan Kap is an annuity and insurance expert and founder of his own financial services firm. After reviewing the Mountain Goat Climb to Retirement framework, here is what he had to say.</p>
-      <div class="peer-creds reveal d3">Ethan Kap — Annuity &amp; Insurance Expert · Independent Firm Founder</div>
-      <p class="peer-disclaimer reveal d3">Unsolicited review. Ethan Kap is an industry professional, not a client of Mountain Goat Wealth Management.</p>
-    </div>
-    <div class="peer-right reveal d2">
-      <iframe
-        class="peer-video"
-        src="https://www.youtube.com/embed/y1EpkB1FJRg"
-        title="Ethan Kap reviews Mountain Goat Wealth Management"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
     </div>
   </section>
 
