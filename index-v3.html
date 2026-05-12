@@ -1511,6 +1511,9 @@
     }
     .footer-compliance p:last-child { margin-bottom: 0; }
 
+    /* ── VIDEO LIGHTBOX ── */
+    #video-lightbox { backdrop-filter: blur(4px); }
+
     /* ── STICKY BUTTON ── */
     #sticky-book {
       position: fixed;
@@ -1655,6 +1658,7 @@
       .footer-ria { text-align: center; }
 
       #sticky-book { bottom: 16px; right: 16px; }
+      .video-grid { grid-template-columns: 1fr !important; }
       #sticky-book a { padding: 12px 16px; }
       .sticky-text small { display: none; }
 
@@ -1845,7 +1849,38 @@
       <p class="reveal d4">The name came naturally. Their running group had always called themselves the Mountain Goats. Nimble. Agile. Comfortable on steep terrain. It felt right for a firm built to guide people through one of life's most challenging climbs. Bobby brought the Wall Street discipline. Cade brought fresh eyes and analytics. Together they built the firm Bobby had always wished existed.</p>
       <span class="story-bold reveal">We are fiduciaries — legally required to act in your best interest. Full stop.</span>
       <a href="#" class="btn-primary reveal">Book a Call with Bobby →</a>
-      <a href="about.html" class="story-link reveal">Meet the full team →</a>
+
+      <hr style="border:none;border-top:1px solid #e8e8e8;margin:40px 0 32px;">
+
+      <p style="font-family:Lato,sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#007ea7;margin-bottom:20px;">Learn More About Us</p>
+
+      <div class="video-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+        <div>
+          <div style="position:relative;cursor:pointer;overflow:hidden;" onclick="openLightbox('99X1DWi12Xs')">
+            <img src="https://img.youtube.com/vi/99X1DWi12Xs/hqdefault.jpg" alt="Overview of Mountain Goat Wealth Management" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.3s ease;">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.25);transition:background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.1)'" onmouseout="this.style.background='rgba(0,0,0,0.25)'"></div>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;background:rgba(0,126,167,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+              <div style="width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:16px solid white;margin-left:3px;"></div>
+            </div>
+          </div>
+          <p style="font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#1c1c1c;margin:10px 0 4px;">Overview of Mountain Goat Wealth Management</p>
+          <p style="font-family:Lato,sans-serif;font-size:13px;font-weight:300;color:#666666;margin:0;">Who we are, what we do, and why we built this firm, in under two minutes.</p>
+        </div>
+
+        <div>
+          <div style="position:relative;cursor:pointer;overflow:hidden;" onclick="openLightbox('y1EpkB1FJRg')">
+            <img src="https://img.youtube.com/vi/y1EpkB1FJRg/hqdefault.jpg" alt="The 9-Step Mountain Goat Climb to Retirement" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.3s ease;">
+            <div style="position:absolute;inset:0;background:rgba(0,0,0,0.25);transition:background 0.2s;" onmouseover="this.style.background='rgba(0,0,0,0.1)'" onmouseout="this.style.background='rgba(0,0,0,0.25)'"></div>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;background:rgba(0,126,167,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+              <div style="width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:16px solid white;margin-left:3px;"></div>
+            </div>
+          </div>
+          <p style="font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#1c1c1c;margin:10px 0 4px;">The 9-Step Mountain Goat Climb to Retirement</p>
+          <p style="font-family:Lato,sans-serif;font-size:13px;font-weight:300;color:#666666;margin:0;">Our proprietary framework for guiding clients from where they are to a retirement they can count on.</p>
+        </div>
+
+      </div><!-- end video grid -->
     </div>
   </section>
 
@@ -2320,6 +2355,16 @@
     </a>
   </div>
 
+  <!-- ── VIDEO LIGHTBOX ── -->
+  <div id="video-lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:1000;align-items:center;justify-content:center;padding:20px;">
+    <div style="position:relative;width:100%;max-width:900px;">
+      <button onclick="closeLightbox()" style="position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:32px;cursor:pointer;line-height:1;opacity:0.8;font-family:sans-serif;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">×</button>
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+        <iframe id="lightbox-iframe" src="" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ── Scroll reveal ──
     const revealEls = document.querySelectorAll('.reveal');
@@ -2397,6 +2442,27 @@
     window.addEventListener('scroll', () => {
       stickyBook.classList.toggle('visible', window.scrollY > 800);
     }, { passive: true });
+
+    // ── Video lightbox ──
+    function openLightbox(videoId) {
+      const lightbox = document.getElementById('video-lightbox');
+      const iframe = document.getElementById('lightbox-iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1';
+      lightbox.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('video-lightbox');
+      const iframe = document.getElementById('lightbox-iframe');
+      iframe.src = '';
+      lightbox.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('video-lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
   </script>
 </body>
 </html>
