@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mountain Goat Wealth Management — Fee-Only Fiduciary Advisors</title>
+  <title>Mountain Goat Wealth Management — Fee-Based Fiduciary Advisors</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,400;1,700&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -152,17 +152,18 @@
       padding-top: 96px;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
     .hero-grid {
       display: grid;
       grid-template-columns: 55% 45%;
-      min-height: calc(100vh - 96px);
+      min-height: calc(90vh - 96px);
       position: relative;
       overflow: hidden;
     }
 
     .hero-left {
-      padding: 80px 48px 160px 80px;
+      padding: 100px 48px 80px 80px;
       display: flex; flex-direction: column; justify-content: center;
       position: relative; z-index: 2;
     }
@@ -206,7 +207,7 @@
       font-weight: 300;
       font-size: 17px;
       color: rgba(255,255,255,0.55);
-      max-width: 440px;
+      max-width: 500px;
       line-height: 1.75;
       margin-bottom: 36px;
     }
@@ -266,22 +267,24 @@
 
     .hero-right {
       position: relative; overflow: hidden;
+      height: 100%;
     }
     .hero-right img {
       width: 100%; height: 100%;
       object-fit: cover;
-      opacity: 0.35;
-      filter: grayscale(30%);
+      object-position: center 30%;
+      opacity: 0.95;
+      filter: grayscale(20%);
     }
     .hero-right::before {
       content: '';
       position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to right, #1c1c1c 0%, transparent 35%);
+      background: linear-gradient(to right, #1c1c1c 0%, rgba(28,28,28,0.4) 30%, rgba(28,28,28,0.15) 100%);
     }
     .hero-right::after {
       content: '';
       position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(to top, #1c1c1c 0%, transparent 40%);
+      background: linear-gradient(to top, rgba(28,28,28,0.35) 0%, transparent 30%);
     }
 
     /* ── TRUST BAR ── */
@@ -641,7 +644,7 @@
       font-weight: 300;
       color: var(--mid);
       font-size: 16px;
-      max-width: 520px;
+      max-width: none;
       margin-bottom: 48px;
       line-height: 1.75;
     }
@@ -1592,8 +1595,12 @@
         order: 1;
       }
       .hero-right {
-        height: 300px;
+        height: 280px;
         order: 2;
+        overflow: hidden;
+      }
+      .hero-right img {
+        object-position: center 40%;
       }
       .hero-proof {
         gap: 20px;
@@ -1705,7 +1712,7 @@
         knows <em>the route</em>.
       </h1>
       <p class="hero-sub reveal d2">
-        Mountain Goat Wealth Management is a wealth management firm guiding families in Utah, Texas, and Wyoming through the climb to retirement. Built by a Goldman Sachs veteran who got tired of Wall Street only serving Wall Street.
+        Mountain Goat Wealth Management is a wealth management firm guiding families in the Mountain West region through the climb to retirement. Built by a Goldman Sachs veteran who got tired of Wall Street only serving Wall Street.
       </p>
       <div class="hero-ctas reveal d3">
         <a href="#" class="btn-primary">Book Your 30-Minute Discovery Call →</a>
@@ -1733,7 +1740,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <img src="assets/images/climber-hero.jpg" alt="Mountain climber on trail" />
+      <img src="assets/images/climber-hero-3.png" alt="Mountain climber on trail" />
     </div>
     </div><!-- /.hero-grid -->
     <div class="hero-proof">
@@ -1747,11 +1754,11 @@
       </div>
       <div class="proof-item">
         <span class="proof-stat">CFP®</span>
-        <span class="proof-label">Fiduciary credentials</span>
+        <span class="proof-label">Our Founder Bobby Goodman</span>
       </div>
       <div class="proof-item">
         <span class="proof-stat">Fiduciary</span>
-        <span class="proof-label">Legally Required to Act in Your Best Interest</span>
+        <span class="proof-label">Acting in Your Best Interest</span>
       </div>
       <div class="proof-item">
         <span class="proof-stat">20+ yrs</span>
@@ -1765,7 +1772,7 @@
     <div class="diag-inner">
       <div class="diag-left">
         <div class="eyebrow reveal">Is this you?</div>
-        <h2 class="reveal d1">You've worked too hard to leave<br>your retirement to a guess.</h2>
+        <h2 class="reveal d1">You've worked too hard to leave your retirement to a guess.</h2>
         <p class="lede reveal d2">
           Check the ones that sound familiar. The good news: every single one is solvable with a plan, and a 30-minute call is enough to know where you stand.
         </p>
@@ -1844,7 +1851,7 @@
     <div class="story-text-col">
       <div class="eyebrow reveal">Bobby's Story</div>
       <h2 class="reveal d1">Born on a Trail Run in<br>Millcreek Canyon</h2>
-      <p class="reveal d2">For 18 years, I was good at my job at Goldman Sachs. Really good. But somewhere between the long hours, the frantic pace, and the ultra-high-net-worth clients who expected the world, I realized something was missing. I wasn't spending enough time with my family. I wasn't helping people in any way that felt meaningful. I had 18 years of experience, and I was spending it on people who needed it least.</p>
+      <p class="reveal d2">For 18 years, I was good at my job at Goldman Sachs. Really good. But somewhere between the long hours, the frantic pace, and the ultra-high-net-worth clients who expected the world, I realized something was missing. I wasn't helping people in any way that felt meaningful. I had 18 years of experience, and I was spending it on people who needed it least.</p>
       <p class="reveal d3">On a Saturday morning in the spring of 2024, my friend Cade Hyde and I set out on a 10-mile trail run through Millcreek Canyon. We'd been talking about the idea the whole way — somewhere between Elbow Fork and Rattlesnake Trail, between climbs. Then we hit the Overlook. Salt Lake Valley spread out below us, perfect morning light, the whole valley visible in every direction. That's where it sank in. Mountain Goat Wealth Management was born at 7,000 feet, staring down at the families we wanted to help.</p>
       <p class="reveal d4">The name came naturally. Our running group had always called themselves the Mountain Goats. Nimble. Agile. Comfortable on steep terrain. It felt right for a firm built to guide people through one of life's most challenging climbs. I brought the Wall Street discipline. Cade brought fresh eyes and analytics. Together we built the firm I had always wished existed.</p>
       <span class="story-bold reveal">We are fiduciaries — legally required to act in your best interest. Full stop.</span>
@@ -1888,46 +1895,38 @@
   <section id="team">
     <div class="eyebrow">The Advisors</div>
     <h2 class="reveal">Three people. Real names. Real phone numbers.</h2>
-    <p class="subtext reveal d1">You'll know exactly who's managing your plan. No call centers, no handoffs, no junior associates.</p>
     <div class="team-grid">
       <div class="team-card reveal">
         <div class="team-img-wrap">
           <img src="assets/images/headshot-bobby.png" alt="Robert Bobby Goodman" />
-          <div class="team-pills">
-            <span class="team-pill">CFP®</span>
-            <span class="team-pill">MBA</span>
-          </div>
+          <div class="team-pills"><span class="team-pill">Salt Lake City</span></div>
         </div>
         <div class="team-body">
           <div class="team-name">Robert 'Bobby' Goodman</div>
-          <div class="team-title">Founder &amp; Chief Compliance Officer</div>
-          <p class="team-bio">18 years at Goldman Sachs Private Wealth. Economics at BYU, MBA at Utah. Husband, father of three. Most likely to call you back within the hour.</p>
+          <div class="team-title">Founder</div>
+          <p class="team-bio">18 years at Goldman Sachs. Economics at BYU, MBA at Utah. Certified Financial Planner®. Husband, father of three. Most likely to call you back within the hour. Trail runner and fisherman.</p>
         </div>
       </div>
       <div class="team-card reveal d1">
         <div class="team-img-wrap">
           <img src="assets/images/headshot-cade.png" alt="Cade Hyde" />
-          <div class="team-pills">
-            <span class="team-pill">Series 65</span>
-          </div>
+          <div class="team-pills"><span class="team-pill">Salt Lake City</span></div>
         </div>
         <div class="team-body">
           <div class="team-name">Cade Hyde</div>
           <div class="team-title">Financial Advisor</div>
-          <p class="team-bio">Corporate analytics background, supply chain and social impact at BYU. Trail runner and Bobby's most frequent running partner. Salt Lake City, UT.</p>
+          <p class="team-bio">4 years as a Data Analyst. Supply Chain Management and Social Impact at BYU. Husband. Skilled at making the most complex topics understandable. Trail runner and golfer.</p>
         </div>
       </div>
       <div class="team-card reveal d2">
         <div class="team-img-wrap">
           <img src="assets/images/headshot-michael.png" alt="Michael Goodman" />
-          <div class="team-pills">
-            <span class="team-pill">Series 65</span>
-          </div>
+          <div class="team-pills"><span class="team-pill">Houston</span></div>
         </div>
         <div class="team-body">
           <div class="team-name">Michael Goodman</div>
-          <div class="team-title">Financial Advisor · Houston</div>
-          <p class="team-bio">Geologist by training, methodical by nature. Bobby's brother. Husband, father of two. Disc golfer, board gamer. Houston, TX.</p>
+          <div class="team-title">Financial Advisor</div>
+          <p class="team-bio">8 years in the Oil & Gas Conservation Industry. Geology degree from BYU. Husband and father of two. Asks the most thought provoking questions. Disc golfer and board gamer.</p>
         </div>
       </div>
     </div>
@@ -1941,23 +1940,9 @@
   <section id="shorts">
     <div class="eyebrow reveal">Quick Takes</div>
     <h2 class="reveal d1">Trail Advice from the Mountain Goats</h2>
-    <p class="subtext reveal d2">Bobby films these on trails, at his desk, and in between client meetings. Real answers to the questions real people are asking about retirement right now.</p>
+    <p class="subtext reveal d2">Real answers to the questions real people are asking about retirement and investing.</p>
     <div class="shorts-grid">
       <div class="short-card reveal">
-        <iframe
-          src="https://www.youtube.com/embed/j82s-zIePt0?autoplay=1&mute=1&loop=1&playlist=j82s-zIePt0&controls=0"
-          width="100%" height="480"
-          style="display:block;border:none;"
-          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
-          allowfullscreen
-          title="Is Your Old 401k Just Sitting There?">
-        </iframe>
-        <div class="short-card-body">
-          <div class="short-card-title">Is Your Old 401(k) Just Sitting There?</div>
-          <div class="short-card-desc">How to find lost retirement accounts from past employers and what to do next.</div>
-        </div>
-      </div>
-      <div class="short-card reveal d1">
         <iframe
           src="https://www.youtube.com/embed/TlHRNgxb7oA?autoplay=1&mute=1&loop=1&playlist=TlHRNgxb7oA&controls=0"
           width="100%" height="480"
@@ -1969,6 +1954,20 @@
         <div class="short-card-body">
           <div class="short-card-title">What Is an Income Structured Note?</div>
           <div class="short-card-desc">A plain-language breakdown of one of the most powerful income tools available to investors today.</div>
+        </div>
+      </div>
+      <div class="short-card reveal d1">
+        <iframe
+          src="https://www.youtube.com/embed/j82s-zIePt0?autoplay=1&mute=1&loop=1&playlist=j82s-zIePt0&controls=0"
+          width="100%" height="480"
+          style="display:block;border:none;"
+          allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
+          allowfullscreen
+          title="Is Your Old 401k Just Sitting There?">
+        </iframe>
+        <div class="short-card-body">
+          <div class="short-card-title">Is Your Old 401(k) Just Sitting There?</div>
+          <div class="short-card-desc">How to find lost retirement accounts from past employers and what to do next.</div>
         </div>
       </div>
       <div class="short-card reveal d2">
@@ -2049,7 +2048,7 @@
       <h2 class="reveal d1">A 30-minute call.<br>Here's the entire script.</h2>
       <p class="lede reveal d2">We believe the fastest way to earn your trust is to show you exactly what happens before you commit to anything. So here's the entire 30-minute call — minute by minute.</p>
       <div class="promise-box reveal d2">
-        <strong>Our promise.</strong> If at any point on the call it's clear we aren't the right fit, we'll say so — and where we can, point you toward someone who is. Your time is worth more than our pipeline. We are fee-only — we charge a transparent percentage of assets managed, no commissions. We'll tell you the exact number in the first 30 minutes.
+        <strong>Our promise.</strong> If at any point on the call it's clear we aren't the right fit, we'll say so — and where we can, point you toward someone who is. Your time is worth more than our pipeline. We are fee-based — we charge a transparent percentage of assets managed. We'll tell you the exact number in the first 30 minutes.
       </div>
       <div class="no-oblig reveal d3">
         <div class="no-oblig-item">
@@ -2193,7 +2192,7 @@
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">We are fee-only for our wealth management clients — a transparent, percentage-based fee on the assets we manage. We will tell you the exact number on the discovery call, before you ever consider becoming a client. No hidden costs, no commissions on investments.</div>
+          <div class="faq-answer-inner">We are fee-based for our wealth management clients — a transparent, percentage-based fee on the assets we manage. We will tell you the exact number on the discovery call, before you ever consider becoming a client. No hidden costs, no commissions on investments.</div>
         </div>
       </div>
       <div class="faq-row">
