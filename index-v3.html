@@ -424,7 +424,7 @@
       align-items: center;
     }
 
-    .story-img-col { position: relative; background-color: #ffffff; }
+    .story-img-col { position: relative; background-color: #ffffff; padding-bottom: 60px; }
     .story-main-img {
       width: 100%; min-height: 520px;
       object-fit: cover; object-position: center;
@@ -432,11 +432,13 @@
     }
     .story-pullquote {
       position: absolute;
-      bottom: -36px; right: -36px;
+      top: 520px; right: -16px;
+      transform: translateY(-50%);
       background: var(--black);
       border-left: 3px solid var(--blue);
       padding: 24px 28px;
-      max-width: 270px;
+      width: 280px;
+      z-index: 2;
     }
     .story-pullquote blockquote {
       font-family: 'Merriweather', serif;
@@ -629,7 +631,7 @@
 
     /* ── SHORTS ── */
     #shorts {
-      background: #ffffff;
+      background: var(--off);
       padding: 60px 80px 100px;
     }
     #shorts .eyebrow { margin-bottom: 12px; }
@@ -1843,134 +1845,15 @@
   <!-- ── STORY ── -->
   <section id="story">
     <div class="story-img-col reveal">
-      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.07;" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <polyline points="0,480 60,380 100,420 160,280 200,320 250,180 300,320 340,260 390,340 440,220 500,300 500,600 0,600" fill="none" stroke="#007ea7" stroke-width="2" stroke-linejoin="round"/>
-        <polyline points="0,520 80,440 140,480 220,340 280,380 340,300 400,360 460,290 500,340 500,600 0,600" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linejoin="round"/>
-        <path d="M 50 560 Q 150 480 250 400 Q 320 340 400 280" fill="none" stroke="#007ea7" stroke-width="1" stroke-dasharray="4,6" opacity="0.6"/>
-      </svg>
       <img src="assets/images/millcreek-overlook.jpg" alt="Millcreek Canyon overlook" class="story-main-img" />
-      <div class="story-pullquote" style="z-index:2;">
+      <div class="story-pullquote">
         <blockquote>"At the overlook, staring down at the valley, it just clicked. These are the people we want to help."</blockquote>
         <cite>— Bobby Goodman, Millcreek Canyon, Spring 2024</cite>
       </div>
-
-      <div style="position:relative;z-index:2;margin-top: 32px;
-        padding-top: 28px;
-        border-top: 1px solid #e8e8e8;">
-
-        <p style="font-family: Lato, sans-serif;
-          font-size: 11px; font-weight: 600;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #007ea7; margin-bottom: 20px;">
-          The Advisors
-        </p>
-
-        <div style="display: flex; flex-direction: column; gap: 16px;">
-
-          <!-- Bobby -->
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <img src="assets/images/headshot-bobby.png"
-              alt="Bobby Goodman"
-              style="width: 56px; height: 56px;
-                border-radius: 50%;
-                object-fit: cover;
-                object-position: center 15%;
-                border: 2px solid #007ea7;
-                flex-shrink: 0;">
-            <div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 14px; font-weight: 600;
-                color: #1c1c1c; line-height: 1.2;">
-                Bobby Goodman
-              </div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 12px; font-weight: 300;
-                color: #007ea7; margin-top: 2px;">
-                Founder · CFP®
-              </div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 11px; font-weight: 300;
-                color: #999999; margin-top: 1px;">
-                Salt Lake City, UT
-              </div>
-            </div>
-          </div>
-
-          <!-- Cade -->
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <img src="assets/images/headshot-cade.png"
-              alt="Cade Hyde"
-              style="width: 56px; height: 56px;
-                border-radius: 50%;
-                object-fit: cover;
-                object-position: center 15%;
-                border: 2px solid #007ea7;
-                flex-shrink: 0;">
-            <div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 14px; font-weight: 600;
-                color: #1c1c1c; line-height: 1.2;">
-                Cade Hyde
-              </div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 12px; font-weight: 300;
-                color: #007ea7; margin-top: 2px;">
-                Financial Advisor
-              </div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 11px; font-weight: 300;
-                color: #999999; margin-top: 1px;">
-                Salt Lake City, UT
-              </div>
-            </div>
-          </div>
-
-          <!-- Michael -->
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <img src="assets/images/headshot-michael.png"
-              alt="Michael Goodman"
-              style="width: 56px; height: 56px;
-                border-radius: 50%;
-                object-fit: cover;
-                object-position: center 15%;
-                border: 2px solid #007ea7;
-                flex-shrink: 0;">
-            <div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 14px; font-weight: 600;
-                color: #1c1c1c; line-height: 1.2;">
-                Michael Goodman
-              </div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 12px; font-weight: 300;
-                color: #007ea7; margin-top: 2px;">
-                Financial Advisor
-              </div>
-              <div style="font-family: Lato, sans-serif;
-                font-size: 11px; font-weight: 300;
-                color: #999999; margin-top: 1px;">
-                Houston, TX
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <a href="about.html"
-          style="display: inline-block;
-            margin-top: 16px;
-            font-family: Lato, sans-serif;
-            font-size: 13px; font-weight: 400;
-            color: #007ea7;
-            text-decoration: none;">
-          Learn more about our advisors →
-        </a>
-
-      </div>
+      <img src="assets/images/mountain-goat.png" alt="Mountain goat on rocky terrain" style="width:100%;margin-top:0;object-fit:cover;display:block;" />
     </div>
     <div class="story-text-col">
-      <div class="eyebrow reveal">Bobby's Story</div>
+      <div class="eyebrow reveal">The Mountain Goat Story</div>
       <h2 class="reveal d1">Born on a Trail Run in<br>Millcreek Canyon</h2>
       <p class="reveal d2">For 18 years, I was good at my job at Goldman Sachs. Really good. But somewhere between the long hours, the frantic pace, and the ultra-high-net-worth clients who expected the world, I realized something was missing. I wasn't helping people in any way that felt meaningful. I had 18 years of experience, and I was spending it on people who needed it least.</p>
       <p class="reveal d3">On a Saturday morning in the spring of 2024, my friend Cade Hyde and I set out on a 10-mile trail run through Millcreek Canyon. We'd been talking about the idea the whole way — somewhere between Elbow Fork and Rattlesnake Trail, between climbs. Then we hit the Overlook. Salt Lake Valley spread out below us, perfect morning light, the whole valley visible in every direction. That's where it sank in. Mountain Goat Wealth Management was born at 7,000 feet, staring down at the families we wanted to help.</p>
@@ -2191,7 +2074,7 @@
   <section id="services">
     <div class="eyebrow">What We Do</div>
     <h2 class="reveal">One Relationship. Everything Covered.</h2>
-    <p class="subtext reveal d1">We don't offer a product menu. We build a strategy around you — then use the right tools to execute it.</p>
+    <p class="subtext reveal d1">We build a strategy around you, then use the right tools to execute it.</p>
     <p class="tagline reveal d2">"One relationship. One strategy. One confident retirement."</p>
     <div class="services-grid">
       <div class="service-card reveal">
