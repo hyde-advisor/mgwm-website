@@ -424,10 +424,11 @@
       align-items: center;
     }
 
-    .story-img-col { position: relative; }
+    .story-img-col { position: relative; background-color: #ffffff; }
     .story-main-img {
       width: 100%; min-height: 520px;
       object-fit: cover; object-position: center;
+      position: relative; z-index: 1;
     }
     .story-pullquote {
       position: absolute;
@@ -1842,10 +1843,130 @@
   <!-- ── STORY ── -->
   <section id="story">
     <div class="story-img-col reveal">
+      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.07;" viewBox="0 0 500 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="0,480 60,380 100,420 160,280 200,320 250,180 300,320 340,260 390,340 440,220 500,300 500,600 0,600" fill="none" stroke="#007ea7" stroke-width="2" stroke-linejoin="round"/>
+        <polyline points="0,520 80,440 140,480 220,340 280,380 340,300 400,360 460,290 500,340 500,600 0,600" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M 50 560 Q 150 480 250 400 Q 320 340 400 280" fill="none" stroke="#007ea7" stroke-width="1" stroke-dasharray="4,6" opacity="0.6"/>
+      </svg>
       <img src="assets/images/millcreek-overlook.jpg" alt="Millcreek Canyon overlook" class="story-main-img" />
-      <div class="story-pullquote">
+      <div class="story-pullquote" style="z-index:2;">
         <blockquote>"At the overlook, staring down at the valley, it just clicked. These are the people we want to help."</blockquote>
         <cite>— Bobby Goodman, Millcreek Canyon, Spring 2024</cite>
+      </div>
+
+      <div style="position:relative;z-index:2;margin-top: 32px;
+        padding-top: 28px;
+        border-top: 1px solid #e8e8e8;">
+
+        <p style="font-family: Lato, sans-serif;
+          font-size: 11px; font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #007ea7; margin-bottom: 20px;">
+          The Advisors
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+
+          <!-- Bobby -->
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <img src="assets/images/headshot-bobby.png"
+              alt="Bobby Goodman"
+              style="width: 56px; height: 56px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center 15%;
+                border: 2px solid #007ea7;
+                flex-shrink: 0;">
+            <div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 14px; font-weight: 600;
+                color: #1c1c1c; line-height: 1.2;">
+                Bobby Goodman
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 12px; font-weight: 300;
+                color: #007ea7; margin-top: 2px;">
+                Founder · CFP®
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 11px; font-weight: 300;
+                color: #999999; margin-top: 1px;">
+                Salt Lake City, UT
+              </div>
+            </div>
+          </div>
+
+          <!-- Cade -->
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <img src="assets/images/headshot-cade.png"
+              alt="Cade Hyde"
+              style="width: 56px; height: 56px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center 15%;
+                border: 2px solid #007ea7;
+                flex-shrink: 0;">
+            <div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 14px; font-weight: 600;
+                color: #1c1c1c; line-height: 1.2;">
+                Cade Hyde
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 12px; font-weight: 300;
+                color: #007ea7; margin-top: 2px;">
+                Financial Advisor
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 11px; font-weight: 300;
+                color: #999999; margin-top: 1px;">
+                Salt Lake City, UT
+              </div>
+            </div>
+          </div>
+
+          <!-- Michael -->
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <img src="assets/images/headshot-michael.png"
+              alt="Michael Goodman"
+              style="width: 56px; height: 56px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center 15%;
+                border: 2px solid #007ea7;
+                flex-shrink: 0;">
+            <div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 14px; font-weight: 600;
+                color: #1c1c1c; line-height: 1.2;">
+                Michael Goodman
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 12px; font-weight: 300;
+                color: #007ea7; margin-top: 2px;">
+                Financial Advisor
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 11px; font-weight: 300;
+                color: #999999; margin-top: 1px;">
+                Houston, TX
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="about.html"
+          style="display: inline-block;
+            margin-top: 16px;
+            font-family: Lato, sans-serif;
+            font-size: 13px; font-weight: 400;
+            color: #007ea7;
+            text-decoration: none;">
+          Learn more about our advisors →
+        </a>
+
       </div>
     </div>
     <div class="story-text-col">
@@ -1888,50 +2009,126 @@
         </div>
 
       </div><!-- end video grid -->
-    </div>
-  </section>
 
-  <!-- ── TEAM ── -->
-  <section id="team">
-    <div class="eyebrow">The Advisors</div>
-    <h2 class="reveal">Three people. Real names. Real phone numbers.</h2>
-    <div class="team-grid">
-      <div class="team-card reveal">
-        <div class="team-img-wrap">
-          <img src="assets/images/headshot-bobby.png" alt="Robert Bobby Goodman" />
-          <div class="team-pills"><span class="team-pill">Salt Lake City</span></div>
+      <div style="margin-top: 48px;
+        padding-top: 36px;
+        border-top: 1px solid #e8e8e8;">
+
+        <p style="font-family: Lato, sans-serif;
+          font-size: 11px; font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #007ea7; margin-bottom: 24px;">
+          The Advisors
+        </p>
+
+        <div style="display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;">
+
+          <!-- Bobby -->
+          <div style="display: flex;
+            align-items: center; gap: 14px;">
+            <img src="assets/images/headshot-bobby.png"
+              alt="Bobby Goodman"
+              style="width: 56px; height: 56px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center 15%;
+                border: 2px solid #007ea7;
+                flex-shrink: 0;">
+            <div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 14px; font-weight: 600;
+                color: #1c1c1c; line-height: 1.2;">
+                Bobby Goodman
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 12px; font-weight: 300;
+                color: #007ea7; margin-top: 2px;">
+                Founder · CFP®
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 11px; font-weight: 300;
+                color: #999999; margin-top: 1px;">
+                Salt Lake City, UT
+              </div>
+            </div>
+          </div>
+
+          <!-- Cade -->
+          <div style="display: flex;
+            align-items: center; gap: 14px;">
+            <img src="assets/images/headshot-cade.png"
+              alt="Cade Hyde"
+              style="width: 56px; height: 56px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center 15%;
+                border: 2px solid #007ea7;
+                flex-shrink: 0;">
+            <div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 14px; font-weight: 600;
+                color: #1c1c1c; line-height: 1.2;">
+                Cade Hyde
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 12px; font-weight: 300;
+                color: #007ea7; margin-top: 2px;">
+                Financial Advisor
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 11px; font-weight: 300;
+                color: #999999; margin-top: 1px;">
+                Salt Lake City, UT
+              </div>
+            </div>
+          </div>
+
+          <!-- Michael -->
+          <div style="display: flex;
+            align-items: center; gap: 14px;">
+            <img src="assets/images/headshot-michael.png"
+              alt="Michael Goodman"
+              style="width: 56px; height: 56px;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center 15%;
+                border: 2px solid #007ea7;
+                flex-shrink: 0;">
+            <div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 14px; font-weight: 600;
+                color: #1c1c1c; line-height: 1.2;">
+                Michael Goodman
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 12px; font-weight: 300;
+                color: #007ea7; margin-top: 2px;">
+                Financial Advisor
+              </div>
+              <div style="font-family: Lato, sans-serif;
+                font-size: 11px; font-weight: 300;
+                color: #999999; margin-top: 1px;">
+                Houston, TX
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="team-body">
-          <div class="team-name">Robert 'Bobby' Goodman</div>
-          <div class="team-title">Founder</div>
-          <p class="team-bio">18 years at Goldman Sachs. Economics at BYU, MBA at Utah. Certified Financial Planner®. Husband, father of three. Most likely to call you back within the hour. Trail runner and fisherman.</p>
-        </div>
+
+        <a href="about.html"
+          style="display: inline-block;
+            margin-top: 20px;
+            font-family: Lato, sans-serif;
+            font-size: 13px; font-weight: 400;
+            color: #007ea7;
+            text-decoration: none;">
+          Learn more about our advisors →
+        </a>
+
       </div>
-      <div class="team-card reveal d1">
-        <div class="team-img-wrap">
-          <img src="assets/images/headshot-cade.png" alt="Cade Hyde" />
-          <div class="team-pills"><span class="team-pill">Salt Lake City</span></div>
-        </div>
-        <div class="team-body">
-          <div class="team-name">Cade Hyde</div>
-          <div class="team-title">Financial Advisor</div>
-          <p class="team-bio">4 years as a Data Analyst. Supply Chain Management and Social Impact at BYU. Husband. Skilled at making the most complex topics understandable. Trail runner and golfer.</p>
-        </div>
-      </div>
-      <div class="team-card reveal d2">
-        <div class="team-img-wrap">
-          <img src="assets/images/headshot-michael.png" alt="Michael Goodman" />
-          <div class="team-pills"><span class="team-pill">Houston</span></div>
-        </div>
-        <div class="team-body">
-          <div class="team-name">Michael Goodman</div>
-          <div class="team-title">Financial Advisor</div>
-          <p class="team-bio">8 years in the Oil & Gas Conservation Industry. Geology degree from BYU. Husband and father of two. Asks the most thought provoking questions. Disc golfer and board gamer.</p>
-        </div>
-      </div>
-    </div>
-    <div class="shorts-more reveal">
-      <a href="about.html">Learn More About the Team →</a>
     </div>
   </section>
 
