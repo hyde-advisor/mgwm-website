@@ -1777,7 +1777,7 @@
         <div class="eyebrow reveal">Is this you?</div>
         <h2 class="reveal d1">You've worked too hard to leave your retirement to a guess.</h2>
         <p class="lede reveal d2">
-          Check the ones that sound familiar. The good news: every single one is solvable with a plan, and a 30-minute call is enough to know where you stand.
+          Select the ones that sound familiar. The good news: every single one is solvable with a plan, and a 30-minute call is enough to know where you stand.
         </p>
       </div>
       <div class="diag-right">
@@ -2474,34 +2474,34 @@
     });
 
     // ── Diagnostic checklist ──
-    const checked = new Set();
+    let selectedId = null;
     const diagResult = document.getElementById('diag-result');
     const diagCount = document.getElementById('diag-count');
     const diagMsg = document.getElementById('diag-msg');
 
     const messages = {
-      1: 'This is a common one. On a 30-minute call we can usually give you a clear next step — no plan required.',
-      2: 'These are exactly the questions a Discovery Call is built to answer. We\'ll tell you, plainly, what we\'d do in your situation — whether or not you become a client.',
-      many: 'You\'re carrying more than most people realize. Each of these is solvable with a plan — and a 30-minute call is genuinely the fastest way to know where you stand.'
+      '1': 'Knowing your number is the first step — and it\'s faster to figure out than most people think. A 30-minute call is usually enough to tell you where you stand.',
+      '2': 'Sequence-of-returns risk is real, and it\'s one of the most overlooked threats to a retirement plan. We have specific strategies to protect against it.',
+      '3': 'Consolidating those accounts can simplify your picture and often reduce fees. We can walk you through your options in a single call.',
+      '4': 'Most people in the accumulation phase are leaving money on the table with taxes. This is one of the highest-leverage conversations we have.',
+      '5': 'That feeling usually means you\'re ready to get serious — and that\'s exactly who we built this firm for.',
+      '6': 'A retirement vision without a plan is just a wish. The 30-minute call is where we start turning it into a timeline.'
     };
 
     document.querySelectorAll('.diag-item').forEach(btn => {
       btn.addEventListener('click', () => {
         const id = btn.dataset.id;
-        if (checked.has(id)) {
-          checked.delete(id);
-          btn.classList.remove('checked');
-        } else {
-          checked.add(id);
-          btn.classList.add('checked');
-        }
-        const count = checked.size;
-        diagCount.textContent = count;
-        if (count === 0) {
+        document.querySelectorAll('.diag-item').forEach(b => b.classList.remove('checked'));
+        if (selectedId === id) {
+          selectedId = null;
+          diagCount.textContent = 0;
           diagResult.style.display = 'none';
         } else {
+          selectedId = id;
+          btn.classList.add('checked');
+          diagCount.textContent = 1;
           diagResult.style.display = 'block';
-          diagMsg.textContent = count === 1 ? messages[1] : count === 2 ? messages[2] : messages.many;
+          diagMsg.textContent = messages[id];
         }
       });
     });
