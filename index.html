@@ -209,7 +209,15 @@
       color: rgba(255,255,255,0.55);
       max-width: 500px;
       line-height: 1.75;
-      margin-bottom: 36px;
+      margin-bottom: 0.25rem;
+    }
+    .hero-targeting {
+      font-family: 'Lato', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #007ea7;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-ctas {
@@ -1715,8 +1723,9 @@
         knows <em>the route</em>.
       </h1>
       <p class="hero-sub reveal d2">
-        Mountain Goat Wealth Management is a wealth management firm guiding families in the Mountain West region through the climb to retirement. Built by a Goldman Sachs veteran who got tired of Wall Street only serving Wall Street.
+        Mountain Goat Wealth Management is a wealth management firm guiding families in Utah, Texas, and Wyoming through the climb to retirement. Founded by a Goldman Sachs veteran who got tired of Wall Street only serving Wall Street.
       </p>
+      <p class="hero-targeting">Built for professionals and pre-retirees ready to conquer their climb to retirement.</p>
       <div class="hero-ctas reveal d3">
         <a href="#" class="btn-primary">Book Your 30-Minute Discovery Call →</a>
         <a href="#callbreak" class="btn-ghost">How it works</a>
@@ -1752,12 +1761,8 @@
         <span class="proof-label">Google Reviews</span>
       </div>
       <div class="proof-item">
-        <span class="proof-stat">$0</span>
-        <span class="proof-label">Cost · No obligation</span>
-      </div>
-      <div class="proof-item">
         <span class="proof-stat">CFP®</span>
-        <span class="proof-label">Our Founder Bobby Goodman</span>
+        <span class="proof-label">Founder, Bobby Goodman</span>
       </div>
       <div class="proof-item">
         <span class="proof-stat">Fiduciary</span>
@@ -1765,7 +1770,7 @@
       </div>
       <div class="proof-item">
         <span class="proof-stat">20+ yrs</span>
-        <span class="proof-label">Wall Street experience</span>
+        <span class="proof-label">Combined Experience</span>
       </div>
     </div>
   </section>
@@ -1797,7 +1802,7 @@
             <path d="M1 5l3.5 3.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <span class="diag-text">"I'm worreid that a bad market year right before I retire could derail everything."</span>
+        <span class="diag-text">"I'm worried that a bad market year right before I retire could derail everything."</span>
       </button>
       <button class="diag-item reveal d2" data-id="3">
         <div class="diag-checkbox">
@@ -1834,7 +1839,7 @@
     </div>
 
     <div id="diag-result">
-      <div class="diag-result-eyebrow">Our response.<span id="diag-count">0</span></div>
+      <div class="diag-result-eyebrow">Our response:</div>
       <p class="diag-result-msg" id="diag-msg"></p>
       <a href="#" class="btn-primary">Book Your 30-Minute Discovery Call →</a>
     </div>
@@ -2263,7 +2268,7 @@
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">It means we will put your interests above ours, on every recommendation, every time. We won't push you into a product because it pays us a higher commission. Many advisors aren't held to this standard. We are. Always.</div>
+          <div class="faq-answer-inner">It means we will put your interests above ours, on every recommendation, every time. We will always disclose how we're compensated and will never recommend a product that doesn't serve your interests first. Many advisors aren't held to this standard. We are. Always.</div>
         </div>
       </div>
       <div class="faq-row">
@@ -2476,7 +2481,6 @@
     // ── Diagnostic checklist ──
     let selectedId = null;
     const diagResult = document.getElementById('diag-result');
-    const diagCount = document.getElementById('diag-count');
     const diagMsg = document.getElementById('diag-msg');
 
     const messages = {
@@ -2494,12 +2498,10 @@
         document.querySelectorAll('.diag-item').forEach(b => b.classList.remove('checked'));
         if (selectedId === id) {
           selectedId = null;
-          diagCount.textContent = 0;
           diagResult.style.display = 'none';
         } else {
           selectedId = id;
           btn.classList.add('checked');
-          diagCount.textContent = 1;
           diagResult.style.display = 'block';
           diagMsg.textContent = messages[id];
         }
