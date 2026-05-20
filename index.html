@@ -249,8 +249,7 @@
     }
     .hero-meta-item svg { flex-shrink: 0; }
     #story .hero-meta-item,
-    #callbreak .hero-meta-item,
-    #testimonials .hero-meta-item { color: rgba(0,0,0,0.4); }
+    #callbreak .hero-meta-item { color: rgba(0,0,0,0.4); }
     #services .hero-meta,
     .testimonials-cta .hero-meta,
     .faq-cta .hero-meta,
@@ -440,6 +439,7 @@
     }
 
     .story-img-col { position: relative; background-color: #ffffff; padding-bottom: 60px; }
+    .story-trail-wrap { position: relative; display: block; width: 100%; }
     .story-main-img {
       width: 100%; min-height: 520px;
       object-fit: cover; object-position: center;
@@ -447,12 +447,16 @@
     }
     .story-pullquote {
       position: absolute;
-      top: 520px; right: -16px;
-      transform: translateY(-50%);
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 0;
+      margin: 0;
       background: var(--black);
       border-left: 3px solid var(--blue);
       padding: 24px 28px;
-      width: 280px;
       z-index: 2;
     }
     .story-pullquote blockquote {
@@ -1009,9 +1013,30 @@
 
     /* ── TESTIMONIALS ── */
     #testimonials {
-      background: var(--off);
+      background-image: url('assets/images/happy-hikers.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
       padding: 60px 80px 100px;
+      position: relative;
     }
+    #testimonials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(28, 28, 28, 0.82);
+      z-index: 0;
+    }
+    #testimonials > * { position: relative; z-index: 1; }
+    #testimonials .testimonials-header h2 { color: #fff; }
+    #testimonials .google-badge {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+    }
+    #testimonials .google-badge-text strong { color: #fff; }
+    #testimonials .google-badge:hover { background: rgba(255,255,255,0.18); }
+    #testimonials .testi-disclaimer { color: rgba(255,255,255,0.5); }
+    #testimonials .hero-meta-item { color: rgba(255,255,255,0.7); }
     .testimonials-header {
       display: flex;
       justify-content: space-between;
@@ -1654,6 +1679,8 @@
     @media (max-width: 768px) {
       #nav { padding: 16px 24px; }
       #nav.shrunk { padding: 12px 24px; }
+      .nav-brand img { height: 44px; }
+      .nav-brand-name { font-size: 15px; }
       .nav-links { display: none; flex-direction: column; gap: 0; }
       .nav-links.open {
         display: flex;
@@ -1710,13 +1737,8 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
-      .story-img-col { order: 1; }
+      .story-img-col { order: 1; padding-bottom: 0; }
       .story-text-col { order: 2; padding-right: 24px; }
-      .story-pullquote {
-        position: static;
-        margin-top: 20px;
-        max-width: 100%;
-      }
 
       #team { padding: 60px 24px; }
       .team-grid { grid-template-columns: 1fr; }
@@ -1739,7 +1761,7 @@
       }
 
       #process { padding: 60px 24px; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
 
       #testimonials { padding: 60px 24px; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -1749,6 +1771,8 @@
 
       #leadmagnet { padding: 60px 24px; }
       .leadmagnet-grid { grid-template-columns: 1fr; }
+      .lm-card-light { padding: 2rem 1.5rem; }
+      .lm-card-dark { padding: 2rem 1.5rem; }
 
       #cta { padding: 80px 24px; background-size: cover; }
 
@@ -1762,11 +1786,107 @@
       #sticky-book a { padding: 12px 16px; }
       .sticky-meta { display: none; }
 
+      #trust-bar {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .trust-item {
+        min-width: unset;
+        flex: 0 1 auto;
+        font-size: 0.78rem;
+        padding: 0.4rem 0.75rem;
+      }
+
       section, #diagnostic, #story, #team, #peer, #shorts, #services,
       #callbreak, #process, #testimonials, #faq, #leadmagnet, #cta {
         padding-left: 24px;
         padding-right: 24px;
       }
+    }
+
+    @media (max-width: 600px) {
+      #sticky-bar {
+        bottom: 1.5rem;
+        right: 1rem;
+        left: auto;
+        width: auto;
+        max-width: 200px;
+        border-radius: 16px;
+        padding: 0.85rem 1.25rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        text-align: center;
+      }
+      #sticky-bar a[href="tel:3853476776"] {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #advisor-strip {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #advisor-strip {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem;
+        text-align: center;
+      }
+    }
+
+    /* ── STICKY BAR COLLAPSE/EXPAND ── */
+    #sticky-bar {
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    #sticky-bar.bar-collapsed {
+      opacity: 0 !important;
+      transform: scale(0.8);
+      pointer-events: none !important;
+    }
+    .sticky-bar-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
+    }
+    #sticky-bar-collapsed {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #007ea7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1001;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease;
+    }
+    #sticky-bar-collapsed.bar-visible {
+      opacity: 1;
+      pointer-events: all;
     }
   </style>
 </head>
@@ -1945,12 +2065,14 @@
   <!-- ── STORY ── -->
   <section id="story">
     <div class="story-img-col reveal">
-      <img src="assets/images/millcreek-overlook.jpg" alt="Millcreek Canyon overlook" class="story-main-img" />
-      <div class="story-pullquote">
-        <blockquote>"At the overlook, staring down at the valley, it just clicked. These are the people we want to help."</blockquote>
-        <cite>— Bobby Goodman, Millcreek Canyon, Spring 2024</cite>
+      <div class="story-trail-wrap">
+        <img src="assets/images/millcreek-overlook.jpg" alt="Millcreek Canyon overlook" class="story-main-img" />
+        <div class="story-pullquote">
+          <blockquote>"At the overlook, staring down at the valley, it just clicked. These are the people we want to help."</blockquote>
+          <cite>— Bobby Goodman, Millcreek Canyon, Spring 2024</cite>
+        </div>
       </div>
-      <img src="assets/images/mountain-goat.png" alt="Mountain goat on rocky terrain" style="width:100%;margin-top:0;object-fit:cover;display:block;" />
+      <img src="assets/images/mountain-goat.png" alt="Mountain goat on rocky terrain" style="width:100%;margin-top:50px;object-fit:cover;display:block;" />
     </div>
     <div class="story-text-col">
       <div class="eyebrow reveal">The Mountain Goat Story</div>
@@ -2019,7 +2141,7 @@
           The Advisors
         </p>
 
-        <div style="display: grid;
+        <div id="advisor-strip" style="display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 24px;">
 
@@ -2139,8 +2261,8 @@
       <div class="short-card reveal">
         <iframe
           src="https://www.youtube.com/embed/TlHRNgxb7oA?autoplay=1&mute=1&loop=1&playlist=TlHRNgxb7oA&controls=0"
-          width="100%" height="480"
-          style="display:block;border:none;"
+          width="100%"
+          style="display:block;border:none;width:100%;aspect-ratio:9/16;"
           allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
           allowfullscreen
           title="What Is an Income Structured Note?">
@@ -2153,8 +2275,8 @@
       <div class="short-card reveal d1">
         <iframe
           src="https://www.youtube.com/embed/j82s-zIePt0?autoplay=1&mute=1&loop=1&playlist=j82s-zIePt0&controls=0"
-          width="100%" height="480"
-          style="display:block;border:none;"
+          width="100%"
+          style="display:block;border:none;width:100%;aspect-ratio:9/16;"
           allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
           allowfullscreen
           title="Is Your Old 401k Just Sitting There?">
@@ -2167,8 +2289,8 @@
       <div class="short-card reveal d2">
         <iframe
           src="https://www.youtube.com/embed/PcwhxTgVnxI?autoplay=1&mute=1&loop=1&playlist=PcwhxTgVnxI&controls=0"
-          width="100%" height="480"
-          style="display:block;border:none;"
+          width="100%"
+          style="display:block;border:none;width:100%;aspect-ratio:9/16;"
           allow="autoplay; muted; loop; clipboard-write; encrypted-media; picture-in-picture"
           allowfullscreen
           title="5 Ways to Invest for Income">
@@ -2611,6 +2733,7 @@
   box-shadow: 0 4px 24px rgba(0,0,0,0.3);
   max-width: 220px;
 ">
+  <button id="sticky-bar-close" class="sticky-bar-close" aria-label="Close">×</button>
   <div style="display:flex; align-items:center; gap:0.5rem;">
     <span style="
       width: 8px;
@@ -2649,6 +2772,15 @@
     text-align: center;
   ">Or call Bobby: (385) 347-6776</a>
 </div>
+
+  <div id="sticky-bar-collapsed" role="button" aria-label="Open booking bar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+  </div>
 
   <!-- ── VIDEO LIGHTBOX ── -->
   <div id="video-lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:1000;align-items:center;justify-content:center;padding:20px;">
@@ -2967,6 +3099,53 @@
         document.getElementById('exit-popup-form-content').style.display = 'none';
         document.getElementById('exit-popup-confirmation').style.display = 'block';
         setTimeout(closePopup, 3000);
+      });
+    })();
+  </script>
+
+  <script>
+    // ── Sticky bar collapse/expand ──
+    (function () {
+      var BAR_KEY = 'mgwm_bar_state';
+      var bar = document.getElementById('sticky-bar');
+      var circle = document.getElementById('sticky-bar-collapsed');
+      var closeBtn = document.getElementById('sticky-bar-close');
+
+      function applyState(state, animate) {
+        if (state === 'collapsed') {
+          if (animate) {
+            bar.classList.add('bar-collapsed');
+            setTimeout(function () {
+              circle.classList.add('bar-visible');
+            }, 200);
+          } else {
+            bar.classList.add('bar-collapsed');
+            circle.classList.add('bar-visible');
+          }
+        } else {
+          if (animate) {
+            circle.classList.remove('bar-visible');
+            setTimeout(function () {
+              bar.classList.remove('bar-collapsed');
+            }, 150);
+          } else {
+            bar.classList.remove('bar-collapsed');
+            circle.classList.remove('bar-visible');
+          }
+        }
+        sessionStorage.setItem(BAR_KEY, state);
+      }
+
+      // Apply initial state immediately — no flash
+      var initialState = sessionStorage.getItem(BAR_KEY) || 'expanded';
+      applyState(initialState, false);
+
+      closeBtn.addEventListener('click', function () {
+        applyState('collapsed', true);
+      });
+
+      circle.addEventListener('click', function () {
+        applyState('expanded', true);
       });
     })();
   </script>
