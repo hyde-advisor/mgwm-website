@@ -2811,12 +2811,16 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
         <div style="background:rgba(0,126,167,0.08);border-left:3px solid #007ea7;padding:14px 18px;margin-bottom:24px;">
           <span style="font-family:'Lato',sans-serif;font-weight:400;color:#007ea7;font-size:13px;line-height:1.6;display:block;">Used by Mountain Goat clients to identify their biggest retirement gaps.</span>
         </div>
-        <form class="lm-form" action="#" method="POST">
-          <input type="text" name="name" placeholder="Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <button type="submit" class="lm-submit lm-submit-light">Send Me the Assessment →</button>
+        <form class="lm-form" id="lm-assessment-form" action="#" method="POST">
+          <input type="text" name="name" id="lm-assessment-name" placeholder="Name" required />
+          <input type="email" name="email" id="lm-assessment-email" placeholder="Email Address" required />
+          <button type="submit" class="lm-submit lm-submit-light" id="lm-assessment-btn">Send Me the Assessment →</button>
           <span class="lm-fine">Unsubscribe anytime.</span>
+          <span id="lm-assessment-error" style="display:none;color:#d32f2f;font-size:0.85rem;margin-top:0.5rem;">Something went wrong — please try again.</span>
         </form>
+        <div id="lm-assessment-success" style="display:none;padding:0.75rem 0;">
+          <p style="color:#007ea7;font-weight:700;font-size:0.95rem;font-family:'Lato',sans-serif;margin:0;">✓ Check your inbox — the assessment is on its way.</p>
+        </div>
       </div>
       <div class="lm-card-preview reveal d1">
         <div class="lm-preview-inner">
@@ -3221,7 +3225,6 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
   <script>
     (function () {
       var SHOWN_KEY = 'mgwm_exit_popup_shown';
-      var EMAIL_KEY = 'mgwm_lead_email';
       var MIN_DELAY_MS = 10000;
       var pageLoadTime = Date.now();
       var popupShown = false;
@@ -3284,16 +3287,44 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
       document.getElementById('exit-popup-submit').addEventListener('click', function () {
         var emailInput = document.getElementById('exit-popup-email');
         var errorEl = document.getElementById('exit-popup-error');
+        var submitBtn = document.getElementById('exit-popup-submit');
         var val = emailInput.value.trim();
         if (!val || val.indexOf('@') === -1) {
           errorEl.style.display = 'block';
           return;
         }
         errorEl.style.display = 'none';
-        sessionStorage.setItem(EMAIL_KEY, val);
-        document.getElementById('exit-popup-form-content').style.display = 'none';
-        document.getElementById('exit-popup-confirmation').style.display = 'block';
-        setTimeout(closePopup, 3000);
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+        fetch('https://connect.mailerlite.com/api/subscribers', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZDRlNjFhZTRiOTQ2NGI5MGMzYzIzYjk1NTkyMmQ4ZDliYTk2ZWI0ZTE1ZWYzZDUyOWUxNDcxMDcwZWYzZmQ0OTE3NzM2M2U1MDEwMGViYzYiLCJpYXQiOjE3Nzk3NTM4NzMuMjY2NDc5LCJuYmYiOjE3Nzk3NTM4NzMuMjY2NDgyLCJleHAiOjQ5MzU0Mjc0NzMuMjU3NDMyLCJzdWIiOiIyMzkzNDg4Iiwic2NvcGVzIjpbXX0.kg2etWMp5Kx5gOgYzWLs44RqnNxEcNaQmJSw4fisHiIDkMmG4dlStD29PrFEJpey_cTsy9i3Js6rFPEbx1Vs2f6RG9rlS8J6ePoKu42v6qOQZo1GeqDUKSve_VG0XWnoZ0aJrTL3zs7g_TF6arE4w0SB0XAiAYWmeqS3KNsDEmhPAI-iDxS4kF9DBCGSQAIltjsZ62JoEKR7luRZSfRifbtrVYL2m5HYxphd0XIwtpV87d4PHDF6AP6_HRyIrJ9hsv3i1qN-PBb3VNDKORlOhjpJAlOrAttag-ZEgD3Jq-Q_vlSZvaZ5e3W86iXs1SXe6GzT41H43R0ZSfROCafUrFxtjk3ZD20u-BcRF35FHITcqEuYqWY539j1Pjlqz_EH-23yJT9aJCsnrCtK1fkY5hmLxXIEIm9KHMfVuDjqtlslSNfAMML2n_nYNjM4FxPfjY1pN2t77X1LkwupWc0N1bBEQ5jr34CRJHajtokMqvuFlQEMxBFcRE6VuBy4TiuQuN0bqlotNOuILGWFGlL6oH9XRFjJdy9m7NW26aEUrM8oLdU1FkceMtmH3Mb_mppD63ntsxIbYLW2_TCpbAw7IhuDEaeEvb44mrbNM9URSwuD5TonclzpPYc150EER_aHeTKKA9utuXAGIs3sFRqPrNmBfG-TaF5g4JigKpuvAOM',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: val,
+            groups: ['188300274002036208']
+          })
+        })
+        .then(function (res) {
+          if (res.ok || res.status === 409) {
+            document.getElementById('exit-popup-form-content').style.display = 'none';
+            document.getElementById('exit-popup-confirmation').style.display = 'block';
+            setTimeout(closePopup, 3000);
+          } else {
+            errorEl.textContent = 'Something went wrong — please try again.';
+            errorEl.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Me the Assessment →';
+          }
+        })
+        .catch(function () {
+          errorEl.textContent = 'Something went wrong — please try again.';
+          errorEl.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Me the Assessment →';
+        });
       });
     })();
   </script>
@@ -3344,6 +3375,26 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
       });
     })();
 
+    // ── MailerLite shared config ──
+    var ML_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiZDRlNjFhZTRiOTQ2NGI5MGMzYzIzYjk1NTkyMmQ4ZDliYTk2ZWI0ZTE1ZWYzZDUyOWUxNDcxMDcwZWYzZmQ0OTE3NzM2M2U1MDEwMGViYzYiLCJpYXQiOjE3Nzk3NTM4NzMuMjY2NDc5LCJuYmYiOjE3Nzk3NTM4NzMuMjY2NDgyLCJleHAiOjQ5MzU0Mjc0NzMuMjU3NDMyLCJzdWIiOiIyMzkzNDg4Iiwic2NvcGVzIjpbXX0.kg2etWMp5Kx5gOgYzWLs44RqnNxEcNaQmJSw4fisHiIDkMmG4dlStD29PrFEJpey_cTsy9i3Js6rFPEbx1Vs2f6RG9rlS8J6ePoKu42v6qOQZo1GeqDUKSve_VG0XWnoZ0aJrTL3zs7g_TF6arE4w0SB0XAiAYWmeqS3KNsDEmhPAI-iDxS4kF9DBCGSQAIltjsZ62JoEKR7luRZSfRifbtrVYL2m5HYxphd0XIwtpV87d4PHDF6AP6_HRyIrJ9hsv3i1qN-PBb3VNDKORlOhjpJAlOrAttag-ZEgD3Jq-Q_vlSZvaZ5e3W86iXs1SXe6GzT41H43R0ZSfROCafUrFxtjk3ZD20u-BcRF35FHITcqEuYqWY539j1Pjlqz_EH-23yJT9aJCsnrCtK1fkY5hmLxXIEIm9KHMfVuDjqtlslSNfAMML2n_nYNjM4FxPfjY1pN2t77X1LkwupWc0N1bBEQ5jr34CRJHajtokMqvuFlQEMxBFcRE6VuBy4TiuQuN0bqlotNOuILGWFGlL6oH9XRFjJdy9m7NW26aEUrM8oLdU1FkceMtmH3Mb_mppD63ntsxIbYLW2_TCpbAw7IhuDEaeEvb44mrbNM9URSwuD5TonclzpPYc150EER_aHeTKKA9utuXAGIs3sFRqPrNmBfG-TaF5g4JigKpuvAOM';
+
+    function mlSubscribe(payload, onSuccess, onError) {
+      fetch('https://connect.mailerlite.com/api/subscribers', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + ML_API_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(function (res) {
+        // 200 = subscriber updated, 201 = created, 409 = already exists — all success
+        if (res.ok || res.status === 409) { onSuccess(); } else { onError(); }
+      })
+      .catch(onError);
+    }
+
+    // ── Infographic form ──
     (function () {
       var emailInput = document.getElementById('lm-ig-email');
       var btn = document.getElementById('lm-ig-btn');
@@ -3358,13 +3409,57 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
           return;
         }
         errorEl.style.display = 'none';
-        sessionStorage.setItem('mgwm_framework_email', val);
-        formRow.style.display = 'none';
-        successEl.style.display = 'block';
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        mlSubscribe(
+          { email: val, groups: ['188300284572730636'] },
+          function () {
+            formRow.style.display = 'none';
+            successEl.style.display = 'block';
+          },
+          function () {
+            errorEl.textContent = 'Something went wrong — please try again.';
+            errorEl.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Send It to Me →';
+          }
+        );
       });
 
       emailInput.addEventListener('input', function () {
         errorEl.style.display = 'none';
+      });
+    })();
+
+    // ── Assessment form ──
+    (function () {
+      var form = document.getElementById('lm-assessment-form');
+      var nameInput = document.getElementById('lm-assessment-name');
+      var emailInput = document.getElementById('lm-assessment-email');
+      var btn = document.getElementById('lm-assessment-btn');
+      var errorEl = document.getElementById('lm-assessment-error');
+      var successEl = document.getElementById('lm-assessment-success');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = nameInput.value.trim();
+        var email = emailInput.value.trim();
+        if (!email || email.indexOf('@') === -1) return;
+        errorEl.style.display = 'none';
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        mlSubscribe(
+          { email: email, fields: { name: name }, groups: ['188300274002036208'] },
+          function () {
+            form.style.display = 'none';
+            successEl.style.display = 'block';
+          },
+          function () {
+            errorEl.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Send Me the Assessment →';
+          }
+        );
       });
     })();
   </script>
