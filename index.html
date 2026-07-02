@@ -3303,7 +3303,8 @@ src="https://www.facebook.com/tr?id=1634340074520455&ev=PageView&noscript=1"/></
           },
           body: JSON.stringify({
             email: val,
-            groups: ['188300274002036208']
+            groups: ['188300274002036208'],
+            $assessment_request_time: new Date().toISOString()
           })
         })
         .then(function (res) {
